@@ -1,5 +1,5 @@
 import React from 'react'
-import { HashRouter as Router, Route, Routes } from 'react-router-dom'
+import { BrowserRouter as Router, Route, Routes } from 'react-router-dom'
 import { Footer } from '../../components/footer/Footer'
 import { Header } from '../../components/header/Header'
 import { About } from '../about/About'
@@ -12,7 +12,7 @@ import Sidebar from '../../components/Sidebar/Sidebar'
 export function App() {
 	return (
 		<div className=' App flex flex-col h-screen justify-between'>
-		<Router>
+		<Router basename ={window.location.pathname || ''}>
 			<span>
 				<Sidebar />
 				<Header />
