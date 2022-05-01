@@ -23,9 +23,10 @@ jobs:
           node-version: ${{ matrix.node-version }}
       - name: Install dependencies
         run: npm ci
-      - name: set git email
-        run: git config --global user.email "marianferenc59@gmail.com"
-      - name: set git name
-        run: git config --global user.name "majoferenc"
-      - name: deploy to gh-pages
-        run: npm run deploy
+      - name: Build the app
+        run: npm run build
+      - name: Deploy to GitHub Pages
+        uses: peaceiris/actions-gh-pages@v3
+        with:
+          github_token: ${{ secrets.GITHUB_TOKEN }}
+          publish_dir: ./build
