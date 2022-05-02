@@ -11,10 +11,12 @@ export const useComponentVisible = (initialState: boolean, ref: MutableRefObject
     const [isComponentVisible, setIsComponentVisible] = useState(initialState);
 
     const handleClickOutside = (event: any) => {
-        if (ref.current && !ref.current.contains(event.target)) {
-            setIsComponentVisible(false);
-            methodRef()
-            dispatch(setSidebarOpenedValue(false))
+        if (isComponentVisible) {
+            if (ref.current && !ref.current.contains(event.target)) {
+                setIsComponentVisible(false);
+                methodRef()
+                dispatch(setSidebarOpenedValue(false))
+            }
         }
     };
 
