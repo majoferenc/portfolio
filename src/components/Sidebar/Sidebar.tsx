@@ -42,11 +42,11 @@ export function Sidebar() {
 
 	return (
     <div ref={parentSideBarRef} className="absolute min-h-screen flex -z-10">
-      <div ref={sidebarRef} className={`sidebar bg-black text-white w-64 space-y-6 py-7 px-2 absolute inset-y-0 -translate-x-full left-0 transform relative transition duration-200 ease-in-out ${
+      <div ref={sidebarRef} className={`sidebar bg-black text-white w-64 space-y-6 py-7 fixed px-2 inset-y-0 -translate-x-full left-0 transform transition duration-200 ease-in-out ${
           sidebarOpened ? "translate-x-0" : "-translate-x-full"
         }`}>
         <div className="text-white flex items-center space-x-2 px-4 justify-between">
-          <span className="text-sm text-white font-bold text-xl">{t('common.applicationNameShort')}</span>
+          <span className="text-sm text-white font-bold">{t('common.applicationNameShort')}</span>
           <button type="button" onClick={() => { dispatch(setSidebarOpenedValue(!sidebarOpened)); } }>
             <svg xmlns="http://www.w3.org/2000/svg" className="h-6 w-6" fill="none" viewBox="0 0 24 24" stroke="currentColor" onClick={() => { closeSidebar() } }>
               <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M6 18L18 6M6 6l12 12" />
@@ -54,8 +54,13 @@ export function Sidebar() {
           </button>
         </div>
         <nav>
-          <Link to='/' className="block py-2.5 px-4 rounded transition duration-200 hover:bg-red-500 text-white font-bold">
+          <Link to='/' className="block py-2.5 px-4 rounded transition duration-200 hover:bg-red-500 text-white font-bold" onClick={() => { dispatch(setSidebarOpenedValue(!sidebarOpened)); closeSidebar() } }>
             Home
+          </Link>
+        </nav>
+        <nav>
+          <Link to='/about' className="block py-2.5 px-4 rounded transition duration-200 hover:bg-red-500 text-white font-bold" onClick={() => { dispatch(setSidebarOpenedValue(!sidebarOpened)); closeSidebar() } }>
+            About
           </Link>
         </nav>
       </div>
