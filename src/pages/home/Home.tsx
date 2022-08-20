@@ -50,8 +50,9 @@ export function Home() {
 	return (
 		<div className="md:my-0 md:pt-40">
 			<div ref={bodyRef} className=" h-1/4 overflow-visible">
-				<div className="grid md:grid-cols-2 gap-1 grid-cols-">
-					<div className="text-right mx-12 md:mx-96 md:w-96 md:py-80">
+				<div className="grid md:grid-cols-4 grid-cols-">
+					<div />
+					<div className="text-right mx-12 md:mx-96 md:w-96 md:my-80 md:mb-0 md:ml-40">
 						<h1 ref={nameRef} className={`drop-shadow-2xl md:text-2xl text-xl font-mono my-4 text-yellow-500 ease-in-out delay-15 ${hoverEffectClasses} ${animationClasses}`}>{ nameText }</h1>
 						<h2 ref={descriptionRef} className={`drop-shadow-2xl md:text-4xl text-xl font-mono my-4 text-white ${animationClasses}`}>{ descriptionText }</h2>
 						<div ref={iconsRef} className={`grid grid-cols-2 grid-cols- px-16 ${animationClasses}`}>
@@ -63,9 +64,10 @@ export function Home() {
 							</a>
 						</div>
 					</div>
-					<div>
-						<img src={MyPicture} className="md:h-[50rem] rounded-tr-lg" alt="Me" />
+					<div className="flex justify-center items-center">
+						<img src={MyPicture} className="md:ml-0 w-20 min-w-[15rem] md:min-w-[24rem] md:h-[50rem] rounded-tr-lg" alt="Me" />
 					</div>
+					<div />
 				</div>
 				<div>
 					<div className="bg-white pb-64 py-8">
