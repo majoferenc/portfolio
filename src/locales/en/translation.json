@@ -1,10 +1,9 @@
 {
-  "common": {
-    "applicationName": "Portfolio",
-    "applicationNameShort": "Portfolio"
-  },
-  "footer": {
-    "copyrightLabel": "© 2022"
-  }
+	"common": {
+		"applicationName": "Portfolio",
+		"applicationNameShort": "Portfolio"
+	},
+	"footer": {
+		"copyrightLabel": "© 2022"
+	}
 }
-  

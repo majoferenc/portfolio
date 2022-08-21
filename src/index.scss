@@ -2,6 +2,13 @@
 @tailwind components;
 @tailwind utilities;
 @tailwind variants;
+@tailwind screens;
+
+$desktop-width: 1024px;
+$card-size: 400px;
+$mobile-size: 200px;
+$image-size: 400px;
+$primary-blue: #08a0f7;
 
 body {
 	margin: 0;
