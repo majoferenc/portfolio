@@ -8,6 +8,7 @@ COPY . /usr/src/app
 RUN npm run build
 
 FROM nginx:1.17.10
+USER 1001
 COPY --from=builder /usr/src/app/build /usr/share/nginx/html
 COPY --from=builder /usr/src/app/build /var/www
 COPY nginx.conf /etc/nginx/nginx.conf

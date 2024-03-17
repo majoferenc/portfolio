@@ -10,10 +10,10 @@ import GitHub from '../../images/github-icon.png'
 import AWSCert from '../../images/aws_certified_cloud_practicioner.png'
 import TerraformCert from '../../images/terraform_cert.png'
 import RHOpenShiftAdminCert from '../../images/redhat_openshift_administration.png'
-import RHOpenShiftAppDevCert from '../../images/redhat_openshift_app_dev.png'
 import CKADCert from '../../images/ckad_cert.png'
 import OracleProfessionalCert from '../../images/oracle_java_8_prof_cert.png'
-import OracleAssociateCert from '../../images/oracle_java_8_associate_cert.png'
+import { WavyBackground } from "../../components/WavyBackground"
+import { Scroll } from "../../components/Scroll/Scroll"
 
 const opacitySetter = (
 	componentRef: RefObject<HTMLDivElement>,
@@ -60,16 +60,13 @@ export function Home() {
 
 	return (
 		<div className='md:my-0 md:pt-40'>
-			<div ref={bodyRef} className=' h-1/4 overflow-visible'>
-				<div className='grid md:grid-cols-4 grid-cols-'>
+			    <WavyBackground className="max-w-4xl mx-auto pb-40">
+				<p className="text-2xl md:text-4xl lg:text-7xl text-white font-bold inter-var text-center">
+					Ing. Marián Ferenc
+				</p>
+				<div className='grid md:grid-cols-3 grid-cols- text-center'>
 					<div />
-					<div className='text-right mx-12 md:mx-96 md:w-96 md:my-80 md:mb-0 md:ml-40'>
-						<h1
-							ref={nameRef}
-							className={`drop-shadow-2xl md:text-2xl text-xl font-mono my-4 text-yellow-500 ease-in-out delay-15 ${hoverEffectClasses} ${animationClasses}`}
-						>
-							{nameText}
-						</h1>
+					<div className='text-left md:w-96 md:my-80 md:mb-0'>
 						<h2
 							ref={descriptionRef}
 							className={`drop-shadow-2xl md:text-4xl text-xl font-mono my-4 text-white ${animationClasses}`}
@@ -107,12 +104,17 @@ export function Home() {
 					<div className='flex justify-center items-center'>
 						<img
 							src={MyPicture}
-							className='md:ml-0 w-20 min-w-[15rem] md:min-w-[24rem] md:h-[50rem] rounded-tr-lg'
+							className='md:ml-0 min-w-[20rem] md:min-w-[20rem] rounded-tr-lg'
 							alt='Me'
 						/>
 					</div>
 					<div />
 				</div>
+				<div className='text-center'>
+					<Scroll />
+				</div>
+				</WavyBackground>
+			<div ref={bodyRef} className=' h-1/4 overflow-visible'>
 				<div>
 					<div>
 						<div className='pb-20'>
@@ -139,7 +141,7 @@ export function Home() {
 									</div>
 									<div className='flex justify-center flex-col items-center w-36 h-36 md:w-44 md:h-48 lg:w-56 lg:h-56 bg-white shadow rounded-2xl'>
 										<h2 className='lg:text-5xl md:text-4xl text-2xl font-extrabold leading-10 text-center text-gray-800'>
-											5+
+											6+
 										</h2>
 										<p className='mt-4 text-sm md:text-base lg:text-lg leading-none text-center text-gray-600'>
 											Years of Experience
@@ -147,7 +149,7 @@ export function Home() {
 									</div>
 									<div className='flex justify-center flex-col items-center w-36 h-36 md:w-44 md:h-48 lg:w-56 lg:h-56 bg-white shadow rounded-2xl'>
 										<h2 className='lg:text-5xl md:text-4xl text-2xl font-extrabold leading-10 text-center text-gray-800'>
-											24
+											33
 										</h2>
 										<p className='mt-4 text-sm md:text-base lg:text-lg leading-none text-center text-gray-600'>
 											Certifications/Badges
@@ -157,11 +159,17 @@ export function Home() {
 							</div>
 						</div>
 					</div>
+					<h2 className='lg:text-6xl md:text-5xl text-4xl font-black leading-10 text-white text-center px-4 mb-8'>
+						Education
+					</h2>
+					<div className='text-white mb-16'>
+						Engineer&apos;s degree in Informatics from Technical University of Kosice
+					</div>
 				</div>
 				<div>
 					<div className='bg-white pb-20 py-8'>
 						<div>
-							<h2 className='text-2xl leading-6 text-gray-800 text-center px-4'>
+							<h2 className='lg:text-6xl md:text-5xl text-4xl font-black leading-10 text-gray-800 text-center px-4'>
 								Expertise
 							</h2>
 							<div className='container mx-auto grid sm:grid-cols-1 md:grid-cols-2 lg:grid-cols-3 xl:grid-cols-3 xl:px-20 px-10 py-20 gap-6'>
@@ -277,7 +285,7 @@ export function Home() {
 											Backend development
 										</p>
 										<p className='text-base leading-4 text-center text-gray-600'>
-											5 years of experience
+											6 years of experience
 										</p>
 									</div>
 								</div>
@@ -322,7 +330,7 @@ export function Home() {
 											DevOps Engineer
 										</p>
 										<p className='text-base leading-4 text-center text-gray-600'>
-											3 years of experience
+											4 years of experience
 										</p>
 									</div>
 								</div>
@@ -349,30 +357,22 @@ export function Home() {
 									<img src={RHOpenShiftAdminCert} alt='' />
 								</div>
 								<div className='w-6/12 xl:w-[10rem] lg:w-1/4 md:w-1/4 flex justify-center xl:pb-10 pb-16 items-center'>
-									<img src={RHOpenShiftAppDevCert} alt='' />
-								</div>
-								<div className='w-6/12 xl:w-[10rem] lg:w-1/4 md:w-1/4 flex justify-center xl:pb-10 pb-16 items-center'>
 									<img src={CKADCert} alt='' />
 								</div>
 								<div className='w-6/12 xl:w-[10rem] lg:w-1/4 md:w-1/4 flex justify-center xl:pb-10 pb-16 items-center'>
 									<img src={OracleProfessionalCert} alt='' />
 								</div>
-								<div className='w-6/12 xl:w-[10rem] lg:w-1/4 md:w-1/4 flex justify-center xl:pb-10 pb-16 items-center'>
-									<img src={OracleAssociateCert} alt='' />
-								</div>
 							</div>
+							<a
+								href='https://www.credly.com/users/marian-ferenc/badges'
+								target='_blank'
+								type='submit'
+								className={`text-white rounded font-bold py-2 px-4 m-4 text-sm bg-gray-900 ${hoverEffectClasses}`}
+							>
+								Credly
+							</a>
 						</div>
 					</div>
-				</div>
-				<div>
-					<Link to='/about'>
-						<button
-							type='submit'
-							className={`text-white rounded font-bold py-2 px-4 m-4 text-sm bg-gray-900 ${hoverEffectClasses}`}
-						>
-							About me
-						</button>
-					</Link>
 				</div>
 			</div>
 		</div>
