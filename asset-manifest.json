@@ -1,7 +1,7 @@
 {
   "files": {
     "main.css": "./static/css/main.7b643145.css",
-    "main.js": "./static/js/main.a976ea48.js",
+    "main.js": "./static/js/main.1082dd25.js",
     "static/media/IMG_2255.png": "./static/media/IMG_2255.b288899af26c7204d15a.png",
     "static/media/oracle_java_8_prof_cert.png": "./static/media/oracle_java_8_prof_cert.486f60f4cabd01a6af23.png",
     "static/media/ckad_cert.png": "./static/media/ckad_cert.15859c575e5c51e433e1.png",
@@ -14,6 +14,6 @@
   },
   "entrypoints": [
     "static/css/main.7b643145.css",
-    "static/js/main.a976ea48.js"
+    "static/js/main.1082dd25.js"
   ]
 }
