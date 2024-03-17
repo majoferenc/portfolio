@@ -1,16 +1,18 @@
 import { createSlice, PayloadAction } from "@reduxjs/toolkit";
 import { RootState } from "../../app/store";
 
-export interface SidebarState {
-  sidebarOpened: boolean;
+export interface AboutState {
+  emailInput: string;
+  qoute: string;
 }
 
-const initialState: SidebarState = {
-  sidebarOpened: false,
+const initialState: AboutState = {
+  emailInput: "",
+  qoute: "",
 };
 
-export const sidebarSlice = createSlice({
-  name: "sidebar",
+export const aboutSlice = createSlice({
+  name: "about",
   initialState,
   // The `reducers` field lets us define reducers and generate associated actions
   reducers: {
@@ -19,21 +21,25 @@ export const sidebarSlice = createSlice({
       // doesn't actually mutate the state because it uses the Immer library,
       // which detects changes to a "draft state" and produces a brand new
       // immutable state based off those changes
-      state.sidebarOpened = false;
+      state.emailInput = "";
     },
     // Use the PayloadAction type to declare the contents of `action.payload`
-    setSidebarOpenedValue: (state, action: PayloadAction<boolean>) => {
-      state.sidebarOpened = action.payload;
+    setEmailInputValue: (state, action: PayloadAction<string>) => {
+      state.emailInput = action.payload;
+    },
+    // Use the PayloadAction type to declare the contents of `action.payload`
+    setQuote: (state, action: PayloadAction<string>) => {
+      state.qoute = action.payload;
     },
   },
 });
 
-export const { clear, setSidebarOpenedValue } = sidebarSlice.actions;
+export const { clear, setEmailInputValue, setQuote } = aboutSlice.actions;
 
 // The function below is called a selector and allows us to select a value from
 // the state. Selectors can also be defined inline where they're used instead of
 // in the slice file. For example: `useSelector((state: RootState) => state.counter.value)`
-export const selecSidebarOpened = (state: RootState) =>
-  state.sidebar.sidebarOpened;
+export const selectEmailInput = (state: RootState) => state.about.emailInput;
+export const selectQuote = (state: RootState) => state.about.qoute;
 
-export default sidebarSlice.reducer;
+export default aboutSlice.reducer;

@@ -1,13 +1,11 @@
 module.exports = {
-  content: [
-    "./src/**/*.{js,jsx,ts,tsx}",
-  ],
+  content: ["./src/**/*.{js,jsx,ts,tsx}"],
   theme: {
     extend: {
       padding: {
-        'px': '5px',
-      }
+        px: "5px",
+      },
     },
   },
   plugins: [],
-}
+};

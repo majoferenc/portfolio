@@ -2,7 +2,7 @@
 
 import React, { useEffect, useRef, useState } from "react";
 import { createNoise3D } from "simplex-noise";
-import { cn } from "../utils/cn";
+import { cn } from "../../utils/cn";
 
 export const WavyBackground = ({
   children,
@@ -28,13 +28,13 @@ export const WavyBackground = ({
   [key: string]: any;
 }) => {
   const noise = createNoise3D();
-  let w: number,
-    h: number,
-    nt: number,
-    i: number,
-    x: number,
-    ctx: any,
-    canvas: any;
+  let w: number;
+  let h: number;
+  let nt: number;
+  let i: number;
+ let x: number;
+ let ctx: any;
+ let canvas: any;
   const canvasRef = useRef<HTMLCanvasElement>(null);
   const getSpeed = () => {
     switch (speed) {
@@ -55,8 +55,8 @@ export const WavyBackground = ({
     ctx.filter = `blur(${blur}px)`;
     nt = 0;
     window.onresize = function () {
-      w = ctx.canvas.width = window.innerWidth;
-      h = ctx.canvas.height = window.innerHeight;
+      w = window.innerWidth;
+      h = window.innerHeight;
       ctx.filter = `blur(${blur}px)`;
     };
     render();
@@ -71,7 +71,7 @@ export const WavyBackground = ({
   ];
   const drawWave = (n: number) => {
     nt += getSpeed();
-    for (i = 0; i < n; i++) {
+    for (i = 0; i < n; i+=1) {
       ctx.beginPath();
       ctx.lineWidth = waveWidth || 50;
       ctx.strokeStyle = waveColors[i % waveColors.length];
@@ -111,10 +111,12 @@ export const WavyBackground = ({
   }, []);
 
   return (
-    <div className={cn(
+    <div
+      className={cn(
         "h-screen flex flex-col items-center justify-center",
         containerClassName
-      )}>
+      )}
+    >
       <canvas
         className="absolute inset-0 z-0"
         ref={canvasRef}
@@ -122,7 +124,7 @@ export const WavyBackground = ({
         style={{
           ...(isSafari ? { filter: `blur(${blur}px)` } : {}),
         }}
-      ></canvas>
+      />
       <div className={cn("relative z-10", className)} {...props}>
         {children}
       </div>
