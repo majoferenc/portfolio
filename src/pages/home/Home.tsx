@@ -15,7 +15,6 @@ import OracleProfessionalCert from "../../images/oracle_java_8_prof_cert.png";
 import { WavyBackground } from "../../components/WavyBackground/WavyBackground";
 import { Scroll } from "../../components/Scroll/Scroll";
 
-import { BackgroundBeams } from "../../components/BgRain/BgRain";
 
 const opacitySetter = (
   componentRef: RefObject<HTMLDivElement>,
@@ -115,7 +114,6 @@ export function Home() {
           <Scroll />
         </div>
       </WavyBackground>
-      <BackgroundBeams />
       <div ref={bodyRef} className=" h-1/4 overflow-visible">
         <div>
           <div>
