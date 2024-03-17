@@ -1,6 +1,5 @@
 /* eslint-disable react/jsx-no-target-blank */
 import React, { RefObject, useEffect, useRef } from "react";
-import { Link } from "react-router-dom";
 import { motion } from "framer-motion";
 
 import { useAppSelector } from "../../app/hooks";
@@ -32,7 +31,6 @@ export function Home() {
   const durationClass = "duration-300";
   const animationClasses = `transform transition-all opacity-0 ${durationClass}`;
   const hoverEffectClasses = `hover:-translate-y-1  motion-safe:hover:scale-110 ${durationClass}`;
-  const nameText = "My name is Ing. Marián Ferenc";
   const descriptionText =
     "Full Stack Developer With DevOps Skills from Košice, Slovakia.";
   const bodyRef = useRef<HTMLDivElement | null>(null);
