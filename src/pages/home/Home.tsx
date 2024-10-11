@@ -145,20 +145,20 @@ export function Home() {
                       4
                     </h2>
                     <p className="mt-4 text-sm md:text-base lg:text-lg leading-none text-center text-gray-600">
-                      Languages
+                      Spoken Languages
                     </p>
                   </div>
                   <div className="flex justify-center flex-col items-center w-36 h-36 md:w-44 md:h-48 lg:w-56 lg:h-56 bg-white shadow rounded-2xl">
                     <h2 className="lg:text-5xl md:text-4xl text-2xl font-extrabold leading-10 text-center text-gray-800">
-                      5
+                      6
                     </h2>
                     <p className="mt-4 text-sm md:text-base lg:text-lg leading-none text-center text-gray-600">
-                      Projects
+                      Customer facing Projects
                     </p>
                   </div>
                   <div className="flex justify-center flex-col items-center w-36 h-36 md:w-44 md:h-48 lg:w-56 lg:h-56 bg-white shadow rounded-2xl">
                     <h2 className="lg:text-5xl md:text-4xl text-2xl font-extrabold leading-10 text-center text-gray-800">
-                      6+
+                      7+
                     </h2>
                     <p className="mt-4 text-sm md:text-base lg:text-lg leading-none text-center text-gray-600">
                       Years of Experience
@@ -166,7 +166,7 @@ export function Home() {
                   </div>
                   <div className="flex justify-center flex-col items-center w-36 h-36 md:w-44 md:h-48 lg:w-56 lg:h-56 bg-white shadow rounded-2xl">
                     <h2 className="lg:text-5xl md:text-4xl text-2xl font-extrabold leading-10 text-center text-gray-800">
-                      33
+                      35
                     </h2>
                     <p className="mt-4 text-sm md:text-base lg:text-lg leading-none text-center text-gray-600">
                       Certifications/Badges
@@ -330,7 +330,7 @@ export function Home() {
                       Backend development
                     </p>
                     <p className="text-base leading-4 text-center text-gray-600">
-                      6 years of experience
+                      7 years of experience
                     </p>
                   </div>
                 </div>
@@ -375,7 +375,7 @@ export function Home() {
                       DevOps Engineer
                     </p>
                     <p className="text-base leading-4 text-center text-gray-600">
-                      4 years of experience
+                      5 years of experience
                     </p>
                   </div>
                 </div>
