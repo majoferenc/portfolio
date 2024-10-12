@@ -58,7 +58,7 @@ export function Sidebar() {
         }`}
       >
         <div className="text-white flex items-center space-x-2 px-4 justify-between">
-          <span className="text-sm text-white font-bold">
+          <span className="text-sm text-white font-bold w-fit">
             {t("common.applicationNameShort")}
           </span>
           <button
