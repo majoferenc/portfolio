@@ -14,14 +14,14 @@ export function Header() {
 
   return (
     <div>
-      <header className="w-auto bg-gray-900 flex fixed inset-x-0 z-40">
+      <header className="w-auto bg-gray-900 flex fixed inset-x-0 z-30">
         <button
           type="submit"
           className="mobile-menu-button p-4 focus:outline-none focus:bg-blue-800"
           onClick={() => openSidebar()}
         >
           <svg
-            className="h-5 w-5 z-40"
+            className="h-5 w-5 z-30"
             xmlns="http://www.w3.org/2000/svg"
             fill="none"
             viewBox="0 0 24 24"

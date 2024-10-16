@@ -61,17 +61,20 @@ export function Home() {
 
   return (
     <div className="md:my-0 md:pt-20">
-      <WavyBackground className="max-w-4xl mx-auto pb-40">
+      <WavyBackground className="max-w-4xl mx-auto pb-40 overflow-hidden">
+        <motion.div
+        initial={{ opacity: 0, y: 100 }}
+        animate={{ opacity: 1, y: 0 }}
+        transition={{ delay: 0.4, duration: 0.8, ease: "easeInOut" }}
+      >
         <span className="text-center">
-        <p className="absolute left-0 right-0 m-auto mx-auto flex border w-fit bg-gradient-to-r blur-xl brightness-150 from-orange-600 via-orange-600 to-orange-600 bg-clip-text text-6xl box-content font-extrabold text-transparent text-center select-none">
-        {fullNammeText}
-  </p>
-    <p
-        className="relative w-fit p-2 mx-auto justify-center flex h-fit bg-gradient-to-r items-center from-gray-200 via-gray-200 to-gray-200 bg-clip-text text-6xl font-extrabold text-transparent text-center select-auto">
-        {fullNammeText}
-    </p>
+          <p className="absolute left-0 right-0 m-auto mx-auto flex border w-fit bg-gradient-to-r blur-xl brightness-150 from-orange-600 via-orange-600 to-orange-600 bg-clip-text text-6xl box-content font-extrabold text-transparent text-center select-none">
+            {fullNammeText}
+          </p>
+          <p className="relative w-fit p-2 mx-auto justify-center flex h-fit bg-gradient-to-r items-center from-gray-200 via-gray-200 to-gray-200 bg-clip-text text-6xl font-extrabold text-transparent text-center select-auto">
+            {fullNammeText}
+          </p>
         </span>
-
         <div className="grid md:grid-cols-3 grid-cols- text-center">
           <div />
           <div className="text-left md:w-96 md:my-80 md:mb-0">
@@ -118,6 +121,7 @@ export function Home() {
           </div>
           <div />
         </div>
+        </motion.div>
         <div className="text-center">
           <Scroll />
         </div>

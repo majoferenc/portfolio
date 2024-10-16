@@ -17,6 +17,7 @@ body {
     sans-serif;
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
+  overflow-x: hidden; /* Hides the horizontal scrollbar */
 }
 
 code {
@@ -28,18 +29,22 @@ code {
   text-shadow: 0px 4px 4px rgba(0, 0, 0, 0.25);
 }
 
-/* STYLING SCROLLBAR */
-
+/* STYLING VERTICAL SCROLLBAR */
 ::-webkit-scrollbar {
-  width: 0.8vw; /* THIS WILL RESET THE DEFAULT SCORLLBAR STYLING */
+  width: 0.8vw; /* Width of the vertical scrollbar */
 }
 
-/* TO STYLE THE SCROLLBAR TRACK */
+/* Hide horizontal scrollbar */
+::-webkit-scrollbar:horizontal {
+  display: none;
+}
+
+/* TO STYLE THE VERTICAL SCROLLBAR TRACK */
 ::-webkit-scrollbar-track {
-  background-color: #000000; /* THIS WILL SET THE COLOR OF THE SCROLLBAR TRACK */
+  background-color: #000000; /* Color of the scrollbar track */
 }
 
-/* TO STYLE THE SCROLLBAR THUMB */
+/* TO STYLE THE VERTICAL SCROLLBAR THUMB */
 ::-webkit-scrollbar-thumb {
   background-image: -webkit-gradient(
     linear,

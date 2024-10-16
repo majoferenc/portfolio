@@ -18,8 +18,8 @@ export function Sidebar() {
 
   const closeSidebar = () => {
     setTimeout(() => {
-      parentSideBarRef.current?.classList.remove("z-20");
-      parentSideBarRef.current?.classList.add("-z-20");
+      parentSideBarRef.current?.classList.remove("z-40");
+      parentSideBarRef.current?.classList.add("-z-40");
     }, 200);
     setIsComponentVisible(false);
   };
@@ -44,13 +44,13 @@ export function Sidebar() {
   }, [sidebarOpened, isComponentVisible]);
 
   const openSidebar = () => {
-    parentSideBarRef.current?.classList.add("z-20");
-    parentSideBarRef.current?.classList.remove("-z-20");
+    parentSideBarRef.current?.classList.add("z-40");
+    parentSideBarRef.current?.classList.remove("-z-40");
     setIsComponentVisible(true);
   };
 
   return (
-    <div ref={parentSideBarRef} className="absolute min-h-screen flex -z-20">
+    <div ref={parentSideBarRef} className="absolute min-h-screen flex -z-40">
       <div
         ref={sidebarRef}
         className={`sidebar bg-black text-white w-64 space-y-6 py-7 fixed px-2 inset-y-0 -translate-x-full left-0 transform transition duration-200 ease-in-out ${

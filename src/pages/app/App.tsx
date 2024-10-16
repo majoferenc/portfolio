@@ -10,8 +10,8 @@ import Sidebar from "../../components/Sidebar/Sidebar";
 
 export function App() {
   return (
-    <div className=" App flex flex-col h-screen justify-between">
-      <Router basename={window.location.pathname || ""}>
+    <div className="App flex flex-col h-screen justify-between">
+      <Router>
         <span>
           <Sidebar />
           <Header />
