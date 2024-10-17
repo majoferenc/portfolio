@@ -31,6 +31,14 @@ export function Contact() {
       >
         Get in Touch
       </motion.h2>
+      <motion.p
+        initial={{ opacity: 0, y: 100 }}
+        animate={{ opacity: 1, y: 0 }}
+        transition={{ delay: 0.2, duration: 0.8, ease: "easeInOut" }}
+        className="text-xs md:text-sm font-bold text-center mb-8 bg-gradient-to-br from-gray-300 to-gray-500 bg-clip-text text-transparent"
+      >
+        * Coming soon
+      </motion.p>
       <motion.div
         initial={{ opacity: 0, y: 100 }}
         animate={{ opacity: 1, y: 0 }}

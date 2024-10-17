@@ -16,6 +16,7 @@ import { WavyBackground } from "../../components/WavyBackground/WavyBackground";
 import { Scroll } from "../../components/Scroll/Scroll";
 import { ExpertiseCard } from "../../components/ExpertiseCard/ExpertiseCard";
 import { ByTheNumbersCard } from "../../components/ByTheNumbersCard/ByTheNumbersCard";
+import { ScrollToTop } from "../../components/ScrollToTop/ScrollToTop";
 
 const opacitySetter = (
   componentRef: RefObject<HTMLDivElement>,
@@ -101,7 +102,7 @@ export function Home() {
   };
 
   return (
-    <div className="md:my-0 md:pt-20">
+    <div className="md:my-0 md:pt-20" id="hero">
       <WavyBackground className="max-w-4xl mx-auto pb-40 overflow-hidden">
         <motion.div
         initial={{ opacity: 0, y: 100 }}
@@ -174,7 +175,7 @@ export function Home() {
               <div className="mx-auto bg-gradient-to-l from-white to-white h-60">
                 <div className="mx-auto container w-full flex flex-col justify-center items-center">
                   <div className="flex justify-center items-center flex-col">
-                    <div className="mt-10">
+                    <div className="mt-10 hover:outline-2 hover:outline-white transition-all duration-300" id="by-the-numbers">
                       <motion.h2
                         initial={{ opacity: 0, y: 100 }}
                         whileInView={{ opacity: 1, y: 0 }}
@@ -195,7 +196,7 @@ export function Home() {
             </div>
           </div>
         </div>
-        <div className="mb-48">
+        <div className="mb-48" id="education">
           <motion.h2
             initial={{ opacity: 0, y: 100 }}
             whileInView={{ opacity: 1, y: 0 }}
@@ -229,7 +230,7 @@ export function Home() {
             <div className="mx-auto bg-gradient-to-l from-white to-white">
                 <div className="mx-auto container w-full flex flex-col justify-center items-center">
                   <div className="flex justify-center items-center flex-col">
-                    <div className="mt-10">
+                    <div className="mt-10" id="experience">
                       <motion.h2
                         initial={{ opacity: 0, y: 100 }}
                         whileInView={{ opacity: 1, y: 0 }}
@@ -256,7 +257,7 @@ export function Home() {
             <div className="mx-auto bg-gradient-to-l from-black to-black">
                 <div className="mx-auto container w-full flex flex-col justify-center items-center">
                   <div className="flex justify-center items-center flex-col">
-                    <div className="mt-10">
+                    <div className="mt-10" id="certifications">
                       <motion.h2
                         initial={{ opacity: 0, y: 100 }}
                         whileInView={{ opacity: 1, y: 0 }}
@@ -302,6 +303,7 @@ export function Home() {
           </div>
         </div>
       </div>
+      <ScrollToTop />
     </div>
   );
 }

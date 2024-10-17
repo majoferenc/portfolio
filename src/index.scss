@@ -10,6 +10,12 @@ $mobile-size: 200px;
 $image-size: 400px;
 $primary-blue: #08a0f7;
 
+@layer base {
+  html {
+    scroll-behavior: smooth;
+  }
+}
+
 body {
   margin: 0;
   font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", "Roboto", "Oxygen",
