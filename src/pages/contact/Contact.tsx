@@ -1,5 +1,6 @@
 import React, { useState } from 'react';
 import { motion } from 'framer-motion';
+import { ButtonWrapper } from "../../components/SpotlightButton/SpotlightButton";
 
 export function Contact() {
   const [name, setName] = useState('');
@@ -34,75 +35,81 @@ export function Contact() {
         initial={{ opacity: 0, y: 100 }}
         animate={{ opacity: 1, y: 0 }}
         transition={{ delay: 0.4, duration: 0.8, ease: "easeInOut" }}
-        className="max-w-lg mx-auto bg-white rounded-lg shadow-md p-8"
+        className="max-w-lg mx-auto bg-transparent rounded-lg shadow-md p-8"
       >
-        <form onSubmit={handleSubmit} className="text-base">
+        <form onSubmit={handleSubmit} className="text-base text-white">
           <div className="mb-4 flex">
-            <div className="mb-2">
-              <label htmlFor="name" className="block text-gray-700 font-bold mb-2">Your Name</label>
-              <input
-                type="text"
-                id="name"
-                value={name}
-                onChange={(e) => setName(e.target.value)}
-                className="w-full px-3 py-2 text-gray-700 border rounded-lg focus:outline-none focus:border-blue-500"
-                required
-              />
+            <div className="mb-2 p-2">
+              <div className="relative flex w-full max-w-md items-center gap-2 rounded-full border border-white/20 bg-gradient-to-br from-white/20 to-white/5 py-1.5 pl-6 pr-1.5">
+                <input
+                  type="text"
+                  disabled
+                  id="name"
+                  value={name}
+                  onChange={(e) => setName(e.target.value)}
+                  placeholder="Your name"
+                  className="w-full bg-transparent text-sm text-white placeholder-white/80 focus:outline-0"
+                />
+              </div>
             </div>
-            <div className="mb-2">
-              <label htmlFor="name" className="block text-gray-700 font-bold mb-2">Your Surname</label>
-              <input
-                type="text"
-                id="surName"
-                value={surName}
-                onChange={(e) => setSurName(e.target.value)}
-                className="w-full px-3 py-2 text-gray-700 border rounded-lg focus:outline-none focus:border-blue-500"
-                required
-              />
+            <div className="mb-2 p-2">
+              <div className="relative flex w-full max-w-md items-center gap-2 rounded-full border border-white/20 bg-gradient-to-br from-white/20 to-white/5 py-1.5 pl-6 pr-1.5">
+                <input
+                  type="text"
+                  disabled
+                  id="surname"
+                  value={surName}
+                  onChange={(e) => setSurName(e.target.value)}
+                  placeholder="Your surname"
+                  className="w-full bg-transparent text-sm text-white placeholder-white/80 focus:outline-0"
+                />
+              </div>
             </div>
           </div>
           <div className="mb-4 flex">
-            <div className="mb-4">
-              <label htmlFor="email" className="block text-gray-700 font-bold mb-2">Your Email</label>
-              <input
-                type="email"
-                id="email"
-                value={email}
-                onChange={(e) => setEmail(e.target.value)}
-                className="w-full px-3 py-2 text-gray-700 border rounded-lg focus:outline-none focus:border-blue-500"
-                required
-              />
+            <div className="mb-4 p-2">
+              <div className="relative flex w-full max-w-md items-center gap-2 rounded-full border border-white/20 bg-gradient-to-br from-white/20 to-white/5 py-1.5 pl-6 pr-1.5">
+                <input
+                  type="email"
+                  disabled
+                  id="email"
+                  value={email}
+                  onChange={(e) => setEmail(e.target.value)}
+                  placeholder="Your email"
+                  className="w-full bg-transparent text-sm text-white placeholder-white/80 focus:outline-0"
+                />
+              </div>
             </div>
-            <div className="mb-4">
-              <label htmlFor="email" className="block text-gray-700 font-bold mb-2">Your Phone Number</label>
-              <input
-                type="phone"
-                id="phone"
-                value={phoneNumber}
-                onChange={(e) => setPhoneNumber(e.target.value)}
-                className="w-full px-3 py-2 text-gray-700 border rounded-lg focus:outline-none focus:border-blue-500"
-                required
-              />
+            <div className="mb-4 p-2">
+              <div className="relative flex w-full max-w-md items-center gap-2 rounded-full border border-white/20 bg-gradient-to-br from-white/20 to-white/5 py-1.5 pl-6 pr-1.5">
+                <input
+                  type="phone"
+                  disabled
+                  id="phone"
+                  value={phoneNumber}
+                  onChange={(e) => setPhoneNumber(e.target.value)}
+                  placeholder="Your phone number"
+                  className="w-full bg-transparent text-sm text-white placeholder-white/80 focus:outline-0"
+                />
+              </div>
             </div>
           </div>
-          <div className="mb-4">
-            <label htmlFor="message" className="block text-gray-700 font-bold mb-2">Your Message</label>
-            <textarea
-              id="message"
-              value={message}
-              onChange={(e) => setMessage(e.target.value)}
-              className="w-full px-3 py-2 text-gray-700 border rounded-lg focus:outline-none focus:border-blue-500"
-              
-              required
-            />
+          <div className="mb-4 p-2">
+            <div className="relative flex w-full max-w-md items-center gap-2 rounded-half border border-white/20 bg-gradient-to-br from-white/20 to-white/5 py-1.5 pl-6 pr-1.5">
+              <textarea
+                disabled
+                id="message"
+                value={message}
+                onChange={(e) => setMessage(e.target.value)}
+                placeholder="Your message"
+                className="w-full bg-transparent text-sm text-white placeholder-white/80 focus:outline-0"
+                rows={10}
+                required
+              />
+            </div>
           </div>
           <div className="text-center">
-            <button
-              type="submit"
-              className="bg-yellow-500 text-white font-bold py-2 px-4 rounded-lg transition duration-300 opacity-50 cursor-not-allowed"
-            >
-              Coming soon
-            </button>
+            <ButtonWrapper buttonText="Coming soon" />
           </div>
         </form>
       </motion.div>
