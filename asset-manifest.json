@@ -1,19 +1,20 @@
 {
   "files": {
-    "main.css": "./static/css/main.94623f6c.css",
-    "main.js": "./static/js/main.3e843de6.js",
+    "main.css": "./static/css/main.017a9add.css",
+    "main.js": "./static/js/main.26488073.js",
     "static/media/IMG_2255.png": "./static/media/IMG_2255.b288899af26c7204d15a.png",
     "static/media/oracle_java_8_prof_cert.png": "./static/media/oracle_java_8_prof_cert.486f60f4cabd01a6af23.png",
     "static/media/ckad_cert.png": "./static/media/ckad_cert.15859c575e5c51e433e1.png",
     "static/media/aws_certified_cloud_practicioner.png": "./static/media/aws_certified_cloud_practicioner.5de5ac5041c48c198d8b.png",
     "static/media/terraform_cert.png": "./static/media/terraform_cert.fccebdbcfeef77dc310f.png",
+    "static/media/arrowup.png": "./static/media/arrowup.55d9b0a00c45945f44d9.png",
     "static/media/redhat_openshift_administration.png": "./static/media/redhat_openshift_administration.cfbd1a0ff684d28b6e69.png",
     "static/media/github-icon.png": "./static/media/github-icon.562cd1af0dd60d5da40d.png",
     "static/media/linkedin-icon.png": "./static/media/linkedin-icon.3d28a33c10b577a3685d.png",
     "index.html": "./index.html"
   },
   "entrypoints": [
-    "static/css/main.94623f6c.css",
-    "static/js/main.3e843de6.js"
+    "static/css/main.017a9add.css",
+    "static/js/main.26488073.js"
   ]
 }
