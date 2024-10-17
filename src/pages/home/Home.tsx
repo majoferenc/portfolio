@@ -1,6 +1,7 @@
 /* eslint-disable react/jsx-no-target-blank */
 import React, { RefObject, useEffect, useRef } from "react";
 import { motion } from "framer-motion";
+import { ScrollParallax } from "react-just-parallax";
 
 import { useAppSelector } from "../../app/hooks";
 import { selecSidebarOpened } from "../../components/Sidebar/SidebarSlice";
@@ -79,6 +80,7 @@ export function Home() {
   const nameRef = useRef<HTMLDivElement | null>(null);
   const descriptionRef = useRef<HTMLDivElement | null>(null);
   const iconsRef = useRef<HTMLDivElement | null>(null);
+  const parallaxRef = useRef(null);
   const sidebarOpened = useAppSelector(selecSidebarOpened);
 
   useEffect(() => {
@@ -109,6 +111,7 @@ export function Home() {
         animate={{ opacity: 1, y: 0 }}
         transition={{ delay: 0.4, duration: 0.8, ease: "easeInOut" }}
       >
+        <ScrollParallax strength={0.05}>
         <span className="text-center">
           <p className="absolute left-0 right-0 m-auto mx-auto flex border w-fit bg-gradient-to-r blur-xl brightness-150 from-orange-600 via-orange-600 to-orange-600 bg-clip-text text-6xl box-content font-extrabold text-transparent text-center select-none">
             {fullNammeText}
@@ -117,6 +120,7 @@ export function Home() {
             {fullNammeText}
           </p>
         </span>
+        </ScrollParallax>
         <div className="grid md:grid-cols-3 grid-cols- text-center">
           <div />
           <div className="text-left md:w-96 md:my-80 md:mb-0">
@@ -163,16 +167,17 @@ export function Home() {
           </div>
           <div />
         </div>
-        </motion.div>
         <div className="text-center">
           <Scroll />
         </div>
+        </motion.div>
       </WavyBackground>
       <div ref={bodyRef} className=" h-1/4 overflow-visible">
         <div>
           <div>
             <div className="pb-20">
-              <div className="mx-auto bg-gradient-to-l from-white to-white h-60">
+              <div ref={parallaxRef}>
+                <div className="mx-auto bg-gradient-to-l from-white to-white h-60">
                 <div className="mx-auto container w-full flex flex-col justify-center items-center">
                   <div className="flex justify-center items-center flex-col">
                     <div className="mt-10 hover:outline-2 hover:outline-white transition-all duration-300" id="by-the-numbers">
@@ -192,7 +197,8 @@ export function Home() {
                   </div>
                 </div>
               </div>
-              <ByTheNumbersCard cards={byTheNumbersCard} />
+                    <ByTheNumbersCard cards={byTheNumbersCard} />
+              </div>
             </div>
           </div>
         </div>

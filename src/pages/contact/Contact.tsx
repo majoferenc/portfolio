@@ -1,6 +1,7 @@
 import React, { useState } from 'react';
 import { motion } from 'framer-motion';
 import { ButtonWrapper } from "../../components/SpotlightButton/SpotlightButton";
+import { WavyBackground } from "../../components/WavyBackground/WavyBackground";
 
 export function Contact() {
   const [name, setName] = useState('');
@@ -23,6 +24,7 @@ export function Contact() {
 
   return (
     <div className="container mx-auto px-4 py-16">
+      <WavyBackground className="max-w-4xl mx-auto pb-40 overflow-hidden shadow-md">
       <motion.h2
         initial={{ opacity: 0, y: 100 }}
         animate={{ opacity: 1, y: 0 }}
@@ -121,6 +123,8 @@ export function Contact() {
           </div>
         </form>
       </motion.div>
+      </WavyBackground>
+
     </div>
   );
 }
