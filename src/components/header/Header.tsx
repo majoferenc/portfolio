@@ -39,7 +39,7 @@ export function Header() {
 
   return (
     <div>
-      <header className="flex w-auto bg-gray-900 fixed inset-x-0 z-30">
+      <header className="flex w-auto bg-black bg-opacity-50 fixed inset-x-0 z-30 shadow">
         <div className="flex">
           <button
             type="submit"

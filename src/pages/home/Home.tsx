@@ -104,8 +104,8 @@ export function Home() {
   };
 
   return (
-    <div className="md:my-0 md:pt-20" id="hero">
-      <WavyBackground className="max-w-4xl mx-auto pb-40 overflow-hidden">
+    <div className="md:my-0 md:pt-40" id="hero">
+      <WavyBackground className="max-w-4xl mx-auto pb-72 overflow-hidden">
         <motion.div
         initial={{ opacity: 0, y: 100 }}
         animate={{ opacity: 1, y: 0 }}
@@ -113,10 +113,10 @@ export function Home() {
       >
         <ScrollParallax strength={0.05}>
         <span className="text-center">
-          <p className="absolute left-0 right-0 m-auto mx-auto flex border w-fit bg-gradient-to-r blur-xl brightness-150 from-orange-600 via-orange-600 to-orange-600 bg-clip-text text-6xl box-content font-extrabold text-transparent text-center select-none">
+          <p className="absolute text-3xl left-0 right-0 m-auto mx-auto flex border w-fit bg-gradient-to-r blur-xl brightness-150 from-orange-600 via-orange-600 to-orange-600 bg-clip-text md:text-6xl box-content font-extrabold text-transparent text-center select-none">
             {fullNammeText}
           </p>
-          <p className="relative w-fit p-2 mx-auto justify-center flex h-fit bg-gradient-to-r items-center from-gray-200 via-gray-200 to-gray-200 bg-clip-text text-6xl font-extrabold text-transparent text-center select-auto">
+          <p className="relative text-3xl w-fit p-2 mx-auto justify-center flex h-fit bg-gradient-to-r items-center from-gray-200 via-gray-200 to-gray-200 bg-clip-text md:text-6xl font-extrabold text-transparent text-center select-auto">
             {fullNammeText}
           </p>
         </span>
@@ -132,7 +132,7 @@ export function Home() {
             </h2>
             <div
               ref={iconsRef}
-              className={`grid grid-cols-2 grid-cols- px-16 ${animationClasses}`}
+              className={`grid grid-cols-2 grid-cols- md:px-16 px-20 mx-8 md:mx-0 ${animationClasses}`}
             >
               <a
                 href="https://www.linkedin.com/in/ing-marian-ferenc-slovakia/"

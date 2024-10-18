@@ -23,13 +23,13 @@ export function Contact() {
   };
 
   return (
-    <div className="container mx-auto px-4 py-16">
-      <WavyBackground className="max-w-4xl mx-auto pb-40 overflow-hidden shadow-md">
+    <div className="md:pt-40">
+      <WavyBackground className="max-w-4xl mx-auto overflow-hidden shadow-md">
       <motion.h2
         initial={{ opacity: 0, y: 100 }}
         animate={{ opacity: 1, y: 0 }}
         transition={{ delay: 0.2, duration: 0.8, ease: "easeInOut" }}
-        className="text-xl md:text-6xl font-bold text-center mb-8 bg-gradient-to-br from-gray-300 to-gray-500 bg-clip-text text-transparent"
+        className="text-3xl md:text-6xl font-bold text-center mb-8 bg-gradient-to-br from-gray-300 to-gray-500 bg-clip-text text-transparent"
       >
         Get in Touch
       </motion.h2>
