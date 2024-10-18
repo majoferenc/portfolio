@@ -1,3 +1,5 @@
+"use client";
+
 /* eslint-disable jsx-a11y/click-events-have-key-events */
 import { MutableRefObject, useRef } from "react";
 

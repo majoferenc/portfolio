@@ -1,23 +1,18 @@
+"use client";
+
+import Image from "next/image";
 /* eslint-disable react/jsx-no-target-blank */
 import React, { RefObject, useEffect, useRef } from "react";
 import { motion } from "framer-motion";
 import { ScrollParallax } from "react-just-parallax";
 
-import { useAppSelector } from "../../app/hooks";
-import { selecSidebarOpened } from "../../components/Sidebar/SidebarSlice";
-import MyPicture from "../../images/IMG_2255.png";
-import LinkedIn from "../../images/linkedin-icon.png";
-import GitHub from "../../images/github-icon.png";
-import AWSCert from "../../images/aws_certified_cloud_practicioner.png";
-import TerraformCert from "../../images/terraform_cert.png";
-import RHOpenShiftAdminCert from "../../images/redhat_openshift_administration.png";
-import CKADCert from "../../images/ckad_cert.png";
-import OracleProfessionalCert from "../../images/oracle_java_8_prof_cert.png";
-import { WavyBackground } from "../../components/WavyBackground/WavyBackground";
-import { Scroll } from "../../components/Scroll/Scroll";
-import { ExpertiseCard } from "../../components/ExpertiseCard/ExpertiseCard";
-import { ByTheNumbersCard } from "../../components/ByTheNumbersCard/ByTheNumbersCard";
-import { ScrollToTop } from "../../components/ScrollToTop/ScrollToTop";
+import { useAppSelector } from "../app/hooks";
+import { selecSidebarOpened } from "../components/Sidebar/SidebarSlice";
+import { WavyBackground } from "../components/WavyBackground/WavyBackground";
+import { Scroll } from "../components/Scroll/Scroll";
+import { ExpertiseCard } from "../components/ExpertiseCard/ExpertiseCard";
+import { ByTheNumbersCard } from "../components/ByTheNumbersCard/ByTheNumbersCard";
+import { ScrollToTop } from "../components/ScrollToTop/ScrollToTop";
 
 const opacitySetter = (
   componentRef: RefObject<HTMLDivElement>,
@@ -29,7 +24,7 @@ const opacitySetter = (
   }, duration);
 };
 
-export function Home() {
+export default function Page() {
   const durationClass = "duration-300";
   const animationClasses = `transform transition-all opacity-0 ${durationClass}`;
   const hoverEffectClasses = `hover:-translate-y-1  motion-safe:hover:scale-110 ${durationClass}`;
@@ -139,8 +134,10 @@ export function Home() {
                 target="_blank"
                 className="h-[4rem] w-[4rem]"
               >
-                <img
-                  src={LinkedIn}
+                <Image
+                  src="/linkedin-icon.png"
+                  width={100}
+                  height={100}
                   className={`h-[4rem] m-0 ${hoverEffectClasses} bg-white-700`}
                   alt="LinkedIn link"
                 />
@@ -150,8 +147,10 @@ export function Home() {
                 target="_blank"
                 className="h-[4rem] w-[4rem]"
               >
-                <img
-                  src={GitHub}
+                <Image
+                  src="/github-icon.png"
+                  width={100}
+                  height={100}
                   className={`h-[4rem] m-0 ${hoverEffectClasses}`}
                   alt="GitHub link"
                 />
@@ -159,8 +158,10 @@ export function Home() {
             </div>
           </div>
           <div className="flex justify-center items-center">
-            <img
-              src={MyPicture}
+            <Image
+              src={"/IMG_2255.png"}
+              width={100}
+              height={100}
               className="w-40 md:ml-0 md:min-w-[20rem] md:min-w-[20rem] rounded-tr-lg"
               alt="Me"
             />
@@ -282,19 +283,44 @@ export function Home() {
               </div>
               <div className="xl:py-8 lg:py-16 md:py-16 sm:py-16 px-15 flex flex-wrap items-center justify-center">
                 <div className="w-6/12 xl:w-[10rem] lg:w-1/4 md:w-1/4 flex justify-center xl:pb-10 pb-16 items-center">
-                  <img src={AWSCert} alt="" />
+                  <Image 
+                  src="/aws_certified_cloud_practicioner.png" 
+                  alt="AWS Certified Cloud Practicioner certificate"
+                  width={100}
+                  height={100} 
+                  />
                 </div>
                 <div className="w-6/12 xl:w-[10rem] lg:w-1/4 md:w-1/4 flex justify-center xl:pb-10 pb-16 items-center">
-                  <img src={TerraformCert} alt="" />
+                  <Image 
+                  src="/terraform_cert.png" 
+                  alt="Terraform certificate"
+                  width={100}
+                  height={100}  
+                  />
                 </div>
                 <div className="w-6/12 xl:w-[10rem] lg:w-1/4 md:w-1/4 flex justify-center xl:pb-10 pb-16 items-center">
-                  <img src={RHOpenShiftAdminCert} alt="" />
+                  <Image 
+                  src="/redhat_openshift_administration.png" 
+                  width={100}
+                  height={100} 
+                  alt="" 
+                  />
                 </div>
                 <div className="w-6/12 xl:w-[10rem] lg:w-1/4 md:w-1/4 flex justify-center xl:pb-10 pb-16 items-center">
-                  <img src={CKADCert} alt="" />
+                  <Image 
+                  src="/ckad_cert.png" 
+                  alt="Certified Kubernetes Application Developer" 
+                  width={100}
+                  height={100} 
+                  />
                 </div>
                 <div className="w-6/12 xl:w-[10rem] lg:w-1/4 md:w-1/4 flex justify-center xl:pb-10 pb-16 items-center">
-                  <img src={OracleProfessionalCert} alt="" />
+                  <Image 
+                  src="/oracle_java_8_prof_cert.png" 
+                  alt="Certified Java Professional" 
+                  width={100}
+                  height={100} 
+                  />
                 </div>
               </div>
               <a
@@ -313,5 +339,3 @@ export function Home() {
     </div>
   );
 }
-
-export default Home;

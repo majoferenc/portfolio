@@ -1,5 +1,6 @@
+"use client";
+
 import React, { useEffect } from "react";
-import { useTranslation } from "react-i18next";
 import { Stars } from "@react-three/drei";
 import { Canvas } from "@react-three/fiber";
 import {
@@ -21,12 +22,11 @@ export function Footer() {
       repeat: Infinity,
       repeatType: "mirror",
     });
-  }, []);
-  const { t } = useTranslation();
+  }, [color]);
   
   const backgroundImage = useMotionTemplate`radial-gradient(125% 125% at 50% 0%, #020617 50% ${color})`;
-  const border = useMotionTemplate`1px solid ${color}`;
-  const boxShadow = useMotionTemplate`0px 4px 2px ${color}`;
+//  const border = useMotionTemplate`1px solid ${color}`;
+//  const boxShadow = useMotionTemplate`0px 4px 2px ${color}`;
 
   return (
     <div>
@@ -40,7 +40,7 @@ export function Footer() {
       <div className="relative z-10 flex flex-col items-center">
         <div className="grid grid-cols-1 gap-8">
         <p className="max-w-xl text-center text-base leading-relaxed md:text-lg md:leading-relaxed">
-        {t("footer.copyrightLabel")} {new Date().getFullYear()}
+        Ing.Marián Ferenc {new Date().getFullYear()}
         </p>
         </div>
       </div>

@@ -1,5 +1,5 @@
 import { configureStore, ThunkAction, Action } from "@reduxjs/toolkit";
-import aboutReducer from "../pages/contact/ContactSlice";
+import aboutReducer from "./contact/ContactSlice";
 import sidebarRedurer from "../components/Sidebar/SidebarSlice";
 
 export const store = configureStore({

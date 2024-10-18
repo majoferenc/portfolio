@@ -1,5 +1,7 @@
+"use client";
+
 import { useEffect, useState } from 'react';
-import ArrowUp from "../../images/arrowup.png";
+import Image from "next/image";
 
 export const ScrollToTop = () => {
   const [isVisible, setIsVisible] = useState(false);
@@ -38,9 +40,11 @@ export const ScrollToTop = () => {
         } bg-yellow-600 hover:bg-yellow-700 focus:ring-yellow-500 inline-flex items-center rounded-full p-3 text-white shadow-sm transition-opacity focus:outline-none focus:ring-2 focus:ring-offset-2`}
         style={{ display: isVisible ? 'flex' : 'none' }} // Optional: Hide button when not visible
       >
-        <img
-            src={ArrowUp}
+        <Image
+            src="/arrowup.png"
             alt="arrow-up"
+            width={100}
+            height={100} 
             className="h-6 w-6" aria-hidden="true" 
         />
       </button>

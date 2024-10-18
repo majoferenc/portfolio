@@ -1,6 +1,7 @@
+"use client";
+
 import React, { useEffect, useRef, useState } from "react";
-import { useTranslation } from "react-i18next";
-import { Link } from "react-router-dom";
+import Link from 'next/link'
 import {
   useAppDispatch,
   useAppSelector,
@@ -10,7 +11,6 @@ import { selecSidebarOpened, setSidebarOpenedValue } from "./SidebarSlice";
 
 export function Sidebar() {
   const [skipMount, setSkipMount] = useState(true);
-  const { t } = useTranslation();
   const parentSideBarRef = useRef<HTMLDivElement | null>(null);
   const sidebarRef = useRef<HTMLDivElement | null>(null);
   const sidebarOpened = useAppSelector(selecSidebarOpened);
@@ -59,7 +59,7 @@ export function Sidebar() {
       >
         <div className="text-white flex items-center space-x-2 px-4 justify-between">
           <span className="text-sm text-white font-bold w-fit">
-            {t("common.applicationNameShort")}
+            Ing. Marián Ferenc
           </span>
           <button
             type="button"
@@ -88,7 +88,7 @@ export function Sidebar() {
         </div>
         <nav>
           <Link
-            to="/"
+            href="/"
             className="block py-2.5 px-4 rounded transition duration-200 hover:bg-yellow-500 text-white font-bold"
             onClick={() => {
               dispatch(setSidebarOpenedValue(!sidebarOpened));
@@ -100,7 +100,7 @@ export function Sidebar() {
         </nav>
         <nav>
           <Link
-            to="/contact"
+            href="/contact"
             className="block py-2.5 px-4 rounded transition duration-200 hover:bg-yellow-500 text-white font-bold"
             onClick={() => {
               dispatch(setSidebarOpenedValue(!sidebarOpened));

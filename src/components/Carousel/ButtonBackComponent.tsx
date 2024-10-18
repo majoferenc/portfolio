@@ -1,3 +1,5 @@
+"use client";
+
 import React from "react";
 import { ButtonBack } from "pure-react-carousel";
 import "pure-react-carousel/dist/react-carousel.es.css";

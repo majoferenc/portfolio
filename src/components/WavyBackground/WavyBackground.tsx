@@ -129,7 +129,7 @@ export const WavyBackground = ({
       window.removeEventListener('resize', handleResize);
       cancelAnimationFrame(animationId);
     };
-  }, []);
+  });
 
   const [isSafari, setIsSafari] = useState(false);
   useEffect(() => {

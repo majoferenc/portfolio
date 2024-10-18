@@ -1,16 +1,18 @@
+"use client";
+
 import React, { useState } from 'react';
 import { motion } from 'framer-motion';
 import { ButtonWrapper } from "../../components/SpotlightButton/SpotlightButton";
 import { WavyBackground } from "../../components/WavyBackground/WavyBackground";
 
-export function Contact() {
-  const [name, setName] = useState('');
+export default function Page() {
+const [name, setName] = useState('');
   const [surName, setSurName] = useState('');
   const [email, setEmail] = useState('');
   const [phoneNumber, setPhoneNumber] = useState('');
   const [message, setMessage] = useState('');
 
-  const handleSubmit = (e: any) => {
+  const handleSubmit = (e: React.FormEvent<HTMLFormElement>) => {
     e.preventDefault();
 
     // TODO backend impl
@@ -128,5 +130,3 @@ export function Contact() {
     </div>
   );
 }
-
-export default Contact;
