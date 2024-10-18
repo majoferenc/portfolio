@@ -44,12 +44,6 @@ export function Footer() {
         </p>
         </div>
       </div>
-
-      <div className="absolute inset-0 z-0 brightness-50">
-        <Canvas>
-          <Stars radius={50} count={1000} factor={4} fade speed={2} />
-        </Canvas>
-      </div>
     </motion.section>
       </footer>
     </div>

@@ -72,12 +72,12 @@ export function Header() {
           </div>
         </div>
         {location === '/' && (
-          <div className="flex-auto text-gray-200 place-content-center h-16 hidden md:block">
+          <div className="flex-auto text-gray-200 place-content-center items-center text-center h-16 hidden md:block pr-40">
             {navigation.map((item) => (
               <a
                 key={item.id}
                 href={item.url}
-                className={`relative font-code text-2xl uppercase text-n-1 transition-colors hover:text-color-1 ${
+                className={`relative font-code text-xs uppercase text-n-1 transition-colors hover:text-color-1 items-center text-center ${
                   item.onlyMobile ? "lg:hidden" : ""
                 } px-6 py-6 md:py-8 lg:-mr-0.25 lg:text-xs lg:font-semibold ${
                   item.url === location

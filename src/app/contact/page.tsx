@@ -25,7 +25,7 @@ const [name, setName] = useState('');
   };
 
   return (
-    <div className="md:pt-40">
+    <div className="md:pt-40 h-screen">
       <WavyBackground className="max-w-4xl mx-auto overflow-hidden shadow-md">
       <motion.h2
         initial={{ opacity: 0, y: 100 }}
