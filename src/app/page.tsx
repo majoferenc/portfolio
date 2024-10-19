@@ -5,6 +5,7 @@ import Image from "next/image";
 import React, { RefObject, useEffect, useRef } from "react";
 import { motion } from "framer-motion";
 import { ScrollParallax } from "react-just-parallax";
+import { Parallax } from "react-parallax"
 
 import { useAppSelector } from "../app/hooks";
 import { selecSidebarOpened } from "../components/Sidebar/SidebarSlice";
@@ -13,6 +14,8 @@ import { Scroll } from "../components/Scroll/Scroll";
 import { ExpertiseCard } from "../components/ExpertiseCard/ExpertiseCard";
 import { ByTheNumbersCard } from "../components/ByTheNumbersCard/ByTheNumbersCard";
 import { ScrollToTop } from "../components/ScrollToTop/ScrollToTop";
+import { HorizontalScrollCarousel } from "../components/HorizontalScrollCards/HorizontalScrollCards";
+import { TextScroll } from "../components/TextScroll/TextScroll";
 
 const opacitySetter = (
   componentRef: RefObject<HTMLDivElement>,
@@ -160,9 +163,9 @@ export default function Page() {
           <div className="flex justify-center items-center">
             <Image
               src={"/IMG_2255.png"}
-              width={100}
+              width={150}
               height={100}
-              className="w-40 md:ml-0 md:min-w-[20rem] md:min-w-[20rem] rounded-tr-lg"
+              className="w-40 md:ml-0 md:min-w-[25rem] md:min-w-[20rem] rounded-tr-lg"
               alt="Me"
             />
           </div>
@@ -203,34 +206,7 @@ export default function Page() {
             </div>
           </div>
         </div>
-        <div className="mb-48" id="education">
-          <motion.h2
-            initial={{ opacity: 0, y: 100 }}
-            whileInView={{ opacity: 1, y: 0 }}
-            transition={{
-              delay: 0.4,
-              duration: 0.8,
-              ease: "easeInOut",
-            }}
-            className="lg:text-6xl bg-gradient-to-br from-slate-300 to-slate-500 py-4 bg-clip-text text-center text-4xl font-medium tracking-tight text-transparent"
-          >
-            Education
-          </motion.h2>
-          <motion.p
-            initial={{ opacity: 0, y: 100 }}
-            whileInView={{ opacity: 1, y: 0 }}
-            transition={{
-              delay: 0.5,
-              duration: 0.8,
-              ease: "easeInOut",
-            }}
-            className="bg-white from-slate-300 to-slate-500 py-4 bg-clip-text text-center text-4xl font-medium tracking-tight text-transparent"
-          >
-            Engineer&apos;s degree in Informatics from Technical University of
-            Kosice
-          </motion.p>
-        </div>
-
+      <HorizontalScrollCarousel />
         <div>
           <div className="bg-white pb-20 py-8">
             <div>
@@ -282,47 +258,86 @@ export default function Page() {
                 </div>
               </div>
               <div className="xl:py-8 lg:py-16 md:py-16 sm:py-16 px-15 flex flex-wrap items-center justify-center">
-                <div className="w-6/12 xl:w-[10rem] lg:w-1/4 md:w-1/4 flex justify-center xl:pb-10 pb-16 items-center">
+                <div className={`w-6/12 xl:w-[10rem] lg:w-1/4 md:w-1/4 flex justify-center xl:pb-10 pb-16 items-center  ${hoverEffectClasses}`}>
                   <Image 
                   src="/aws_certified_cloud_practicioner.png" 
                   alt="AWS Certified Cloud Practicioner certificate"
-                  width={100}
+                  width={150}
                   height={100} 
                   />
                 </div>
-                <div className="w-6/12 xl:w-[10rem] lg:w-1/4 md:w-1/4 flex justify-center xl:pb-10 pb-16 items-center">
+                <div className={`w-6/12 xl:w-[10rem] lg:w-1/4 md:w-1/4 flex justify-center xl:pb-10 pb-16 items-center  ${hoverEffectClasses}`}>
                   <Image 
                   src="/terraform_cert.png" 
                   alt="Terraform certificate"
-                  width={100}
+                  width={150}
                   height={100}  
                   />
                 </div>
-                <div className="w-6/12 xl:w-[10rem] lg:w-1/4 md:w-1/4 flex justify-center xl:pb-10 pb-16 items-center">
+                <div className={`w-6/12 xl:w-[10rem] lg:w-1/4 md:w-1/4 flex justify-center xl:pb-10 pb-16 items-center  ${hoverEffectClasses}`}>
                   <Image 
                   src="/redhat_openshift_administration.png" 
-                  width={100}
+                  width={150}
                   height={100} 
                   alt="" 
                   />
                 </div>
-                <div className="w-6/12 xl:w-[10rem] lg:w-1/4 md:w-1/4 flex justify-center xl:pb-10 pb-16 items-center">
+                <div className={`w-6/12 xl:w-[10rem] lg:w-1/4 md:w-1/4 flex justify-center xl:pb-10 pb-16 items-center  ${hoverEffectClasses}`}>
                   <Image 
                   src="/ckad_cert.png" 
                   alt="Certified Kubernetes Application Developer" 
-                  width={100}
+                  width={150}
                   height={100} 
                   />
                 </div>
-                <div className="w-6/12 xl:w-[10rem] lg:w-1/4 md:w-1/4 flex justify-center xl:pb-10 pb-16 items-center">
+                <div className={`w-6/12 xl:w-[10rem] lg:w-1/4 md:w-1/4 flex justify-center xl:pb-10 pb-16 items-center  ${hoverEffectClasses}`}>
                   <Image 
                   src="/oracle_java_8_prof_cert.png" 
                   alt="Certified Java Professional" 
-                  width={100}
+                  width={150}
                   height={100} 
                   />
                 </div>
               </div>
+              <Parallax
+          blur={{ min: -15, max: 15 }}
+          bgImage="/graduation-cap.svg"
+          bgImageAlt="University Degree"
+          strength={400}
+        >
+      <div className="mb-48 min-h-[300px] flex flex-col justify-center items-center" id="education">
+        <div className="bg-black bg-opacity-50 p-8 rounded-lg">
+          <motion.h2
+            initial={{ opacity: 0, y: 100 }}
+            whileInView={{ opacity: 1, y: 0 }}
+            transition={{
+              delay: 0.4,
+              duration: 0.8,
+              ease: "easeInOut",
+            }}
+            className="lg:text-6xl bg-gradient-to-br from-slate-300 to-slate-500 py-4 bg-clip-text text-center text-4xl font-medium tracking-tight text-transparent"
+          >
+            Education
+          </motion.h2>
+          
+        <TextScroll>
+
+          <motion.p
+            initial={{ opacity: 0, y: 100 }}
+            whileInView={{ opacity: 1, y: 0 }}
+            transition={{
+              delay: 0.5,
+              duration: 0.8,
+              ease: "easeInOut",
+            }}
+            className="mt-4 text-white text-center text-4xl font-medium tracking-tight"
+          >
+            Engineer&apos;s degree in Informatics from Technical University of Kosice 
+          </motion.p>
+          </TextScroll>
+        </div>
+      </div>
+      </Parallax>
               <div className="flex items-center justify-center">
                 <button className="relative inline-flex h-12 overflow-hidden rounded-full p-[1px] focus:outline-none focus:ring-2 focus:ring-slate-400 focus:ring-offset-2 focus:ring-offset-slate-50">
                   <span className="absolute inset-[-1000%] animate-[spin_2s_linear_infinite] bg-[conic-gradient(from_90deg_at_50%_50%,#E2CBFF_0%,#393BB2_50%,#E2CBFF_100%)]" />
@@ -331,7 +346,7 @@ export default function Page() {
                       href="https://www.credly.com/users/marian-ferenc/badges"
                       target="_blank"
                       type="submit"
-                      className={`mx-auto text-white rounded font-bold py-2 px-4 m-4 text-sm bg-gray-900`}
+                      className={`mx-auto text-white rounded font-bold py-2 px-4 m-4 text-sm`}
                     >
                       Credly
                     </a>
