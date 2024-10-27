@@ -15,8 +15,6 @@ import { ExpertiseCard } from "../components/ExpertiseCard/ExpertiseCard";
 import { ByTheNumbersCard } from "../components/ByTheNumbersCard/ByTheNumbersCard";
 import { ScrollToTop } from "../components/ScrollToTop/ScrollToTop";
 import { HorizontalScrollCarousel } from "../components/HorizontalScrollCards/HorizontalScrollCards";
-import { TextScroll } from "../components/TextScroll/TextScroll";
-import { AnimatedTextToHeader } from "../components/AnimatedTextToHeader/AnimatedTextToHeader";
 
 const opacitySetter = (
   componentRef: RefObject<HTMLDivElement>,
