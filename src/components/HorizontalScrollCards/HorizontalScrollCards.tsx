@@ -11,7 +11,7 @@ export const HorizontalScrollCarousel = () => {
   const x = useTransform(scrollYProgress, [0, 1], ["5%", "-80%"]);
 
   return (
-    <section ref={targetRef} className="relative h-[300vh] bg-neutral-900 pt-40">
+    <section ref={targetRef} className="relative h-[300vh] bg-neutral-900 pt-40 shadow">
                   <motion.h2
             initial={{ opacity: 0, y: 100 }}
             whileInView={{ opacity: 1, y: 0 }}
@@ -22,7 +22,7 @@ export const HorizontalScrollCarousel = () => {
             }}
             className="lg:text-6xl bg-gradient-to-br from-slate-300 to-slate-500 py-4 bg-clip-text text-center text-4xl font-medium tracking-tight text-transparent"
           >
-            Project Experience
+            Project Experience (IBM)
           </motion.h2>
       <div className="sticky top-0 flex pt-20 items-center overflow-hidden">
         <motion.div style={{ x }} className="flex gap-8 pb-20">
@@ -54,6 +54,11 @@ const Card = ({ card }: any) => {
           {card.title}
         </p>
       </div>
+      <div className="absolute inset-0 z-10 grid place-content-end">
+        <p className="bg-gradient-to-br from-white/20 to-white/0 p-8 text-xl font-black uppercase text-white backdrop-blur-lg mb-16">
+        {card.year}
+        </p>
+      </div>
     </div>
   );
 };
@@ -62,38 +67,39 @@ export default HorizontalScrollCarousel;
 
 const cards = [
   {
+    url: "/flying.jpg",
+    title: "Cloud architecture & microservices development for German telco company",
+    year: "2020 - Now",
+    id: 6,
+  },
+  {
     url: "/laptop.avif",
-    title: "Integration Platform Projec - JEE/ Oracle SOA",
+    title: "Azure consulting & DevSecOps engineering for Swiss based company",
+    year: "2023 - Now",
     id: 1,
   },
   {
+    url: "/boat.jpg",
+    title: "Application Modernisation & container ready architecture for Slovak ministries",
+    year: "2023 - 2024",
+    id: 7,
+  },
+  {
     url: "/phone.avif",
-    title: "DevOps developer for German project",
+    title: "DevOps engineer for German financing company",
+    year: "2020 - 2021",
     id: 2,
   },
   {
-    url: "/people.jpg",
-    title: "Frontend & backend developer",
-    id: 3,
-  },
-  {
     url: "/desk.jpg",
-    title: "Application Modernisation to Cloud",
+    title: "Application Modernisation to Cloud for German government",
+    year: "2017 - 2023",
     id: 4,
   },
   {
     url: "/learning.jpg",
-    title: "Networking",
+    title: "Frontend development & consulting for German oiling company",
+    year: "2020 - 2020",
     id: 5,
-  },
-  {
-    url: "/flying.jpg",
-    title: "Title 6",
-    id: 6,
-  },
-  {
-    url: "/boat.jpg",
-    title: "Title 7",
-    id: 7,
   },
 ];
