@@ -259,8 +259,8 @@ export default function Page() {
               <div className="xl:py-8 lg:py-16 md:py-16 sm:py-16 px-15 flex flex-wrap items-center justify-center">
                 <div className={`w-6/12 xl:w-[10rem] lg:w-1/4 md:w-1/4 flex justify-center xl:pb-10 pb-16 items-center  ${hoverEffectClasses}`}>
                   <Image 
-                  src="/aws_certified_cloud_practicioner.png" 
-                  alt="AWS Certified Cloud Practicioner certificate"
+                  src="/aws-certified-solutions-architect-professional.png" 
+                  alt="AWS Certified Solutions Architect - Professional"
                   width={150}
                   height={100} 
                   />
