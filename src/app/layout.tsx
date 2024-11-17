@@ -8,7 +8,7 @@ import { store } from "./store";
 import { Footer } from "../components/footer/Footer";
 import { Header } from "../components/header/Header";
 import { Sidebar } from "../components/Sidebar/Sidebar";
-import MouseTracer  from "../components/MouseTracer/MouseTracer";
+//import MouseTracer  from "../components/MouseTracer/MouseTracer";
 
 const geistSans = localFont({
   src: "./fonts/GeistVF.woff",
@@ -35,7 +35,6 @@ export default function RootLayout({
           <span>
             <Sidebar />
             <Header />
-            <MouseTracer />
           </span>
           {children}
           <Footer />
