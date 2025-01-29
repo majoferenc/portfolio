@@ -14,13 +14,18 @@ export const metadata: Metadata = {
 const POSTS_PER_PAGE = 5;
 
 interface BlogPageProps {
-  searchParams: {
+  params: {
     page?: string;
   };
 }
 
-export default async function BlogPage({ searchParams }: BlogPageProps) {
-  const currentPage = Number(searchParams?.page) || 1;
+export async function generateStaticParams() {
+  const totalPages = Math.ceil(posts.length / POSTS_PER_PAGE);
+  return Array.from({ length: totalPages }, (_, i) => ({ page: (i + 1).toString() }));
+}
+
+export default async function BlogPage({ params }: BlogPageProps) {
+  const currentPage = Number(params?.page) || 1;
   const sortedPosts = sortPosts(posts.filter((post) => post.published));
   const totalPages = Math.ceil(sortedPosts.length / POSTS_PER_PAGE);
 
@@ -78,7 +83,7 @@ export default async function BlogPage({ searchParams }: BlogPageProps) {
             {sortedTags?.map((tag) => (
               <Tag tag={tag} key={tag} count={tags[tag]} />
             ))}
-          </CardContent>
+          </CardContent>  
         </Card>
       </div>
     </div>

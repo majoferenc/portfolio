@@ -1,5 +1,6 @@
 "use client";
 
+import { Suspense } from "react";
 import { usePathname, useSearchParams } from "next/navigation";
 import {
   Pagination,
@@ -15,7 +16,7 @@ interface QueryPaginationProps {
   className?: string;
 }
 
-export function QueryPagination({
+function PaginationComponent({
   totalPages,
   className,
 }: QueryPaginationProps) {
@@ -65,5 +66,25 @@ export function QueryPagination({
         ) : null}
       </PaginationContent>
     </Pagination>
+  );
+}
+
+// Wrap the component with Suspense to handle client-side hooks
+export function QueryPagination(props: QueryPaginationProps) {
+  return (
+    <Suspense fallback={<PaginationSkeleton />}>
+      <PaginationComponent {...props} />
+    </Suspense>
+  );
+}
+
+// Simple skeleton loader for the pagination
+function PaginationSkeleton() {
+  return (
+    <div className="h-10 w-full flex justify-center items-center gap-2">
+      <div className="h-8 w-8 bg-gray-200 rounded animate-pulse" />
+      <div className="h-8 w-8 bg-gray-200 rounded animate-pulse" />
+      <div className="h-8 w-8 bg-gray-200 rounded animate-pulse" />
+    </div>
   );
 }
