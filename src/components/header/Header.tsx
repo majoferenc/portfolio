@@ -28,7 +28,13 @@ export const navigation = [
     title: "Certifications",
     url: "#certifications",
     onlyMobile: false,
-  }
+  },
+  {
+    id: "4",
+    title: "Blog",
+    url: "/blog",
+    onlyMobile: true,
+  },
 ];
 
 export function Header() {

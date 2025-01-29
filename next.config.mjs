@@ -1,17 +1,29 @@
+import { build } from "velite";
+
 /** @type {import('next').NextConfig} */
-const nextConfig = {
-    output: 'export',
-    reactStrictMode: true,
-    images: {
-      unoptimized: true,
-    }
-    // Optional: Change links `/me` -> `/me/` and emit `/me.html` -> `/me/index.html`
-    // trailingSlash: true,
-   
-    // Optional: Prevent automatic `/me` -> `/me/`, instead preserve `href`
-    // skipTrailingSlashRedirect: true,
-   
-    // Optional: Change the output directory `out` -> `dist`
-    // distDir: 'dist',
+export default {
+  // othor next config here...
+  webpack: (config) => {
+    config.plugins.push(new VeliteWebpackPlugin());
+    return config;
+  },
+};
+
+class VeliteWebpackPlugin {
+  static started = false;
+  constructor(/** @type {import('velite').Options} */ options = {}) {
+    this.options = options;
   }
-export default nextConfig;
+  apply(/** @type {import('webpack').Compiler} */ compiler) {
+    // executed three times in nextjs !!!
+    // twice for the server (nodejs / edge runtime) and once for the client
+    compiler.hooks.beforeCompile.tapPromise("VeliteWebpackPlugin", async () => {
+      if (VeliteWebpackPlugin.started) return;
+      VeliteWebpackPlugin.started = true;
+      const dev = compiler.options.mode === "development";
+      this.options.watch = this.options.watch ?? dev;
+      this.options.clean = this.options.clean ?? !dev;
+      await build(this.options); // start velite
+    });
+  }
+}
