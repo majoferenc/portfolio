@@ -11,15 +11,21 @@
   "dependencies": {
     "@headlessui/react": "^2.1.10",
     "@react-hook/window-size": "^3.1.1",
+    "@radix-ui/react-avatar": "^1.1.2",
+    "@radix-ui/react-dialog": "^1.1.5",
+    "@radix-ui/react-dropdown-menu": "^2.1.5",
+    "@radix-ui/react-slot": "^1.1.1",
     "@react-three/drei": "^9.114.4",
     "@react-three/fiber": "^8.17.10",
     "@reduxjs/toolkit": "^2.3.0",
-    "class-variance-authority": "^0.7.0",
+    "class-variance-authority": "^0.7.1",
     "clsx": "^2.1.1",
     "framer-motion": "^11.11.9",
+    "github-slugger": "^2.0.0",
     "lucide-react": "^0.453.0",
     "next": "14.2.15",
     "normalize-wheel": "^1.0.1",
+    "next-themes": "^0.4.4",
     "pure-react-carousel": "^1.30.1",
     "react": "^18",
     "react-dom": "^18",
@@ -27,6 +33,9 @@
     "react-parallax": "^3.5.1",
     "react-redux": "^9.1.2",
     "react-use": "^17.5.1",
+    "rehype-autolink-headings": "^7.1.0",
+    "rehype-pretty-code": "^0.14.0",
+    "rehype-slug": "^6.0.0",
     "sass": "^1.80.2",
     "simplex-noise": "^4.0.3",
     "tailwind-merge": "^2.5.4",
@@ -41,6 +50,7 @@
     "eslint-config-next": "14.2.15",
     "postcss": "^8",
     "tailwindcss": "^3.4.1",
-    "typescript": "^5"
+    "typescript": "^5",
+    "velite": "^0.2.2"
   }
 }

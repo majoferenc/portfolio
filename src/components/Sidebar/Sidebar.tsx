@@ -97,8 +97,16 @@ export function Sidebar() {
           >
             Home
           </Link>
-        </nav>
-        <nav>
+          <Link
+            href="/blog"
+            className="block py-2.5 px-4 rounded transition duration-200 hover:bg-yellow-500 text-white font-bold"
+            onClick={() => {
+              dispatch(setSidebarOpenedValue(!sidebarOpened));
+              closeSidebar();
+            }}
+          >
+            Blog
+          </Link>
           <Link
             href="/contact"
             className="block py-2.5 px-4 rounded transition duration-200 hover:bg-yellow-500 text-white font-bold"
