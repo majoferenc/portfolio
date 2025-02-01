@@ -15,7 +15,6 @@ import { ExpertiseCard } from "../components/ExpertiseCard/ExpertiseCard";
 import { ByTheNumbersCard } from "../components/ByTheNumbersCard/ByTheNumbersCard";
 import { ScrollToTop } from "../components/ScrollToTop/ScrollToTop";
 import { HorizontalScrollCarousel } from "../components/HorizontalScrollCards/HorizontalScrollCards";
-import { TextScroll } from "../components/TextScroll/TextScroll";
 
 const opacitySetter = (
   componentRef: RefObject<HTMLDivElement>,
@@ -33,7 +32,7 @@ export default function Page() {
   const hoverEffectClasses = `hover:-translate-y-1  motion-safe:hover:scale-110 ${durationClass}`;
   const fullNammeText = "Ing. Marián Ferenc"
   const descriptionText =
-    "Full Stack Developer With DevOps Skills from Košice, Slovakia.";
+    "Full Stack Developer, DevSecOps & Cloud Architecture Engineer from Košice, Slovakia.";
   const byTheNumbersCard = [
     {
       number: 4,
@@ -54,22 +53,22 @@ export default function Page() {
   ];
   const expertiseCards = [
     {
-      description: 'Vue.js / React.js / Angular',
+      description: 'Vue.js, Next.js, Angular',
       title: 'Frontend Development',
       experience: '3 years of experience',
     },
     {
-      description: 'Spring Boot / Java EE / Node.js',
-      title: 'Backend development',
+      description: 'Spring Boot, Java EE, Node.js / LangChain, ChromaDB',
+      title: 'Backend development & GenAI solutions',
       experience: '7 years of experience',
     },
     {
-      description: 'Kubernetes / Cloudification / Pipelining',
-      title: 'DevOps Engineer',
+      description: 'Kubernetes / Cloudification / Pipelining - GitLab CI & GitOps - ArgoCD',
+      title: 'DevSecOps Engineer',
       experience: '5 years of experience',
     },
     {
-      description: 'Cloud Architecture',
+      description: 'Cloud Architecture - IBM Cloud, Azure, AWS',
       title: 'Application Architect',
       experience: '2 years of experience',
     },
@@ -102,7 +101,7 @@ export default function Page() {
   };
 
   return (
-    <div className="md:my-0 md:pt-40 pt-20" id="hero">
+    <div className="md:my-0 md:pt-40 pt-2 bg-black" id="hero">
       <WavyBackground className="max-w-4xl mx-auto pb-72 overflow-hidden">
         <motion.div
         initial={{ opacity: 0, y: 100 }}
@@ -237,7 +236,7 @@ export default function Page() {
         <div>
           <div>
             <div className="container mx-auto pt-16">
-            <div className="mx-auto bg-gradient-to-l from-black to-black">
+            <div className="mx-auto">
                 <div className="mx-auto container w-full flex flex-col justify-center items-center">
                   <div className="flex justify-center items-center flex-col">
                     <div className="mt-10" id="certifications">
@@ -306,7 +305,7 @@ export default function Page() {
           strength={400}
         >
       <div className="mb-48 min-h-[300px] flex flex-col justify-center items-center" id="education">
-        <div className="bg-black bg-opacity-50 p-8 rounded-lg">
+        <div className="p-8 rounded-lg">
           <motion.h2
             initial={{ opacity: 0, y: 100 }}
             whileInView={{ opacity: 1, y: 0 }}
@@ -319,9 +318,6 @@ export default function Page() {
           >
             Education
           </motion.h2>
-          
-        <TextScroll>
-
           <motion.p
             initial={{ opacity: 0, y: 100 }}
             whileInView={{ opacity: 1, y: 0 }}
@@ -330,11 +326,10 @@ export default function Page() {
               duration: 0.8,
               ease: "easeInOut",
             }}
-            className="mt-4 text-white text-center text-4xl font-medium tracking-tight"
+            className="mt-20 text-white text-center text-4xl font-medium tracking-tight"
           >
             Engineer&apos;s degree in Informatics from Technical University of Kosice 
           </motion.p>
-          </TextScroll>
         </div>
       </div>
       </Parallax>

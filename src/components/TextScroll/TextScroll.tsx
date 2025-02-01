@@ -9,11 +9,6 @@ import normalizeWheel from "normalize-wheel";
 import { useRafLoop } from "react-use";
 import { useWindowSize } from "@react-hook/window-size";
 
-/**
- * @see https://14islands.com/blog/interactive-marquee-with-framer-motion/
- *
- * @see https://codesandbox.io/s/x3r465?file=/src/App.js
- */
 
 type MarqueeItemProps = {
   children: React.ReactNode;
