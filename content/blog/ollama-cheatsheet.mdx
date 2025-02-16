@@ -6,20 +6,20 @@ tags: ["code", "blog"]
 published: true
 ---
 
-# Ollama Cheatsheet
+# **Ollama Cheatsheet**
 
 This guide provides essential commands and environment tweaks for optimizing Ollama when running complex models locally.
-
-## Running a Model
+<br />
+## **Running a Model**
 
 To run a model with Ollama:
 
 ```bash
 ollama run <model_name>
 ```
-
-## Tweaking Model Parameters
-
+<br />
+## **Tweaking Model Parameters**
+<br />
 Modify settings dynamically while running a model:
 
 ```bash {3} showLineNumbers
@@ -27,8 +27,8 @@ Modify settings dynamically while running a model:
 /save model_updated
 ```
 
-## Performance Optimization
-
+## **Performance Optimization**
+<br />
 Set environment variables to improve performance:
 
 ```bash
@@ -36,13 +36,13 @@ export OLLAMA_FLASH_ATTENTION=true
 export OLLAMA_KV_CACHE_TYPE=f16    
 ```
 
-### Available `OLLAMA_KV_CACHE_TYPE` Values
+### **Available `OLLAMA_KV_CACHE_TYPE` Values**
 - `q8_0`
 - `q4_0`
 - `f16` (for 16-bit floating point caching)
 
+<br />
 These settings can help optimize memory usage and speed when running large models locally.
 
----
 
 For more advanced configurations, refer to the official [Ollama documentation](https://ollama.ai/docs).
