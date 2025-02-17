@@ -101,7 +101,7 @@ export default function Page() {
   };
 
   return (
-    <div className="md:my-0 md:pt-40 pt-2 bg-black" id="hero">
+    <div className="md:my-0 md:pt-40 pt-20 bg-black" id="hero">
       <WavyBackground className="max-w-4xl mx-auto pb-72 overflow-hidden">
         <motion.div
         initial={{ opacity: 0, y: 100 }}

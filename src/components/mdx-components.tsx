@@ -1,4 +1,5 @@
 import Image from "next/image";
+import { ZoomableImage } from "@/components/zoomable-image"
 import * as runtime from "react/jsx-runtime";
 // import { cn } from "@/lib/utils";
 
@@ -8,6 +9,8 @@ const useMDXComponent = (code: string) => {
 };
 
 const components = {
+  // Override the default img component with our ZoomableImage
+  ZoomableImage,
   Image
 };
 

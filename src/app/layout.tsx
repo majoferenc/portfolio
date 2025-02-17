@@ -23,21 +23,19 @@ const geistMono = localFont({
 
 export default function RootLayout({
   children,
-}: Readonly<{
-  children: React.ReactNode;
-}>) {
+}: Readonly<{ children: React.ReactNode }>) {
   return (
     <html lang="en">
       <Provider store={store}>
         <body
-          className={`${geistSans.variable} ${geistMono.variable} antialiased`}
+          className={`${geistSans.variable} ${geistMono.variable} antialiased min-h-screen flex flex-col`}
         >
           <span>
             <Sidebar />
             <Header />
             <MouseTracer />
           </span>
-          {children}
+          <div className="flex-grow">{children}</div>
           <Footer />
         </body>
       </Provider>

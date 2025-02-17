@@ -42,7 +42,7 @@ export function Footer() {
       <div className="relative z-10 flex flex-col items-center">
         <div className="grid grid-cols-1 gap-8">
         <p className="max-w-xl text-center text-base leading-relaxed md:text-lg md:leading-relaxed">
-        Ing.Marián Ferenc {new Date().getFullYear()}
+        Ing. Marian Ferenc - {new Date().getFullYear()}
         </p>
         </div>
       </div>

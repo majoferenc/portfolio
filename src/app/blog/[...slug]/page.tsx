@@ -50,7 +50,7 @@ export default async function PostPage({ params }: PostPageProps) {
   const post = await getPostFromParams(params);
 
   return (
-    <article className="container py-20 prose dark:prose-invert max-w-3xl mx-auto h-full">
+    <article className="py-20 dark:prose-invert max-w-3xl mx-auto h-full max-w-5xl max-h-full px-10">
       <h1 className="mb-2 text-4xl font-bold">{post!.title}</h1>
       <div className="flex gap-2 mb-2">
         {post!.tags?.map((tag) => (
