@@ -73,7 +73,7 @@ const cards = [
     id: 6,
   },
   {
-    url: "/laptop.avif",
+    url: "/laptop.jpg",
     title: "Azure consulting & DevSecOps engineering for Swiss based company",
     year: "2023 - Now",
     id: 1,
@@ -85,7 +85,7 @@ const cards = [
     id: 7,
   },
   {
-    url: "/phone.avif",
+    url: "/phone.jpg",
     title: "DevOps engineer for German financing company",
     year: "2020 - 2021",
     id: 2,
