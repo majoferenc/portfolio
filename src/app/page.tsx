@@ -205,6 +205,7 @@ export default function Page() {
             </div>
           </div>
         </div>
+        
       <HorizontalScrollCarousel />
         <div>
           <div className="bg-white pb-20 py-8">

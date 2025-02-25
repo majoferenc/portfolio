@@ -9,6 +9,7 @@ import { Footer } from "../components/footer/Footer";
 import { Header } from "../components/header/Header";
 import { Sidebar } from "../components/Sidebar/Sidebar";
 import MouseTracer  from "../components/MouseTracer/MouseTracer";
+import React, { useEffect, useState } from 'react';
 
 const geistSans = localFont({
   src: "./fonts/GeistVF.woff",
@@ -24,6 +25,14 @@ const geistMono = localFont({
 export default function RootLayout({
   children,
 }: Readonly<{ children: React.ReactNode }>) {
+  const [enableMouseTracer, setEnableMouseTracer] = useState(false);
+
+  useEffect(() => {
+    // Check screen width on client
+    if (window.innerWidth >= 640) {
+      setEnableMouseTracer(true);
+    }
+  }, []);
   return (
     <html lang="en">
       <Provider store={store}>
@@ -33,7 +42,7 @@ export default function RootLayout({
           <span>
             <Sidebar />
             <Header />
-            <MouseTracer />
+            {enableMouseTracer && <MouseTracer />}
           </span>
           <div className="flex-grow">{children}</div>
           <Footer />
