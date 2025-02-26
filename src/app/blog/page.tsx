@@ -10,13 +10,7 @@ import { useSearchParams } from 'next/navigation';
 
 const POSTS_PER_PAGE = 5;
 
-interface BlogPageProps {
-  params: {
-    page?: string;
-  };
-}
-
-export default function BlogPage({ params }: BlogPageProps) {
+export default function BlogPage() {
   const searchParams = useSearchParams();
   const currentPage = Number(searchParams.get('page')?.toString()) || 1;
   const sortedPosts = sortPosts(posts.filter((post) => post.published));
