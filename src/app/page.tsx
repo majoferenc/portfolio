@@ -2,7 +2,7 @@
 
 import Image from "next/image";
 /* eslint-disable react/jsx-no-target-blank */
-import React, { RefObject, useEffect, useRef } from "react";
+import React, { RefObject, useEffect, useRef, useMemo } from "react";
 import { motion } from "framer-motion";
 import { ScrollParallax } from "react-just-parallax";
 import { Parallax } from "react-parallax"
@@ -15,6 +15,7 @@ import { ExpertiseCard } from "../components/ExpertiseCard/ExpertiseCard";
 import { ByTheNumbersCard } from "../components/ByTheNumbersCard/ByTheNumbersCard";
 import { ScrollToTop } from "../components/ScrollToTop/ScrollToTop";
 import { HorizontalScrollCarousel } from "../components/HorizontalScrollCards/HorizontalScrollCards";
+
 
 const opacitySetter = (
   componentRef: RefObject<HTMLDivElement>,
@@ -80,6 +81,11 @@ export default function Page() {
   const parallaxRef = useRef(null);
   const sidebarOpened = useAppSelector(selecSidebarOpened);
 
+  const wavyBgElement = useMemo(
+    () => <WavyBackground className="max-w-4xl mx-auto overflow-hidden shadow-md" />,
+    []
+  );
+  
   useEffect(() => {
     if (sidebarOpened === true) {
       addBlur();
@@ -102,7 +108,7 @@ export default function Page() {
 
   return (
     <div className="md:my-0 md:pt-40 pt-20 bg-black" id="hero">
-      <WavyBackground className="max-w-4xl mx-auto pb-72 overflow-hidden">
+      {wavyBgElement}
         <motion.div
         initial={{ opacity: 0, y: 100 }}
         animate={{ opacity: 1, y: 0 }}
@@ -159,7 +165,7 @@ export default function Page() {
               </a>
             </div>
           </div>
-          <div className="flex justify-center items-center">
+          <div className="flex justify-center items-center md:pr-[80rem]">
             <Image
               src={"/IMG_2255.png"}
               width={150}
@@ -168,17 +174,15 @@ export default function Page() {
               alt="Me"
             />
           </div>
-          <div />
         </div>
-        <div className="text-center">
+        <div className="text-center pb-20">
           <Scroll />
         </div>
         </motion.div>
-      </WavyBackground>
       <div ref={bodyRef} className=" h-1/4 overflow-visible">
         <div>
           <div>
-            <div className="pb-20">
+            <div className="pb-40">
               <div ref={parallaxRef}>
                 <div className="mx-auto bg-gradient-to-l from-white to-white h-60">
                 <div className="mx-auto container w-full flex flex-col justify-center items-center">
