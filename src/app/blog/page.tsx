@@ -1,15 +1,12 @@
+"use client";
+
 import { posts } from "#site/content";
 import { PostItem } from "@/components/post-item";
 import { QueryPagination } from "@/components/query-pagination";
 import { sortPosts } from "@/lib/utils";
-import { Metadata } from "next";
 import { useMemo } from "react";
 import { WavyBackground } from "../../components/WavyBackground/WavyBackground";
-
-export const metadata: Metadata = {
-  title: "Ing. Marian Ferenc - Blog",
-  description: "Ing. Marian Ferenc blog page",
-};
+import { useSearchParams } from 'next/navigation';
 
 const POSTS_PER_PAGE = 5;
 
@@ -19,13 +16,9 @@ interface BlogPageProps {
   };
 }
 
-export async function generateStaticParams() {
-  const totalPages = Math.ceil(posts.length / POSTS_PER_PAGE);
-  return Array.from({ length: totalPages }, (_, i) => ({ page: (i + 1).toString() }));
-}
-
 export default function BlogPage({ params }: BlogPageProps) {
-  const currentPage = Number(params?.page) || 1;
+  const searchParams = useSearchParams();
+  const currentPage = Number(searchParams.get('page')?.toString()) || 1;
   const sortedPosts = sortPosts(posts.filter((post) => post.published));
   const totalPages = Math.ceil(sortedPosts.length / POSTS_PER_PAGE);
 
