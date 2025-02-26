@@ -24,7 +24,7 @@ export async function generateStaticParams() {
   return Array.from({ length: totalPages }, (_, i) => ({ page: (i + 1).toString() }));
 }
 
-export default async function BlogPage({ params }: BlogPageProps) {
+export default function BlogPage({ params }: BlogPageProps) {
   const currentPage = Number(params?.page) || 1;
   const sortedPosts = sortPosts(posts.filter((post) => post.published));
   const totalPages = Math.ceil(sortedPosts.length / POSTS_PER_PAGE);
@@ -47,7 +47,7 @@ export default async function BlogPage({ params }: BlogPageProps) {
           <div className="flex-1 space-y-4 py-20">
             <h1 className="inline-block font-black text-4xl lg:text-5xl">Ing. Marian Ferenc Blog</h1>
             <p className="text-xl text-muted-foreground">
-              Let's talk about trends in IT
+              Lets talk about trends in IT
             </p>
           </div>
         </div>
