@@ -1,5 +1,5 @@
 "use client";
-
+import { Suspense } from "react";
 import { posts } from "#site/content";
 import { PostItem } from "@/components/post-item";
 import { QueryPagination } from "@/components/query-pagination";
@@ -25,51 +25,65 @@ export default function BlogPage() {
     []
   );
 
+  
+function PaginationSkeleton() {
   return (
-    <div className="relative min-h-screen">
-      {wavyBgElement}
+    <div className="h-10 w-full flex justify-center items-center gap-2">
+      <div className="h-8 w-8 bg-gray-200 rounded animate-pulse" />
+      <div className="h-8 w-8 bg-gray-200 rounded animate-pulse" />
+      <div className="h-8 w-8 bg-gray-200 rounded animate-pulse" />
+    </div>
+  );
+}
 
-      <div className="container relative z-10 max-w-4xl lg:py-2 0 h-full">
-        <div className="flex flex-col items-start gap-4 md:flex-row md:justify-between md:gap-8">
-          <div className="flex-1 space-y-4 py-20">
-            <h1 className="inline-block font-black text-4xl lg:text-5xl">Ing. Marian Ferenc Blog</h1>
-            <p className="text-xl text-muted-foreground">
-              Lets talk about trends in IT
-            </p>
+
+  return (
+    <Suspense fallback={<PaginationSkeleton />}>
+      <div className="relative min-h-screen">
+        {wavyBgElement}
+
+        <div className="container relative z-10 max-w-4xl lg:py-2 0 h-full">
+          <div className="flex flex-col items-start gap-4 md:flex-row md:justify-between md:gap-8">
+            <div className="flex-1 space-y-4 py-20">
+              <h1 className="inline-block font-black text-4xl lg:text-5xl">Ing. Marian Ferenc Blog</h1>
+              <p className="text-xl text-muted-foreground">
+                Lets talk about trends in IT
+              </p>
+            </div>
           </div>
-        </div>
-        <div className="flex flex-col gap-3 mt-8">
-          <div>
-            <hr />
-            {displayPosts?.length > 0 ? (
-              <ul className="flex flex-col">
-                {displayPosts.map((post) => {
-                  const { slug, date, title, description, tags } = post;
-                  return (
-                    <li key={slug}>
-                      <PostItem
-                        slug={slug}
-                        date={date}
-                        title={title}
-                        description={description}
-                        tags={tags}
-                      />
-                    </li>
-                  );
-                })}
-              </ul>
-            ) : (
-              <p>Nothing to see here yet</p>
-            )}
+          <div className="flex flex-col gap-3 mt-8">
+            <div>
+              <hr />
+              {displayPosts?.length > 0 ? (
+                <ul className="flex flex-col">
+                  {displayPosts.map((post) => {
+                    const { slug, date, title, description, tags } = post;
+                    return (
+                      <li key={slug}>
+                        <PostItem
+                          slug={slug}
+                          date={date}
+                          title={title}
+                          description={description}
+                          tags={tags}
+                        />
+                      </li>
+                    );
+                  })}
+                </ul>
+              ) : (
+                <p>Nothing to see here yet</p>
+              )}
+            </div>
+            <div className="flex justify-center">
+              <QueryPagination
+                totalPages={totalPages}
+                className="mt-4"
+              />
+            </div>  
           </div>
-          <div className="flex justify-center">
-            <QueryPagination
-              totalPages={totalPages}
-              className="mt-4"
-            />
-          </div>  
         </div>
       </div>
-    </div>
+    </Suspense>
   );
 }

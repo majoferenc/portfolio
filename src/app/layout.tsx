@@ -1,6 +1,7 @@
 "use client";
 
-//import type { Metadata } from "next";
+import { Suspense } from "react"
+
 import localFont from "next/font/local";
 import "./globals.scss";
 import { Provider } from "react-redux";
@@ -44,7 +45,9 @@ export default function RootLayout({
             <Header />
             {enableMouseTracer && <MouseTracer />}
           </span>
-          <div className="flex-grow">{children}</div>
+          <Suspense fallback={<div>Loading...</div>}>
+            <div className="flex-grow">{children}</div>
+          </Suspense>
           <Footer />
         </body>
       </Provider>
