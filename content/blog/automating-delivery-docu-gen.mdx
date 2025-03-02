@@ -2,14 +2,301 @@
 title: Automating delivery documentation using Python
 description: Coming soon
 date: 2025-02-28
-tags: ["code", "blog", "gitops", "fluxcd", "development"]
+tags: ["code", "blog", "delivery", "cd", "automation"]
 published: true
 ---
 
 # **Automating delivery documentation using Python**
 
-<br />
-Coming soon!
-<br />
+In today's fast-paced software development landscape, maintaining clear and detailed delivery documentation is essential for ensuring smooth integrations and ongoing communication between development teams and integrators. In this blog post, we explore how a Python script can automate the creation of delivery documentation for microservices and manages release archiving in Jira. Following script content should serve only as an inspiration for you as your project can have different needs.
 
-<ZoomableImage src="/terraform_argo_arch_diagram.png" />
+Let's see first, what we are tring to build:
+
+
+| Microservice         | Group      | Version  | Connected story         | Change Log                                                                              | README changed |
+|-----------------------|-----|-----|-----|---------------------------------------------------------------------------------------------------|------------------|
+| Microservice A     |  Core      | 1.0.8    | Story XYZ-Related to user preferences and performance testing. | feat: XYZ performance testing                                             | Yes              |
+| Microservice B     |  Entity      | 2.1.0    | Story ABC-Related to validation fixing issue. | feat: ABC validation fixing                                             | No              |
+
+
+---
+
+## Overview
+At the end of your sprint you should have meeting, where your team is deciding, which microservices should be delivered to customer. Based on this meeting every microservice owner will run delivery CI pipeline, which will create Jira release automatically will all necessary metadata for your delivery documentation.
+
+With our Python script we want to achieve:
+
+1. **Generate Delivery Documentation:**  
+   It creates a markdown file (with a filename following the schema `delivery_yyyy_mm_dd.md`) that documents the microservices delivered in a release. This documentation makes it easier to read about microservices changes to integrate them into target environment faster.
+
+2. **Archive Jira Releases:**  
+   Once documentation is generated, the script updates Jira releases by archiving the versions that have been delivered. This helps keep the release board up to date and free from clutter.
+
+
+---
+
+## Key Features
+
+### Integration with Jira and GitLab
+
+- **Jira Integration:**  
+  The script connects to Jira to fetch project versions. It specifically filters for releases that have been marked as *RELEASED* within the last 30 days. For each released version, it extracts detailed information such as the microservice name, version, connected user-stories, bugs, and commit logs.
+
+- **GitLab Integration:**  
+  Using GitLab’s API, the script retrieves project data to cross-reference microservices. It further analyzes commits to detect changes in the repository, such as updates to the `README.md` file, and extracts commit messages that detail the changes made since the last tag.
+
+### Automated Documentation Generation
+
+- **Structured Markdown Output:**  
+  The generated markdown document contains a well-organized table that lists:
+  - **Microservice:** The name derived from the version string.
+  - **Group:** Based on the GitLab project structure.
+  - **Version:** Parsed from the version string.
+  - **Connected Story:** Summaries of associated user-stories (with a special format if the summary starts with a 4-digit number in brackets).
+  - **Change Log:** Commit messages categorized by severity (MAJOR, MINOR, PATCH, and NOT CLASSIFIED) after removing prefixes and JIRA task references.
+  - **README Changed:** A flag indicating whether the `README.md` file was updated since the last tag.
+
+- **File Naming Convention:**  
+  The document is named dynamically based on the current date (e.g., `delivery_2025_03_01.md`), ensuring that each delivery is tracked and archived separately.
+
+### Robust Error Handling and Logging
+
+- The script prints detailed log messages during execution, such as the detected project board, the number of released versions, and individual microservice details.
+- In case of any failures during the documentation generation or archiving process, it captures and prints the traceback to help with debugging.
+
+---
+
+## How It Works
+
+1. **Fetching Versions and Filtering:**  
+   The script starts by querying Jira for project versions, filtering out any that are either archived or not recently released.
+
+2. **Analyzing GitLab Projects:**  
+   It then fetches GitLab projects recursively to match microservice names, analyze commit history, and check for changes in key files like `README.md`.
+
+3. **Compiling the Documentation:**  
+   For each eligible version, the script builds a table row with detailed information including:
+   - The microservice name and its group (extracted from the GitLab project path).
+   - The version number (parsed from the version name).
+   - A summarized list of connected stories and bugs, formatted appropriately.
+   - A change log grouped by severity.
+   - An indication if the README was updated.
+
+4. **Archiving Process:**  
+   Finally, after generating the documentation, the script iterates through the released versions in Jira and archives them to mark the release as processed.
+
+---
+
+## Implementation
+
+Main part of the script for generating delivery documentation can look like this:
+
+```python
+def generate_delivery_documentation():
+    # Initialize the markdown content with table headers
+    file_content = (
+        "| Microservice | Group | Version | Connected Story | Change Log | README Changed |\n"
+        "| :--- | :---: | :---: | :--- | :--- | :---: |\n"
+    )
+
+    # Retrieve project versions from Jira
+    versions = jira_instance.project_versions("YOUR_PROJECT")
+
+    # Filter versions that are not archived, have a release date, and were released within the last 30 days
+    thirty_days_ago = datetime.now(timezone.utc) - timedelta(days=30)
+    versions_to_process = [
+        version for version in versions
+        if version.raw.get('releaseDate') 
+        and not version.raw.get('archived') 
+        and datetime.strptime(version.raw['releaseDate'], '%Y-%m-%d').replace(tzinfo=timezone.utc) >= thirty_days_ago
+    ]
+
+    # List to hold versions that are actually released
+    released_versions = []
+    # List to hold data rows for the markdown table
+    release_services_list = []
+
+    # Process each version to determine if it's released
+    for version in versions_to_process:
+        # Build a JQL query for issues in the current version (if needed later)
+        jql_query = f'fixVersion = "{version.name}"'
+        # Search for issues associated with the version (not used further in current implementation)
+        issues_in_sprint = jira_instance.search_issues(jql_query)
+
+        if version.released:
+            print(f"Appending version: {version}")
+            released_versions.append(version)
+
+    print(f"Found versions: {len(released_versions)}")
+
+    # If there are released versions, proceed to fetch GitLab project data
+    if released_versions:
+        print("Fetching GitLab Projects...")
+        all_gitlab_projects = utils.get_all_projects_recursively(gl, GITLAB_GROUP_ID)
+
+        # Process each released version to extract microservice and change log details
+        for idx, version in enumerate(released_versions):
+            if version.raw['released']:
+                print(f"{idx + 1}. {version.raw['name']}, {version.raw['description']}")
+
+                # Use regex to split the version string into microservice name and version number
+                pattern = r"^(.*?)-(\d+\.\d+\.\d+(-[0-9A-Za-z.-]+)?)?$"
+                match = re.match(pattern, version.raw['name'])
+                if match:
+                    version_microservice_name = match.group(1)
+                    version_value = match.group(2)
+                    print("MS Name: " + version_microservice_name)
+                    print("MS Version: " + version_value)
+
+                    # Find the corresponding GitLab project based on microservice name
+                    gitlab_project = utils.find_project_by_name(all_gitlab_projects, version_microservice_name)
+                    if gitlab_project is not None:
+                        # Retrieve commits and diffs from the latest tag in the GitLab project
+                        commits, latest_tag, diff = utils.get_commits_between_latest_tags(gl, gitlab_project.id)
+
+                        connected_stories = []
+                        change_log = []
+
+                        # Determine the microservice group from the GitLab project path
+                        project_path = gitlab_project.path_with_namespace
+                        group_path_parts = project_path.split('/')[2:-1]
+                        group_name = '/'.join(group_path_parts) if len(group_path_parts) > 1 else group_path_parts[0]
+
+                        # Check if README.md was changed by looking through the diff
+                        readme_changed = False
+                        if diff is not None:
+                            for file in diff['diffs']:
+                                if file['new_path'] == 'README.md' or file['old_path'] == 'README.md':
+                                    readme_changed = True
+                                    break
+                        readme_flag = 'Yes' if readme_changed else 'No'
+
+                        # Use a set to avoid duplicate connected stories
+                        story_set = set()
+
+                        # Process each commit to extract commit titles and connected Jira stories
+                        if commits:
+                            for commit in commits:
+                                # Add commit title to the change log
+                                change_log.append(commit.title)
+                                # Look for Jira issue references in commit titles using the predefined prefix
+                                issue_match = re.search(r"PROJECT_NAME-\d+", commit.title)
+                                if issue_match:
+                                    issue_key = issue_match.group()
+                                    try:
+                                        # Retrieve the Jira issue and its summary
+                                        issue = jira_instance.issue(issue_key)
+                                        summary = issue.fields.summary
+                                        connected_stories.append(
+                                            f"[JIRA: {issue_key} - {summary}]"
+                                        )
+                                    except jira.exceptions.JIRAError as e:
+                                        print(f"Error fetching Jira issue {issue_key}: {e}")
+
+                        # Construct a row for the markdown table with all gathered details
+                        table_row = [
+                            version_microservice_name,
+                            group_name,
+                            version_value,
+                            "<br>".join([story.strip('[]') for story in connected_stories]),
+                            "<br>".join(change_log),
+                            readme_flag
+                        ]
+                        release_services_list.append(table_row)
+
+        # Sort the list of release services alphabetically by microservice name
+        sorted_release_services_list = sorted(release_services_list, key=itemgetter(0))
+        # Append each sorted row to the markdown file content
+        for release_service in sorted_release_services_list:
+            file_content += f"| {' | '.join(release_service)} |\n"
+            print(file_content)
+
+        # Prepare parameters for committing the markdown file to GitLab
+        delivery_docu_project_id = "123"
+        file_path = datetime.now().strftime("delivery_%Y-%m-%d_%H-%M.md")
+        branch_name = "main"
+        commit_message = "sync: delivery documentation"
+
+        # Commit and push the markdown file using a utility function
+        utils.commit_and_push_file(gl, delivery_docu_project_id, file_path, branch_name, commit_message, file_content)
+        print("==> Generate Delivery Documentation Part completed.")
+```
+
+### Explanation of Key Sections
+
+•	Initialization and Setup:
+The function starts by setting up connections to GitLab and Jira. It initializes the markdown content with table headers.
+
+•	Fetching Versions:
+The script retrieves project versions from Jira and filters them based on their release date and archive status. Only versions released within the last 30 days are considered.
+
+•	Processing Each Version:
+For each version, a regular expression extracts the microservice name and version number. The script then finds the corresponding GitLab project and fetches commit details and diffs to identify changes.
+
+•	Building the Table Row:
+It compiles all relevant details such as connected stories (after processing Jira issues), commit logs, and whether the README.md was modified, then appends this data as a new row in the markdown table.
+
+•	Finalization:
+Finally, the markdown file is named dynamically using the current date and pushed to the repository via GitLab.
+
+
+Here is example implementation of the archiving process in Python:
+
+```python
+def archive_jira_releases():
+    print("====> Archive Jira Releases Part started...")
+    jira_options = {'server': JIRA_HOST}
+    jira_instance = JIRA(basic_auth=(JIRA_USER, JIRA_PASSWORD), options=jira_options)
+
+    # Find boards associated with the project
+    boards = jira_instance.boards()
+    board_name = "Your board name"
+    project_board: Board = {}
+    for board in boards:
+        if board_name in board.name:  # Check if project key is in board name
+            project_board = board
+    print(f"Project Board: {project_board.raw['name']}")
+
+    versions = jira_instance.project_versions("YOUR_PROJECT")
+    # Filter not archived versions released in the last 30 days
+    three_weeks_ago = datetime.now(timezone.utc) - timedelta(days=30)
+    versions_to_process = list(filter(
+        lambda version: version.raw.get('releaseDate') and version.raw.get('archived') is not True and
+                        datetime.strptime(version.raw['releaseDate'], '%Y-%m-%d').replace(
+                            tzinfo=timezone.utc) >= three_weeks_ago,
+        versions
+    ))
+
+    print("\nVersions:")
+    for idx, version in enumerate(versions_to_process):
+        if version.raw['released']:
+            print(f"{idx + 1}. {version.raw['name']}, {version.raw['description']}")
+            version.update(archived=True)
+    print("====> Archive Jira Releases Part completed.")
+
+```
+
+### Explanation of the Archiving Process	
+•	Setup:
+Similar to the documentation generation function, this section connects to Jira and retrieves the project board.
+•	Filtering Versions:
+The script filters versions to include only those that are not archived and were released in the last 30 days.
+•	Archiving:
+For each released version that meets the criteria, the function updates its status to archived, thus keeping the Jira board organized.
+
+## Benefits of the Approach
+
+- **Enhanced Communication:**  
+  Integrators receive a well-structured document that clearly outlines the changes and updates delivered in each release, reducing ambiguity and manual effort.
+
+- **Consistency and Traceability:**  
+  The automated approach ensures that each release is documented with the same level of detail and consistency, which is crucial for auditing and future reference.
+
+- **Improved Workflow Integration:**  
+  By leveraging APIs from Jira and GitLab, the process seamlessly integrates into the existing development pipeline, making it easier to adopt and maintain over time.
+
+---
+
+## Conclusion
+
+Automating the generation of delivery documentation is a powerful strategy for any organization working with microservices. The Python script described here not only creates a detailed markdown document that summarizes microservice releases but also helps maintain an organized release management process by archiving Jira releases. This results in improved communication, enhanced traceability, and overall efficiency in managing delivery pipelines.
