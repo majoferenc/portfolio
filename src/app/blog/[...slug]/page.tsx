@@ -3,8 +3,10 @@ import { MDXContent } from "@/components/mdx-components";
 
 import "@/styles/mdx.css";
 import { Metadata } from "next";
+
 import { siteConfig } from "@/config/site";
 import { Tag } from "@/components/tag";
+
 interface PostPageProps {
   params: {
     slug: string[];
@@ -48,9 +50,10 @@ export async function generateStaticParams(): Promise<
 
 export default async function PostPage({ params }: PostPageProps) {
   const post = await getPostFromParams(params);
-
+  
   return (
-    <article className="py-20 dark:prose-invert max-w-3xl mx-auto h-full max-w-5xl max-h-full px-10">
+    <div className="relative min-h-screen">
+      <article className="container relative py-20 dark:prose-invert max-w-3xl mx-auto h-full max-w-5xl max-h-full px-10">
       <h1 className="mb-2 text-4xl font-bold">{post!.title}</h1>
       <div className="flex gap-2 mb-2">
         {post!.tags?.map((tag) => (
@@ -63,5 +66,6 @@ export default async function PostPage({ params }: PostPageProps) {
       <hr className="my-4" />
       <MDXContent code={post!.body} />
     </article>
+    </div>
   );
 }

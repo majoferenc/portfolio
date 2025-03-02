@@ -2,14 +2,13 @@
 
 import Image from "next/image";
 /* eslint-disable react/jsx-no-target-blank */
-import React, { RefObject, useEffect, useRef, useMemo } from "react";
+import React, { RefObject, useEffect, useRef } from "react";
 import { motion } from "framer-motion";
 import { ScrollParallax } from "react-just-parallax";
 import { Parallax } from "react-parallax"
 
 import { useAppSelector } from "../app/hooks";
 import { selecSidebarOpened } from "../components/Sidebar/SidebarSlice";
-import { WavyBackground } from "../components/WavyBackground/WavyBackground";
 import { Scroll } from "../components/Scroll/Scroll";
 import { ExpertiseCard } from "../components/ExpertiseCard/ExpertiseCard";
 import { ByTheNumbersCard } from "../components/ByTheNumbersCard/ByTheNumbersCard";
@@ -80,11 +79,6 @@ export default function Page() {
   const iconsRef = useRef<HTMLDivElement | null>(null);
   const parallaxRef = useRef(null);
   const sidebarOpened = useAppSelector(selecSidebarOpened);
-
-  const wavyBgElement = useMemo(
-    () => <WavyBackground className="max-w-4xl mx-auto overflow-hidden shadow-md" />,
-    []
-  );
   
   useEffect(() => {
     if (sidebarOpened === true) {
@@ -107,8 +101,7 @@ export default function Page() {
   };
 
   return (
-    <div className="md:my-0 md:pt-40 pt-20 bg-black" id="hero">
-      {wavyBgElement}
+    <div className="relative md:my-0 md:pt-40 pt-20" id="hero">
         <motion.div
         initial={{ opacity: 0, y: 100 }}
         animate={{ opacity: 1, y: 0 }}

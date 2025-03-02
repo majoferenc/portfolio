@@ -10,7 +10,8 @@ import { Footer } from "../components/footer/Footer";
 import { Header } from "../components/header/Header";
 import { Sidebar } from "../components/Sidebar/Sidebar";
 import MouseTracer  from "../components/MouseTracer/MouseTracer";
-import React, { useEffect, useState } from 'react';
+import React, { useEffect, useState, useMemo } from 'react';
+import { WavyBackground } from "../components/WavyBackground/WavyBackground";
 
 const geistSans = localFont({
   src: "./fonts/GeistVF.woff",
@@ -34,6 +35,11 @@ export default function RootLayout({
       setEnableMouseTracer(true);
     }
   }, []);
+
+  const wavyBgElement = useMemo(
+    () => <WavyBackground className="absolute inset-0 w-full h-full -z-10 shadow-md" />,
+    []
+  );
   return (
     <html lang="en">
       <Provider store={store}>
@@ -46,7 +52,10 @@ export default function RootLayout({
             {enableMouseTracer && <MouseTracer />}
           </span>
           <Suspense fallback={<div>Loading...</div>}>
-            <div className="flex-grow">{children}</div>
+            <div>
+              {wavyBgElement}
+            </div>
+            <div className="flex-grow relative z-10">{children}</div>
           </Suspense>
           <Footer />
         </body>

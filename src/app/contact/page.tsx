@@ -1,10 +1,9 @@
 "use client";
 
-import React, { useState, useMemo } from "react";
+import React, { useState } from "react";
 import { motion } from "framer-motion";
 import emailjs from "emailjs-com";
 import { ButtonWrapper } from "../../components/SpotlightButton/SpotlightButton";
-import { WavyBackground } from "../../components/WavyBackground/WavyBackground";
 
 export default function ContactPage() {
   const [name, setName] = useState("");
@@ -13,11 +12,6 @@ export default function ContactPage() {
   const [phoneNumber, setPhoneNumber] = useState("");
   const [message, setMessage] = useState("");
   const [statusMessage, setStatusMessage] = useState("");
-
-   const wavyBgElement = useMemo(
-    () => <WavyBackground className="max-w-4xl mx-auto overflow-hidden shadow-md" />,
-    []
-  );
 
   const handleSubmit = async (e: React.FormEvent<HTMLFormElement>) => {
     e.preventDefault();
@@ -52,7 +46,6 @@ export default function ContactPage() {
 
   return (
     <div className="md:pt-40 *:pt-20">
-        {wavyBgElement}
         <motion.h2
           initial={{ opacity: 0, y: 100 }}
           animate={{ opacity: 1, y: 0 }}
