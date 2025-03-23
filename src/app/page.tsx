@@ -101,77 +101,76 @@ export default function Page() {
   };
 
   return (
-    <div className="relative md:my-0 md:pt-40 pt-20" id="hero">
-        <motion.div
-        initial={{ opacity: 0, y: 100 }}
-        animate={{ opacity: 1, y: 0 }}
-        transition={{ delay: 0.4, duration: 0.8, ease: "easeInOut" }}
-      >
-        <ScrollParallax strength={0.05}>
-        <span className="text-center">
-          <p className="absolute text-3xl left-0 right-0 m-auto mx-auto flex border w-fit bg-gradient-to-r blur-xl brightness-150 from-orange-600 via-orange-600 to-orange-600 bg-clip-text md:text-6xl box-content font-extrabold text-transparent text-center select-none">
-            {fullNammeText}
-          </p>
-          <p className="relative text-3xl w-fit p-2 mx-auto justify-center flex h-fit bg-gradient-to-r items-center from-gray-200 via-gray-200 to-gray-200 bg-clip-text md:text-6xl font-extrabold text-center select-auto">
-            {fullNammeText}
-          </p>
-        </span>
-        </ScrollParallax>
-        <div className="grid md:grid-cols-3 grid-cols- text-center">
-          <div />
-          <div className="text-left md:w-96 md:my-80 md:mb-0">
-            <h2
-              ref={descriptionRef}
-              className={`drop-shadow-2xl md:text-4xl text-xl font-mono m-8 ${animationClasses}`}
-            >
-              {descriptionText}
-            </h2>
-            <div
-              ref={iconsRef}
-              className={`grid grid-cols-2 grid-cols- md:px-16 px-20 mx-8 md:mx-0 ${animationClasses}`}
-            >
-              <a
-                href="https://www.linkedin.com/in/ing-marian-ferenc-slovakia/"
-                target="_blank"
-                className="h-[4rem] w-[4rem]"
-              >
-                <Image
-                  src="/linkedin-icon.png"
-                  width={100}
-                  height={100}
-                  className={`h-[4rem] m-0 ${hoverEffectClasses}`}
-                  alt="LinkedIn link"
-                />
-              </a>
-              <a
-                href="https://github.com/majoferenc"
-                target="_blank"
-                className="h-[4rem] w-[4rem]"
-              >
-                <Image
-                  src="/github-icon.png"
-                  width={100}
-                  height={100}
-                  className={`h-[4rem] m-0 ${hoverEffectClasses} bg-black rounded-full`}
-                  alt="GitHub link"
-                />
-              </a>
-            </div>
-          </div>
-          <div className="flex justify-center items-center md:pr-[80rem]">
+    <div className="relative pt-20 md:pt-40" id="hero">
+  <motion.div
+    initial={{ opacity: 0, y: 100 }}
+    animate={{ opacity: 1, y: 0 }}
+    transition={{ delay: 0.4, duration: 0.8, ease: "easeInOut" }}
+  >
+    <ScrollParallax strength={0.05}>
+      <span className="block text-center">
+        <p className="lg:text-6xl bg-gradient-to-br from-slate-300 to-slate-500 py-4 bg-clip-text text-center text-4xl font-medium tracking-tight text-transparent">
+          {fullNammeText}
+        </p>
+      </span>
+    </ScrollParallax>
+    {/* Flex container for description and image */}
+    <div className="flex flex-col md:flex-row items-center justify-center gap-8 mt-8">
+      {/* Description and icons container */}
+      <div className="flex flex-col items-center md:max-w-md px-4">
+        <h2
+          ref={descriptionRef}
+          className={`drop-shadow-2xl md:text-4xl text-xl font-mono m-4 ${animationClasses} text-center`}
+        >
+          {descriptionText}
+        </h2>
+        <div
+          ref={iconsRef}
+          className={`flex justify-center space-x-4 mt-4 ${animationClasses}`}
+        >
+          <a
+            href="https://www.linkedin.com/in/ing-marian-ferenc-slovakia/"
+            target="_blank"
+            className="h-16 w-16"
+          >
             <Image
-              src={"/IMG_2255.png"}
-              width={150}
+              src="/linkedin-icon.png"
+              width={100}
               height={100}
-              className="w-40 md:ml-0 md:min-w-[25rem] md:min-w-[20rem] rounded-tr-lg"
-              alt="Me"
+              className={`h-16 w-16 ${hoverEffectClasses}`}
+              alt="LinkedIn link"
             />
-          </div>
+          </a>
+          <a
+            href="https://github.com/majoferenc"
+            target="_blank"
+            className="h-16 w-16"
+          >
+            <Image
+              src="/github-icon.png"
+              width={100}
+              height={100}
+              className={`h-16 w-16 ${hoverEffectClasses} bg-black rounded-full`}
+              alt="GitHub link"
+            />
+          </a>
         </div>
-        <div className="text-center pb-20">
-          <Scroll />
-        </div>
-        </motion.div>
+      </div>
+      {/* Photo container */}
+      <div className="flex justify-center items-center">
+        <Image
+          src="/IMG_2255.png"
+          width={150}
+          height={150}
+          className="w-40 md:ml-0 md:min-w-[23rem] md:min-w-[20rem] rounded-tr-lg"
+          alt="Me"
+        />
+      </div>
+    </div>
+    <div className="text-center pb-20 mt-8">
+      <Scroll />
+    </div>
+  </motion.div>
       <div ref={bodyRef} className=" h-1/4 overflow-visible">
         <div>
           <div>
