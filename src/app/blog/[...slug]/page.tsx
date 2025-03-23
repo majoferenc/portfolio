@@ -3,27 +3,23 @@ import { MDXContent } from "@/components/mdx-components";
 
 import "@/styles/mdx.css";
 import { Metadata } from "next";
-
-import { siteConfig } from "@/config/site";
+import { formatDate, getReadingTime } from "@/lib/utils";
+import { Separator } from "@/components/ui/separator";
+import { notFound } from "next/navigation";
 import { Tag } from "@/components/tag";
 
-interface PostPageProps {
-  params: {
-    slug: string[];
-  };
+interface PageParams {
+  slug: string[];
 }
 
-async function getPostFromParams(params: PostPageProps["params"]) {
-  const slug = params?.slug?.join("/");
-  const post = posts.find((post) => post.slugAsParams === slug);
-
-  return post;
+function getPostFromParams(slug: string[]) {
+  const slugStr = slug.join("/");
+  const post = posts.find((post) => post.slugAsParams === slugStr);
+  return post || null;
 }
 
-export async function generateMetadata({
-  params,
-}: PostPageProps): Promise<Metadata> {
-  const post = await getPostFromParams(params);
+export function generateMetadata({ params }: { params: PageParams }): Metadata {
+  const post = getPostFromParams(params.slug);
 
   if (!post) {
     return {};
@@ -32,40 +28,55 @@ export async function generateMetadata({
   return {
     title: post.title,
     description: post.description,
-    authors: { name: siteConfig.author },
-    openGraph: {
-      title: post.title,
-      description: post.description,
-      type: "article",
-      url: post.slug,
-    },
   };
 }
 
-export async function generateStaticParams(): Promise<
-  PostPageProps["params"][]
-> {
-  return posts.map((post) => ({ slug: post.slugAsParams.split("/") }));
+export function generateStaticParams(): { slug: string[] }[] {
+  return posts.map((post) => ({
+    slug: post.slugAsParams.split("/")
+  }));
 }
 
-export default async function PostPage({ params }: PostPageProps) {
-  const post = await getPostFromParams(params);
-  
+export default function PostPage({ params }: { params: PageParams }) {
+  const post = getPostFromParams(params.slug);
+
+  if (!post) {
+    notFound();
+  }
+  const readingTime = getReadingTime(post.body);
+
   return (
-    <div className="relative min-h-screen">
-      <article className="container relative py-20 dark:prose-invert max-w-3xl mx-auto h-full max-w-5xl max-h-full px-10">
-      <h1 className="mb-2 text-4xl font-bold">{post!.title}</h1>
-      <div className="flex gap-2 mb-2">
-        {post!.tags?.map((tag) => (
-          <Tag tag={tag} key={tag} />
-        ))}
-      </div>
-      {post!.description ? (
-        <p className="text-xl mt-0 text-orange-400">{post!.description}</p>
-      ) : null}
-      <hr className="my-4" />
-      <MDXContent code={post!.body} />
-    </article>
+    <div className="relative min-h-screen flex">
+
+      <article className="flex-1 container py-10 lg:py-20 max-w-5xl">
+        <div className="space-y-4">
+          <div className="flex flex-wrap gap-2 items-center text-sm text-muted-foreground mb-2">
+            <time dateTime={post.date}>{formatDate(post.date)}</time>
+            <span>·</span>
+            <span>{readingTime} min read</span>
+          </div>
+
+          <h1 className="font-bold text-3xl sm:text-4xl md:text-5xl">{post.title}</h1>
+
+          {post.description && (
+            <p className="text-xl text-muted-foreground">{post.description}</p>
+          )}
+
+          {post.tags && post.tags.length > 0 && (
+            <div className="flex flex-wrap gap-2 pt-4">
+              {post.tags.map((tag) => (
+                <Tag key={tag} tag={tag} />
+              ))}
+            </div>
+          )}
+        </div>
+
+        <Separator className="my-8" />
+
+        <div className="prose">
+          <MDXContent code={post.body} />
+        </div>
+      </article>
     </div>
   );
 }

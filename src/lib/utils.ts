@@ -1,50 +1,69 @@
 import { type ClassValue, clsx } from "clsx";
 import { twMerge } from "tailwind-merge";
+import { format, parseISO } from "date-fns";
 import { Post } from "#site/content";
-import { slug } from "github-slugger";
+
 
 export function cn(...inputs: ClassValue[]) {
   return twMerge(clsx(inputs));
 }
 
-export function formatDate(input: string | number): string {
-  const date = new Date(input);
-  return date.toLocaleDateString("en-US", {
-    month: "long",
-    day: "numeric",
-    year: "numeric",
-  });
+export function formatDate(date: string) {
+  const parsedDate = parseISO(date);
+  return format(parsedDate, "MMMM d, yyyy");
 }
 
-export function sortPosts(posts: Array<Post>) {
+export function sortPosts(posts: Post[]) {
   return posts.sort((a, b) => {
-    if (a.date > b.date) return -1;
-    if (a.date < b.date) return 1;
-    return 0;
+    if (new Date(a.date) > new Date(b.date)) {
+      return -1;
+    }
+    return 1;
   });
 }
 
-export function getAllTags(posts: Array<Post>) {
-  const tags: Record<string, number> = {}
-  posts.forEach(post => {
-    if (post.published) {
-      post.tags?.forEach(tag => {
-        tags[tag] = (tags[tag] ?? 0) + 1;
-      })
+export function getReadingTime(content: string) {
+  const wordsPerMinute = 200;
+  const words = content.trim().split(/\s+/).length;
+  const minutes = Math.ceil(words / wordsPerMinute);
+  return minutes;
+}
+
+export function getTableOfContents(markdown: string) {
+  // Remove YAML front matter if it exists
+  if (markdown.startsWith('---')) {
+    const frontMatterEnd = markdown.indexOf('---', 3);
+    if (frontMatterEnd !== -1) {
+      markdown = markdown.slice(frontMatterEnd + 3);
     }
-  })
+  }
 
-  return tags;
+  // Match headings at any level (from # to ######)
+  const headingRegex = /^(#{1,6})\s+(.*)$/gm;
+  const headings = markdown.match(headingRegex);
+  if (!headings) return [];
+
+  return headings
+    .map((heading) => {
+      const match = heading.match(/^(#{1,6})\s+(.*)$/);
+      if (!match) return null;
+      let title = match[2].trim();
+
+      // Remove markdown emphasis markers (e.g., **)
+      title = title.replace(/\*\*/g, '');
+
+      // Create a slug from the title
+      const slug = title
+        .toLowerCase()
+        .replace(/\s+/g, '-')
+        .replace(/[^\w-]+/g, '');
+
+      return { title, slug };
+    })
+    .filter(Boolean);
 }
 
-export function sortTagsByCount(tags: Record<string, number>) {
-  return Object.keys(tags).sort((a, b) => tags[b] - tags[a])
-}
 
-export function getPostsByTagSlug(posts: Array<Post>, tag: string) {
-  return posts.filter(post => {
-    if (!post.tags) return false
-    const slugifiedTags = post.tags.map(tag => slug(tag))
-    return slugifiedTags.includes(tag)
-  })
+export function countWords(content: string): number {
+  return content.trim().split(/\s+/).length;
 }
