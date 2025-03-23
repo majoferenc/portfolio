@@ -10,8 +10,9 @@ import { Footer } from "../components/footer/Footer";
 import { Header } from "../components/header/Header";
 import { Sidebar } from "../components/Sidebar/Sidebar";
 import MouseTracer  from "../components/MouseTracer/MouseTracer";
-import React, { useEffect, useState, useMemo } from 'react';
+import React, { useEffect, useState } from 'react';
 import { WavyBackground } from "../components/WavyBackground/WavyBackground";
+import { ThemeProvider } from "@/components/theme-provider";
 
 const geistSans = localFont({
   src: "./fonts/GeistVF.woff",
@@ -36,28 +37,26 @@ export default function RootLayout({
     }
   }, []);
 
-  const wavyBgElement = useMemo(
-    () => <WavyBackground className="absolute inset-0 w-full h-full -z-10 shadow-md" />,
-    []
-  );
   return (
     <html lang="en">
       <Provider store={store}>
         <body
           className={`${geistSans.variable} ${geistMono.variable} antialiased min-h-screen flex flex-col`}
         >
-          <span>
-            <Sidebar />
-            <Header />
-            {enableMouseTracer && <MouseTracer />}
-          </span>
-          <Suspense fallback={<div>Loading...</div>}>
+          <ThemeProvider defaultTheme="dark" storageKey="theme-mode">
+            <span>
+              <Sidebar />
+              <Header />
+              {enableMouseTracer && <MouseTracer />}
+            </span>
             <div>
-              {wavyBgElement}
-            </div>
-            <div className="flex-grow relative z-10">{children}</div>
-          </Suspense>
-          <Footer />
+                <WavyBackground className="absolute inset-0 w-full h-full -z-10" />
+              </div>
+            <Suspense fallback={<div>Loading...</div>}>
+              <div className="flex-grow relative z-10">{children}</div>
+            </Suspense>
+            <Footer />
+          </ThemeProvider>
         </body>
       </Provider>
     </html>

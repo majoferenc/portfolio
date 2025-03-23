@@ -112,7 +112,7 @@ export default function Page() {
           <p className="absolute text-3xl left-0 right-0 m-auto mx-auto flex border w-fit bg-gradient-to-r blur-xl brightness-150 from-orange-600 via-orange-600 to-orange-600 bg-clip-text md:text-6xl box-content font-extrabold text-transparent text-center select-none">
             {fullNammeText}
           </p>
-          <p className="relative text-3xl w-fit p-2 mx-auto justify-center flex h-fit bg-gradient-to-r items-center from-gray-200 via-gray-200 to-gray-200 bg-clip-text md:text-6xl font-extrabold text-transparent text-center select-auto">
+          <p className="relative text-3xl w-fit p-2 mx-auto justify-center flex h-fit bg-gradient-to-r items-center from-gray-200 via-gray-200 to-gray-200 bg-clip-text md:text-6xl font-extrabold text-center select-auto">
             {fullNammeText}
           </p>
         </span>
@@ -122,7 +122,7 @@ export default function Page() {
           <div className="text-left md:w-96 md:my-80 md:mb-0">
             <h2
               ref={descriptionRef}
-              className={`drop-shadow-2xl md:text-4xl text-xl font-mono m-8 text-white ${animationClasses}`}
+              className={`drop-shadow-2xl md:text-4xl text-xl font-mono m-8 ${animationClasses}`}
             >
               {descriptionText}
             </h2>
@@ -139,7 +139,7 @@ export default function Page() {
                   src="/linkedin-icon.png"
                   width={100}
                   height={100}
-                  className={`h-[4rem] m-0 ${hoverEffectClasses} bg-white-700`}
+                  className={`h-[4rem] m-0 ${hoverEffectClasses}`}
                   alt="LinkedIn link"
                 />
               </a>
@@ -152,7 +152,7 @@ export default function Page() {
                   src="/github-icon.png"
                   width={100}
                   height={100}
-                  className={`h-[4rem] m-0 ${hoverEffectClasses}`}
+                  className={`h-[4rem] m-0 ${hoverEffectClasses} bg-black rounded-full`}
                   alt="GitHub link"
                 />
               </a>
@@ -298,7 +298,6 @@ export default function Page() {
               </div>
               <Parallax
           blur={{ min: -15, max: 15 }}
-          bgImage="/graduation-cap.svg"
           bgImageAlt="University Degree"
           strength={400}
         >
@@ -324,7 +323,7 @@ export default function Page() {
               duration: 0.8,
               ease: "easeInOut",
             }}
-            className="mt-20 text-white text-center text-4xl font-medium tracking-tight"
+            className="mt-20 text-center text-4xl font-medium tracking-tight"
           >
             Engineer&apos;s degree in Informatics from Technical University of Kosice 
           </motion.p>
@@ -332,7 +331,7 @@ export default function Page() {
       </div>
       </Parallax>
               <div className="flex items-center justify-center">
-                <button className="relative inline-flex h-12 overflow-hidden rounded-full p-[1px] focus:outline-none focus:ring-2 focus:ring-slate-400 focus:ring-offset-2 focus:ring-offset-slate-50">
+                <button className="relative inline-flex h-12 overflow-hidden rounded-full p-[1px] focus:outline-none focus:ring-2 focus:ring-slate-400 focus:ring-offset-2 focus:ring-offset-slate-50 m-2">
                   <span className="absolute inset-[-1000%] animate-[spin_2s_linear_infinite] bg-[conic-gradient(from_90deg_at_50%_50%,#E2CBFF_0%,#393BB2_50%,#E2CBFF_100%)]" />
                   <span className="inline-flex h-full w-full cursor-pointer items-center justify-center rounded-full bg-slate-950 px-3 py-1 text-sm font-medium text-white backdrop-blur-3xl">
                     <a

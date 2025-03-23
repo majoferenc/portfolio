@@ -6,6 +6,7 @@ import { usePathname } from 'next/navigation'
 
 import { useAppDispatch } from "../../app/hooks";
 import { setSidebarOpenedValue } from "../Sidebar/SidebarSlice";
+import { ThemeToggle } from "@/components/theme-toggle";
 
 export const navigation = [
   {
@@ -47,7 +48,7 @@ export function Header() {
 
   return (
     <div>
-      <header className="flex w-auto bg-black bg-opacity-50 fixed inset-x-0 z-30 shadow">
+      <header className="flex w-auto bg-opacity-50 fixed inset-x-0 z-30 shadow">
         <div className="flex">
           <button
             type="submit"
@@ -55,9 +56,9 @@ export function Header() {
             onClick={() => openSidebar()}
           >
             <svg
-              className="h-5 w-5 z-30"
+              className="h-5 w-5 z-30 bg-black"
               xmlns="http://www.w3.org/2000/svg"
-              fill="none"
+              fill="black"
               viewBox="0 0 24 24"
               stroke="white"
             >
@@ -71,31 +72,34 @@ export function Header() {
           </button>
           <div className="flex flex-wrap place-content-center h-16">
             <Link href="/">
-              <div className="shadow text-white font-medium text-lg">
+              <div className="shadow font-medium text-lg">
                 Ing. Marian Ferenc
               </div>
             </Link>
           </div>
         </div>
-        {location === '/' && (
-          <div className="flex-auto text-gray-200 place-content-center items-center text-center h-16 hidden md:block pr-40">
-            {navigation.map((item) => (
-              <a
-                key={item.id}
-                href={item.url}
-                className={`relative font-code text-xs uppercase text-n-1 transition-colors hover:text-color-1 items-center text-center ${
-                  item.onlyMobile ? "lg:hidden" : ""
-                } px-6 py-6 md:py-8 lg:-mr-0.25 lg:text-xs lg:font-semibold ${
-                  item.url === location
-                    ? "z-2 lg:text-n-1"
-                    : "lg:text-n-1/50"
-                } lg:leading-5 lg:hover:text-n-2 xl:px-12`}
-              >
-                {item.title}
-              </a>
-            ))}
-          </div>
-        )}
+        <div className="flex-auto place-content-center items-center text-center h-16 hidden md:block pr-40">
+            {location === '/' && (
+              <div>              
+                  {navigation.map((item) => (
+                  <a
+                    key={item.id}
+                    href={item.url}
+                    className={`relative font-code text-xs uppercase text-n-1 transition-colors hover:text-color-1 items-center text-center ${
+                      item.onlyMobile ? "lg:hidden" : ""
+                    } px-6 py-6 md:py-8 lg:-mr-0.25 lg:text-xs lg:font-semibold ${
+                      item.url === location
+                        ? "z-2 lg:text-n-1"
+                        : "lg:text-n-1/50"
+                    } lg:leading-5 lg:hover:text-n-2 xl:px-12`}
+                  >
+                    {item.title}
+                  </a>
+                ))}
+              </div>
+            )}
+            <ThemeToggle />
+         </div>
       </header>
     </div>
   );

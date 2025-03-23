@@ -3,6 +3,7 @@
 import React, { useEffect, useRef, useState } from "react";
 import { createNoise3D } from "simplex-noise";
 import { cn } from "../../utils/cn";
+import { useTheme } from "@/components/theme-provider";
 
 export const WavyBackground = ({
   children,
@@ -27,14 +28,30 @@ export const WavyBackground = ({
   waveOpacity?: number;
   [key: string]: any;
 }) => {
+  const { theme } = useTheme();
   const noise = createNoise3D();
   const canvasRef = useRef<HTMLCanvasElement>(null);
   let animationId: number;
   
-  // Store canvas context and dimensions in refs to maintain them across renders
+  // Keep canvas context and dimensions in refs.
   const ctxRef = useRef<CanvasRenderingContext2D | null>(null);
   const dimensionsRef = useRef({ width: 0, height: 0 });
   const ntRef = useRef(0);
+
+  // Use a ref for the background color so that the animation loop always gets the latest value.
+  const backgroundColorRef = useRef(backgroundFill || "black");
+
+  // Delay reading the computed style until after the DOM has updated the theme class.
+  useEffect(() => {
+    const timeout = setTimeout(() => {
+      const computedStyle = getComputedStyle(document.documentElement);
+      backgroundColorRef.current =
+        backgroundFill ||
+        computedStyle.getPropertyValue("--background").trim() ||
+        "black";
+    }, 0);
+    return () => clearTimeout(timeout);
+  }, [theme, backgroundFill]);
 
   const getSpeed = () => {
     switch (speed) {
@@ -52,7 +69,7 @@ export const WavyBackground = ({
     
     dimensionsRef.current = {
       width: window.innerWidth,
-      height: window.innerHeight
+      height: window.innerHeight,
     };
     
     canvasRef.current.width = dimensionsRef.current.width;
@@ -88,7 +105,7 @@ export const WavyBackground = ({
     
     ntRef.current += getSpeed();
     
-    for (let i = 0; i < n; i+=1) {
+    for (let i = 0; i < n; i += 1) {
       ctx.beginPath();
       ctx.lineWidth = waveWidth || 50;
       ctx.strokeStyle = waveColors[i % waveColors.length];
@@ -109,7 +126,8 @@ export const WavyBackground = ({
     const ctx = ctxRef.current;
     const { width, height } = dimensionsRef.current;
     
-    ctx.fillStyle = backgroundFill || "black";
+    // Use the current background color from our ref.
+    ctx.fillStyle = backgroundColorRef.current;
     ctx.globalAlpha = waveOpacity || 0.5;
     ctx.fillRect(0, 0, width, height);
     drawWave(5);
@@ -123,13 +141,13 @@ export const WavyBackground = ({
       updateCanvasDimensions();
     };
     
-    window.addEventListener('resize', handleResize);
+    window.addEventListener("resize", handleResize);
     
     return () => {
-      window.removeEventListener('resize', handleResize);
+      window.removeEventListener("resize", handleResize);
       cancelAnimationFrame(animationId);
     };
-  });
+  }, []);
 
   const [isSafari, setIsSafari] = useState(false);
   useEffect(() => {
@@ -141,19 +159,12 @@ export const WavyBackground = ({
   }, []);
 
   return (
-    <div
-      className={cn(
-        "h-5/6 flex flex-col items-center justify-center",
-        containerClassName
-      )}
-    >
+    <div className={cn("h-5/6 flex flex-col items-center justify-center", containerClassName)}>
       <canvas
-        className="absolute inset-0 z-0 brightness-50 shadow backdrop-blur"
+        className="absolute inset-0 z-0 backdrop-blur"
         ref={canvasRef}
         id="canvas"
-        style={{
-          ...(isSafari ? { filter: `blur(${blur}px)` } : {}),
-        }}
+        style={isSafari ? { filter: `blur(${blur}px)` } : {}}
       />
       <div className={cn("relative z-10", className)} {...props}>
         {children}

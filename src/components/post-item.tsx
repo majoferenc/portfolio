@@ -30,7 +30,7 @@ export function PostItem({
           <Tag tag={tag} key={tag} />
         ))}
       </div>
-      <div className="max-w-none text-white">{description}</div>
+      <div className="max-w-none">{description}</div>
       <div className="flex justify-between items-center">
         <dl>
           <dt className="sr-only">Published On</dt>
