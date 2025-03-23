@@ -7,6 +7,7 @@ import { motion } from "framer-motion";
 import { ScrollParallax } from "react-just-parallax";
 import { Parallax } from "react-parallax"
 
+import { InfiniteTechTicker } from "@/components/ui/infinite-ticker";
 import { useAppSelector } from "../app/hooks";
 import { selecSidebarOpened } from "../components/Sidebar/SidebarSlice";
 import { Scroll } from "../components/Scroll/Scroll";
@@ -27,6 +28,21 @@ const opacitySetter = (
 };
 
 export default function Page() {
+  
+  const techItems = [
+    { id: "react", name: "React", image: "/React.png"},
+    { id: "spring", name: "Spring Boot", image: "/Spring.png"},
+    { id: "terraform", name: "Terraform", image: "/Terraform.png"},
+    { id: "aws", name: "AWS", image: "/AWS.png"},
+    { id: "azure", name: "Azure", image: "/Azure.png"},
+    { id: "vue.js", name: "Vue.js", image: "/Vue.png"},
+    { id: "docker", name: "Docker", image: "/Docker.png"},
+    { id: "kubernetes", name: "Kubernetes", image: "/Kubernetes.png"},
+    { id: "argocd", name: "ArgoCD", image: "/ArgoCD.png"},
+    { id: "jenkins", name: "Jenkins", image: "/Jenkins.png"},
+    { id: "gitlabci", name: "Gitlab CI", image: "/GitLab.png"},
+  ];
+
   const durationClass = "duration-300";
   const animationClasses = `transform transition-all opacity-0 ${durationClass}`;
   const hoverEffectClasses = `hover:-translate-y-1  motion-safe:hover:scale-110 ${durationClass}`;
@@ -167,6 +183,19 @@ export default function Page() {
         />
       </div>
     </div>
+          {/* Tech Stack Section */}
+          <motion.section
+        id="tech-stack"
+        className="py-12"
+        initial={{ opacity: 0 }}
+        whileInView={{ opacity: 1 }}
+        transition={{ duration: 0.6 }}
+        viewport={{ once: true }}
+      >
+        <div title="Tech Stack" />
+
+        <InfiniteTechTicker items={techItems} speed={30} />
+      </motion.section>
     <div className="text-center pb-20 mt-8">
       <Scroll />
     </div>
