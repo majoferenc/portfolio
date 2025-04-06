@@ -118,7 +118,8 @@ export default function Page() {
 
   return (
     <div className="relative pt-20 md:pt-20" id="hero">
-  <motion.div
+      <div className="flex h-screen justify-center items-center">
+      <motion.div
     initial={{ opacity: 0, y: 100 }}
     animate={{ opacity: 1, y: 0 }}
     transition={{ delay: 0.4, duration: 0.8, ease: "easeInOut" }}
@@ -176,9 +177,9 @@ export default function Page() {
       <div className="flex justify-center items-center">
         <Image
           src="/IMG_2255.png"
-          width={140}
-          height={140}
-          className="w-40 md:ml-0 md:min-w-[18rem] md:min-w-[18rem] rounded-tr-lg mask-r-from-70%"
+          width={145}
+          height={145}
+          className="w-40 md:ml-0 md:min-w-[20rem] md:min-w-[20rem] rounded-tr-lg mask-r-from-70%"
           alt="Me"
         />
       </div>
@@ -200,12 +201,13 @@ export default function Page() {
       <Scroll />
     </div>
   </motion.div>
+      </div>
       <div ref={bodyRef} className=" h-1/4 overflow-visible">
         <div>
           <div>
             <div className="pb-40">
               <div ref={parallaxRef}>
-                <div className="mx-auto bg-gradient-to-l from-white to-white h-60">
+                <div className="mx-auto h-60">
                 <div className="mx-auto container w-full flex flex-col justify-center items-center">
                   <div className="flex justify-center items-center flex-col">
                     <div className="mt-10 hover:outline-2 hover:outline-white transition-all duration-300" id="by-the-numbers">
