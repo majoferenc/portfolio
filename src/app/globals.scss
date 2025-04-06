@@ -1,8 +1,4 @@
-@tailwind base;
-@tailwind components;
-@tailwind utilities;
-@tailwind variants;
-@tailwind screens;
+@import "tailwindcss";
 
 @layer base {
   :root {
@@ -106,13 +102,9 @@
     --input: #3f3f46;
     --ring: #d4d4d8;
   }
-
-  * {
-    @apply border-border;
-  }
+  
 
   body {
-    @apply bg-background text-foreground;
     font-feature-settings: "rlig" 1, "calt" 1;
     transition: background-color 0.3s ease, color 0.3s ease;
   }
@@ -151,7 +143,6 @@ body {
 @layer base {
   html {
     scroll-behavior: smooth;
-    @apply bg-background text-foreground;
   }
 }
 

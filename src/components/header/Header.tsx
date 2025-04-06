@@ -48,7 +48,7 @@ export function Header() {
 
   return (
     <div>
-      <header className="flex w-auto bg-opacity-50 fixed inset-x-0 z-30 shadow">
+      <header className="flex w-auto fixed bg-stone-700/40 inset-x-0 z-30 shadow-lg">
         <div className="flex">
           <button
             type="submit"
@@ -56,7 +56,7 @@ export function Header() {
             onClick={() => openSidebar()}
           >
             <svg
-              className="h-5 w-5 z-30 bg-black"
+              className="h-5 w-5 z-30 bg-stone"
               xmlns="http://www.w3.org/2000/svg"
               fill="black"
               viewBox="0 0 24 24"

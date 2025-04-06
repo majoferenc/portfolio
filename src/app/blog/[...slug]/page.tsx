@@ -48,7 +48,7 @@ export default function PostPage({ params }: { params: PageParams }) {
   return (
     <div className="relative min-h-screen flex">
 
-      <article className="flex-1 container py-10 lg:py-20 max-w-5xl">
+      <article className="flex-1 mx-auto py-10 lg:py-20 max-w-5xl">
         <div className="space-y-4">
           <div className="flex flex-wrap gap-2 items-center text-sm text-muted-foreground mb-2">
             <time dateTime={post.date}>{formatDate(post.date)}</time>

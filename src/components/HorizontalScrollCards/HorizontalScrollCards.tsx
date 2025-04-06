@@ -101,6 +101,7 @@ const Card = forwardRef<HTMLDivElement, CardProps>(
         ref={ref}
         key={card.id}
         className="relative h-[50vh] min-w-[450px] sm:min-w-auto overflow-hidden bg-neutral-200 mb-10 p-10"
+        style={{ minWidth: '450px' }}
       >
         <div
           style={{
