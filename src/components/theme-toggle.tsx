@@ -24,6 +24,7 @@ export function ThemeToggle() {
         </Button>
       </DropdownMenuTrigger>
       <DropdownMenuContent align="end">
+        <div className="bg-stone-700/50">
         <DropdownMenuItem onClick={() => setTheme("light")} className="flex items-center gap-2">
           <Sun className="h-4 w-4" />
           <span>Light</span>
@@ -51,6 +52,7 @@ export function ThemeToggle() {
             </svg>
           )}
         </DropdownMenuItem>
+        </div>
       </DropdownMenuContent>
     </DropdownMenu>
   );

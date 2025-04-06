@@ -117,7 +117,7 @@ export default function Page() {
   };
 
   return (
-    <div className="relative pt-20 md:pt-40" id="hero">
+    <div className="relative pt-20 md:pt-20" id="hero">
   <motion.div
     initial={{ opacity: 0, y: 100 }}
     animate={{ opacity: 1, y: 0 }}
@@ -176,9 +176,9 @@ export default function Page() {
       <div className="flex justify-center items-center">
         <Image
           src="/IMG_2255.png"
-          width={150}
-          height={150}
-          className="w-40 md:ml-0 md:min-w-[23rem] md:min-w-[20rem] rounded-tr-lg"
+          width={140}
+          height={140}
+          className="w-40 md:ml-0 md:min-w-[18rem] md:min-w-[18rem] rounded-tr-lg mask-r-from-70%"
           alt="Me"
         />
       </div>
@@ -186,7 +186,7 @@ export default function Page() {
           {/* Tech Stack Section */}
           <motion.section
         id="tech-stack"
-        className="py-12"
+        className="py-2"
         initial={{ opacity: 0 }}
         whileInView={{ opacity: 1 }}
         transition={{ duration: 0.6 }}
