@@ -117,7 +117,7 @@ export default function Page() {
   };
 
   return (
-    <div className="relative pt-[40px] md:pt-[40px]" id="hero">
+    <div className="relative pt-[60px] md:pt-[60px]" id="hero">
       <div className="flex justify-center items-center">
       <motion.div
       className="w-full"
@@ -133,7 +133,7 @@ export default function Page() {
       </span>
     </ScrollParallax>
     {/* Flex container for description and image */}
-    <div className="flex flex-col md:flex-row justify-center gap-8 mt-8 w-full">
+    <div className="flex flex-col md:flex-row justify-center items-center gap-8 mt-8 w-full">
       {/* Description and icons container */}
       <div className="flex flex-col items-center w-full px-4 md:max-w-md">
         <h2
