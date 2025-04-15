@@ -117,9 +117,10 @@ export default function Page() {
   };
 
   return (
-    <div className="relative pt-20 md:pt-20" id="hero">
-      <div className="flex h-screen justify-center items-center">
+    <div className="relative pt-[40px] md:pt-[40px]" id="hero">
+      <div className="flex justify-center items-center">
       <motion.div
+      className="w-full"
     initial={{ opacity: 0, y: 100 }}
     animate={{ opacity: 1, y: 0 }}
     transition={{ delay: 0.4, duration: 0.8, ease: "easeInOut" }}
@@ -132,12 +133,12 @@ export default function Page() {
       </span>
     </ScrollParallax>
     {/* Flex container for description and image */}
-    <div className="flex flex-col md:flex-row items-center justify-center gap-8 mt-8">
+    <div className="flex flex-col md:flex-row justify-center gap-8 mt-8 w-full">
       {/* Description and icons container */}
-      <div className="flex flex-col items-center md:max-w-md px-4">
+      <div className="flex flex-col items-center w-full px-4 md:max-w-md">
         <h2
           ref={descriptionRef}
-          className={`drop-shadow-2xl md:text-4xl text-xl font-mono m-4 ${animationClasses} text-center`}
+          className={`drop-shadow-2xl text-center text-base sm:text-lg md:text-2xl font-mono m-4 break-words  ${animationClasses}`}
         >
           {descriptionText}
         </h2>
