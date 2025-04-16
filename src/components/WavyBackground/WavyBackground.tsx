@@ -85,15 +85,19 @@ export const WavyBackground = ({
       height: window.innerHeight,
     };
 
+    // Set the rendered resolution
     canvasRef.current.width = dimensionsRef.current.width * scaleFactor;
     canvasRef.current.height = dimensionsRef.current.height * scaleFactor;
 
-    ctxRef.current.setTransform(1, 0, 0, 1, 0, 0); // Reset any transforms
-    ctxRef.current.scale(scaleFactor, scaleFactor);
+    // Reset transforms and optionally invert scale for crisp stretching
+    ctxRef.current.setTransform(1, 0, 0, 1, 0, 0);
+    ctxRef.current.scale(
+      isWeakBrowser ? 1 / scaleFactor : scaleFactor,
+      isWeakBrowser ? 1 / scaleFactor : scaleFactor
+    );
 
-    if (!isWeakBrowser) {
-      ctxRef.current.filter = `blur(${blur}px)`;
-    }
+    // Apply blur filter only if supported
+    ctxRef.current.filter = isWeakBrowser ? "none" : `blur(${blur}px)`;
   };
 
   const init = () => {
@@ -107,13 +111,8 @@ export const WavyBackground = ({
     render();
   };
 
-  const waveColors = colors ?? [
-    "#FFEDCC",
-    "#FFDAB9",
-    "#FFCC99",
-    "#FFB380",
-    "#FFAA66",
-  ];
+  const waveColors =
+    colors ?? ["#FFEDCC", "#FFDAB9", "#FFCC99", "#FFB380", "#FFAA66"];
 
   const drawWave = (n: number) => {
     if (!ctxRef.current) return;
@@ -155,9 +154,7 @@ export const WavyBackground = ({
   useEffect(() => {
     init();
 
-    const handleResize = () => {
-      updateCanvasDimensions();
-    };
+    const handleResize = () => updateCanvasDimensions();
 
     window.addEventListener("resize", handleResize);
     return () => {
@@ -174,12 +171,14 @@ export const WavyBackground = ({
       )}
     >
       <canvas
-        className="absolute inset-0 z-0"
+        className="absolute inset-0 z-0 w-full h-full"
         ref={canvasRef}
         id="canvas"
-        style={
-          isSafari || isWeakBrowser ? { filter: `blur(${blur}px)` } : {}
-        }
+        style={{
+          width: "100%",
+          height: "100%",
+          ...(isSafari || isWeakBrowser ? { filter: `blur(${blur}px)` } : {}),
+        }}
       />
       <div className={cn("relative z-10", className)} {...props}>
         {children}
