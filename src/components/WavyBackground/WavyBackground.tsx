@@ -31,17 +31,28 @@ export const WavyBackground = ({
   const { theme } = useTheme();
   const noise = createNoise3D();
   const canvasRef = useRef<HTMLCanvasElement>(null);
-  let animationId: number;
-  
-  // Keep canvas context and dimensions in refs.
   const ctxRef = useRef<CanvasRenderingContext2D | null>(null);
   const dimensionsRef = useRef({ width: 0, height: 0 });
   const ntRef = useRef(0);
-
-  // Use a ref for the background color so that the animation loop always gets the latest value.
   const backgroundColorRef = useRef(backgroundFill || "black");
 
-  // Delay reading the computed style until after the DOM has updated the theme class.
+  const [isSafari, setIsSafari] = useState(false);
+  const [isWeakBrowser, setIsWeakBrowser] = useState(false);
+  let animationId: number;
+
+  useEffect(() => {
+    setIsSafari(
+      typeof window !== "undefined" &&
+        navigator.userAgent.includes("Safari") &&
+        !navigator.userAgent.includes("Chrome")
+    );
+
+    setIsWeakBrowser(
+      typeof window !== "undefined" &&
+        /LinkedIn|FBAN|FBAV|Instagram|WebView/.test(navigator.userAgent)
+    );
+  }, []);
+
   useEffect(() => {
     const timeout = setTimeout(() => {
       const computedStyle = getComputedStyle(document.documentElement);
@@ -66,24 +77,31 @@ export const WavyBackground = ({
 
   const updateCanvasDimensions = () => {
     if (!canvasRef.current || !ctxRef.current) return;
-    
+
+    const scaleFactor = isWeakBrowser ? 0.5 : 1;
+
     dimensionsRef.current = {
       width: window.innerWidth,
       height: window.innerHeight,
     };
-    
-    canvasRef.current.width = dimensionsRef.current.width;
-    canvasRef.current.height = dimensionsRef.current.height;
-    
-    ctxRef.current.filter = `blur(${blur}px)`;
+
+    canvasRef.current.width = dimensionsRef.current.width * scaleFactor;
+    canvasRef.current.height = dimensionsRef.current.height * scaleFactor;
+
+    ctxRef.current.setTransform(1, 0, 0, 1, 0, 0); // Reset any transforms
+    ctxRef.current.scale(scaleFactor, scaleFactor);
+
+    if (!isWeakBrowser) {
+      ctxRef.current.filter = `blur(${blur}px)`;
+    }
   };
 
   const init = () => {
     if (!canvasRef.current) return;
-    
+
     ctxRef.current = canvasRef.current.getContext("2d");
     if (!ctxRef.current) return;
-    
+
     updateCanvasDimensions();
     ntRef.current = 0;
     render();
@@ -99,22 +117,22 @@ export const WavyBackground = ({
 
   const drawWave = (n: number) => {
     if (!ctxRef.current) return;
-    
+
     const ctx = ctxRef.current;
     const { width, height } = dimensionsRef.current;
-    
+
     ntRef.current += getSpeed();
-    
-    for (let i = 0; i < n; i += 1) {
+
+    for (let i = 0; i < n; i++) {
       ctx.beginPath();
       ctx.lineWidth = waveWidth || 50;
       ctx.strokeStyle = waveColors[i % waveColors.length];
-      
+
       for (let x = 0; x < width; x += 5) {
         const y = noise(x / 800, 0.3 * i, ntRef.current) * 100;
         ctx.lineTo(x, y + height * 0.5);
       }
-      
+
       ctx.stroke();
       ctx.closePath();
     }
@@ -122,49 +140,46 @@ export const WavyBackground = ({
 
   const render = () => {
     if (!ctxRef.current) return;
-    
+
     const ctx = ctxRef.current;
     const { width, height } = dimensionsRef.current;
-    
-    // Use the current background color from our ref.
+
     ctx.fillStyle = backgroundColorRef.current;
     ctx.globalAlpha = waveOpacity || 0.5;
     ctx.fillRect(0, 0, width, height);
     drawWave(5);
+
     animationId = requestAnimationFrame(render);
   };
 
   useEffect(() => {
     init();
-    
+
     const handleResize = () => {
       updateCanvasDimensions();
     };
-    
+
     window.addEventListener("resize", handleResize);
-    
     return () => {
       window.removeEventListener("resize", handleResize);
       cancelAnimationFrame(animationId);
     };
-  }, []);
-
-  const [isSafari, setIsSafari] = useState(false);
-  useEffect(() => {
-    setIsSafari(
-      typeof window !== "undefined" &&
-        navigator.userAgent.includes("Safari") &&
-        !navigator.userAgent.includes("Chrome")
-    );
-  }, []);
+  }, [isWeakBrowser]);
 
   return (
-    <div className={cn("h-5/6 flex flex-col items-center justify-center", containerClassName)}>
+    <div
+      className={cn(
+        "h-5/6 flex flex-col items-center justify-center",
+        containerClassName
+      )}
+    >
       <canvas
-        className="absolute inset-0 z-0 backdrop-blur"
+        className="absolute inset-0 z-0"
         ref={canvasRef}
         id="canvas"
-        style={isSafari ? { filter: `blur(${blur}px)` } : {}}
+        style={
+          isSafari || isWeakBrowser ? { filter: `blur(${blur}px)` } : {}
+        }
       />
       <div className={cn("relative z-10", className)} {...props}>
         {children}
