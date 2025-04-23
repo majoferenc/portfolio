@@ -198,7 +198,7 @@ export default function Page() {
 
         <InfiniteTechTicker items={techItems} speed={30} />
       </motion.section>
-    <div className="text-center pb-20 mt-8">
+    <div className="text-center pb-20 mt-2">
       <Scroll />
     </div>
   </motion.div>
@@ -211,7 +211,7 @@ export default function Page() {
                 <div className="mx-auto h-60">
                 <div className="mx-auto container w-full flex flex-col justify-center items-center">
                   <div className="flex justify-center items-center flex-col">
-                    <div className="mt-10 hover:outline-2 hover:outline-white transition-all duration-300" id="by-the-numbers">
+                    <div className="mt-10 hover:outline-white transition-all duration-300" id="by-the-numbers">
                       <motion.h2
                         initial={{ opacity: 0, y: 100 }}
                         whileInView={{ opacity: 1, y: 0 }}
@@ -220,7 +220,7 @@ export default function Page() {
                           duration: 0.8,
                           ease: "easeInOut",
                         }}
-                        className="lg:text-6xl bg-gradient-to-br from-slate-300 to-slate-500 py-4 bg-clip-text text-center text-4xl font-medium tracking-tight text-transparent"
+                        className={`lg:text-6xl bg-gradient-to-br from-slate-300 to-slate-500 py-4 bg-clip-text text-center text-4xl font-medium tracking-tight text-transparent ${hoverEffectClasses}`}
                       >
                         By the numbers
                       </motion.h2>

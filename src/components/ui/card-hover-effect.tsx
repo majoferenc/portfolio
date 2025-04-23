@@ -34,17 +34,11 @@ export const HoverEffect = ({
           <AnimatePresence>
             {hoveredIndex === idx && (
               <motion.span
-                className="absolute inset-0 h-full w-full bg-orange-200 dark:bg-slate-800/[0.8] block  rounded-3xl"
-                layoutId="hoverBackground"
-                initial={{ opacity: 0 }}
-                animate={{
-                  opacity: 1,
-                  transition: { duration: 0.15 },
-                }}
-                exit={{
-                  opacity: 0,
-                  transition: { duration: 0.15, delay: 0.2 },
-                }}
+              className="md:w-1/2 flex justify-center"
+              initial={{ opacity: 0, scale: 0.95, x: 48 }}
+              whileInView={{ opacity: 1, scale: 1, x: 0 }}
+              viewport={{ once: true, margin: "-80px" }}
+              transition={{ duration: 0.73, delay: 0.19, ease: 'easeOut' }}
               />
             )}
           </AnimatePresence>
@@ -59,6 +53,9 @@ export const HoverEffect = ({
   );
 };
 
+const durationClass = "duration-300";
+const hoverEffectClasses = `hover:-translate-y-1  motion-safe:hover:scale-90 ${durationClass}`;
+
 export const Card = ({
   className,
   children,
@@ -69,7 +66,7 @@ export const Card = ({
   return (
     <div
       className={cn(
-        "rounded-2xl h-full w-full p-4 overflow-hidden bg-black border border-transparent dark:border-white/[0.2] group-hover:border-slate-700 relative z-20",
+        `rounded-2xl shadow-2xl h-full w-full p-4 overflow-hidden bg-neutral-800 border border-transparent dark:border-white/[0.2] group-hover:border-slate-700 relative z-20 ${hoverEffectClasses}`,
         className
       )}
     >
