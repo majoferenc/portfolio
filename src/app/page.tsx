@@ -55,11 +55,11 @@ export default function Page() {
       text: "Spoken Languages"
     },
     {
-      number: 7,
+      number: 8,
       text: "Customer facing Projects"
     },
     {
-      number: 7,
+      number: 8,
       text: "Years of Experience"
     },
     {
