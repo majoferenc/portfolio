@@ -1,0 +1,84 @@
+---
+title: Tweaking GenAI LLMs locally using Ollama
+description: A quick reference guide for running GenAI LLM models and tweaking them using Ollama.
+date: 2025-01-29
+tags: ["code", "blog"]
+published: true
+---
+# **What is Ollama**
+Ollama is an open-source platform that runs open LLMs on your local machine (or a server). 
+    It acts like a bridge between any open LLM and your machine, not only running them but also providing an API layer on top of them so that another application or service can use them.
+
+
+# **Tweaking GenAI LLM locally using Ollama**
+
+This guide provides essential commands and environment tweaks for optimizing Ollama when running complex LLM models locally.
+
+# **Prerequisites**
+If you don't have Ollama installed, go to https://ollama.com and download the installation package:
+
+<br />
+<ZoomableImage src="/install_ollama.png" />
+
+
+<br />
+## **Running a Model**
+
+Find your desired model on https://ollama.com in this example we are going to use popular DeepSeek model:
+
+<br />
+<ZoomableImage src="/ollama_model_page.png" />
+<br />
+
+To run our chosen model with Ollama open your terminal and run following command:
+
+```bash
+ollama run deepseek-r1:14b
+```
+<br />
+## **Tweaking Model Parameters**
+<br />
+
+Ollama defaults model context size is set to 2048. To change this, you'll need to create a 'Modelfile' and include the following content
+
+<br />
+```ollama
+FROM deepseek-r1:14b
+
+PARAMETER num_ctx 32768
+PARAMETER num_predict -1
+```
+<br />
+
+In this file, num_ctx is set to the maximum context size of the model, and num_predict is set to -1, which allows the model to use the remaining context as output context. 
+
+After creating the file, run the following command:
+
+```bash
+ollama create deepseek-r1-14b-32k-context -f ./Modelfile
+```
+
+Now, you can use the entire context of the model without truncation by calling:
+
+```bash
+ollama run deepseek-r1-14b-32k-context
+```
+
+## **Performance Optimization**
+<br />
+
+Set environment variables to improve performance (maximize token generation speed):
+
+```bash
+export OLLAMA_FLASH_ATTENTION=true 
+export OLLAMA_KV_CACHE_TYPE=f16    
+```
+
+### **Available `OLLAMA_KV_CACHE_TYPE` Values**
+- `q8_0`
+- `q4_0`
+- `f16` (for 16-bit floating point caching)
+
+<br />
+These settings can help optimize memory usage and speed when running large models locally.
+
