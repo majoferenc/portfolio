@@ -51,10 +51,19 @@ export default function ContactPage() {
         animate={{ opacity: 1, y: 0 }}
         transition={{ delay: 0.2, duration: 0.8, ease: "easeInOut" }}
         className="text-3xl md:text-6xl font-bold text-center mb-8 
-                   bg-gradient-to-br from-gray-300 to-gray-500 bg-clip-text text-transparent"
+                   bg-gradient-to-br from-gray-300 to-gray-500 bg-clip-text text-primary-800"
       >
         Get in Touch
       </motion.h2>
+      <motion.p
+        initial={{ opacity: 0, y: 100 }}
+        animate={{ opacity: 1, y: 0 }}
+        transition={{ delay: 0.2, duration: 0.8, ease: "easeInOut" }}
+        className="text-sm md:text-sm font-bold text-center mb-8 
+                   bg-gradient-to-br from-gray-300 to-gray-500 bg-clip-text text-primary-800"
+      >
+        Coming soon (Searching for better server hosting)
+      </motion.p>
 
       <motion.div
         initial={{ opacity: 0, y: 100 }}
@@ -64,7 +73,6 @@ export default function ContactPage() {
       >
         <form
           onSubmit={handleSubmit}
-          className="text-base text-gray-900 dark:text-white"
         >
           <div className="mb-4 flex">
             <div className="mb-2 p-2">
@@ -78,8 +86,7 @@ export default function ContactPage() {
                   value={name}
                   onChange={(e) => setName(e.target.value)}
                   placeholder="Your name"
-                  className="w-full bg-transparent text-sm text-gray-900 dark:text-white 
-                             placeholder-gray-600 dark:placeholder-white/80 focus:outline-0"
+                  className="w-full bg-transparent text-sm text-primary-800 font-bold focus:outline-0"
                   required
                 />
               </div>
@@ -92,11 +99,11 @@ export default function ContactPage() {
                 <input
                   type="text"
                   id="surname"
+                  disabled
                   value={surName}
                   onChange={(e) => setSurName(e.target.value)}
                   placeholder="Your surname"
-                  className="w-full bg-transparent text-sm text-gray-900 dark:text-white 
-                             placeholder-gray-600 dark:placeholder-white/80 focus:outline-0"
+                  className="w-full bg-transparent text-sm text-primary-800 font-bold focus:outline-0"
                   required
                 />
               </div>
@@ -112,11 +119,11 @@ export default function ContactPage() {
                 <input
                   type="email"
                   id="email"
+                  disabled
                   value={email}
                   onChange={(e) => setEmail(e.target.value)}
                   placeholder="Your email"
-                  className="w-full bg-transparent text-sm text-gray-900 dark:text-white 
-                             placeholder-gray-600 dark:placeholder-white/80 focus:outline-0"
+                  className="w-full bg-transparent text-sm font-bold text-primary-800 focus:outline-0"
                   required
                 />
               </div>
@@ -129,11 +136,11 @@ export default function ContactPage() {
                 <input
                   type="tel"
                   id="phone"
+                  disabled
                   value={phoneNumber}
                   onChange={(e) => setPhoneNumber(e.target.value)}
                   placeholder="Your phone number"
-                  className="w-full bg-transparent text-sm text-gray-900 dark:text-white 
-                             placeholder-gray-600 dark:placeholder-white/80 focus:outline-0"
+                  className="w-full bg-transparent text-sm text-primary-800 font-bold focus:outline-0"
                 />
               </div>
             </div>
@@ -146,11 +153,11 @@ export default function ContactPage() {
             >
               <textarea
                 id="message"
+                disabled
                 value={message}
                 onChange={(e) => setMessage(e.target.value)}
                 placeholder="Your message"
-                className="w-full bg-transparent text-sm text-gray-900 dark:text-white 
-                           placeholder-gray-600 dark:placeholder-white/80 focus:outline-0"
+                className="w-full bg-transparent text-sm text-primary-800 font-bold focus:outline-0"
                 rows={5}
                 required
               />
@@ -158,7 +165,7 @@ export default function ContactPage() {
           </div>
 
           <div className="text-center px-6 py-2 transition-colors">
-            <ButtonWrapper buttonText="Send Message" />
+            <ButtonWrapper buttonText="Send Message" disabled={true} />
           </div>
 
           {statusMessage && (

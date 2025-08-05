@@ -266,9 +266,10 @@ export default function Page() {
         
       <HorizontalScrollCarousel />
         <div>
-          <div className="bg-white pb-20 py-8">
+        <div className="bg-primary-600 rounded-tl-[10rem] rounded-br-[10rem] min-h-[400px]">
+          <div className="pb-20 py-8">
             <div>
-            <div className="mx-auto bg-gradient-to-l from-white to-white">
+            <div className="mx-auto bg-gradient-to-l">
                 <div className="mx-auto container w-full flex flex-col justify-center items-center">
                   <div className="flex justify-center items-center flex-col">
                     <div className="mt-10" id="experience">
@@ -290,6 +291,7 @@ export default function Page() {
               </div>
               <ExpertiseCard cards={expertiseCards} />
             </div>
+          </div>
           </div>
         </div>
         <div>
@@ -384,7 +386,7 @@ export default function Page() {
               duration: 0.8,
               ease: "easeInOut",
             }}
-            className="mt-20 text-center text-4xl font-medium tracking-tight"
+            className="mt-20 text-center text-shadow text-glow-white text-4xl font-medium tracking-tight"
           >
             Engineer&apos;s degree in Informatics from Technical University of Kosice 
           </motion.p>

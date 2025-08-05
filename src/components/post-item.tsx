@@ -11,6 +11,11 @@ interface PostItemProps {
   tags?: Array<string>;
 }
 
+const durationClass = "duration-300";
+
+const hoverEffectClasses = `hover:-translate-y-1  motion-safe:hover:scale-98 ${durationClass}`;
+
+
 export function PostItem({
   slug,
   title,
@@ -21,7 +26,7 @@ export function PostItem({
   return (
     <article className="flex flex-col gap-2 border-border border-b py-3">
       <div>
-        <h2 className="text-2xl font-bold">
+        <h2 className={`text-2xl font-bold text-glow-white ${hoverEffectClasses}`}>
           <Link href={"/" + slug}>{title}</Link>
         </h2>
       </div>

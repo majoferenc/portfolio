@@ -32,12 +32,12 @@ export function Footer() {
 
   return (
     <div>
-      <footer className="bg-black">
+      <footer>
         <motion.section
       style={{
         backgroundImage,
       }}
-      className="relative grid place-content-center overflow-hidden bg-black px-4 py-5 text-gray-200"
+      className="relative bg-black rounded-tl-[120rem] min-h-[200px] grid place-content-center overflow-hidden bg-black px-4 py-5 text-gray-200"
     >
       <div className="relative z-10 flex flex-col items-center">
         <div className="grid grid-cols-1 gap-8">

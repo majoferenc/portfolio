@@ -72,7 +72,7 @@ export function Header() {
           </button>
           <div className="flex flex-wrap place-content-center h-16">
             <Link href="/">
-              <div className="shadow font-medium text-lg">
+              <div className="text-shadow text-glow-white font-medium text-lg">
                 Ing. Marian Ferenc
               </div>
             </Link>
@@ -91,7 +91,7 @@ export function Header() {
                       item.url === location
                         ? "z-2 lg:text-n-1"
                         : "lg:text-n-1/50"
-                    } lg:leading-5 lg:hover:text-n-2 xl:px-12`}
+                    } lg:leading-5 text-shadow text-glow-white font-bold lg:hover:text-n-2 xl:px-12`}
                   >
                     {item.title}
                   </a>
