@@ -12,7 +12,6 @@ import MouseTracer from "../components/MouseTracer/MouseTracer";
 import { WavyBackground } from "../components/WavyBackground/WavyBackground";
 import { ThemeProvider } from "@/components/theme-provider";
 import { usePathname } from "next/navigation";
-import FullScreenLoading from "../components/FullScreenLoading/FullScreenLoading";
 
 const geistSans = localFont({
   src: "./fonts/GeistVF.woff",
