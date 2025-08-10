@@ -34,7 +34,7 @@ function PaginationSkeleton() {
   return (
     <Suspense fallback={<PaginationSkeleton />}>
       <div className="relative">
-        <div className="mx-auto relative z-10 max-w-4xl lg:py-2 0 h-full">
+        <div className="mx-auto relative z-10 max-w-4xl lg:py-2 0 h-full px-2">
           <div className="flex flex-col items-start gap-4 md:flex-row md:justify-between md:gap-8">
             <div className="flex-1 space-y-4 py-20">
               <h1 className="inline-block font-black text-4xl lg:text-5xl text-glow-white">TechTalk Blog</h1>

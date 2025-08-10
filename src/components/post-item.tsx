@@ -11,11 +11,6 @@ interface PostItemProps {
   tags?: Array<string>;
 }
 
-const durationClass = "duration-300";
-
-const hoverEffectClasses = `hover:-translate-y-1  motion-safe:hover:scale-98 ${durationClass}`;
-
-
 export function PostItem({
   slug,
   title,
@@ -24,26 +19,40 @@ export function PostItem({
   tags,
 }: PostItemProps) {
   return (
-    <article className="flex flex-col gap-2 border-border border-b py-3">
-      <div>
-        <h2 className={`text-2xl font-bold text-glow-white ${hoverEffectClasses}`}>
-          <Link href={"/" + slug}>{title}</Link>
-        </h2>
-      </div>
-      <div className="flex gap-2">
-        {tags?.map((tag) => (
-          <Tag tag={tag} key={tag} />
-        ))}
-      </div>
-      <div className="max-w-none">{description}</div>
-      <div className="flex justify-between items-center">
-        <dl>
-          <dt className="sr-only">Published On</dt>
-          <dd className="text-sm sm:text-base font-medium flex items-center gap-1">
-            <Calendar className="h-4 w-4" />
-            <time dateTime={date}>{formatDate(date)}</time>
-          </dd>
-        </dl>
+
+<article
+  className="flex flex-col gap-3 border-b border-border py-6 
+             max-w-full overflow-hidden transition-all duration-300 
+             hover:bg-muted/30 hover:shadow-sm rounded-lg px-4 -mx-4 sm:mx-0"
+>
+    
+      <h2
+        className="text-2xl sm:text-3xl font-serif font-bold leading-snug 
+                   hover:text-primary transition-colors duration-300 
+                   break-words"
+      >
+        <Link href={`/${slug}`} className="block">
+          {title}
+        </Link>
+      </h2>
+
+      {tags && tags.length > 0 && (
+        <div className="flex flex-wrap gap-2">
+          {tags.map((tag) => (
+            <Tag tag={tag} key={tag} />
+          ))}
+        </div>
+      )}
+
+      {description && (
+        <p className="text-base sm:text-lg text-muted-foreground leading-relaxed break-words">
+          {description}
+        </p>
+      )}
+
+      <div className="flex items-center gap-2 text-sm text-muted-foreground">
+        <Calendar className="h-4 w-4" />
+        <time dateTime={date}>{formatDate(date)}</time>
       </div>
     </article>
   );
