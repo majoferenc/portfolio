@@ -1,107 +1,131 @@
 "use client";
 
-import React from "react";
-import Link from 'next/link'
-import { usePathname } from 'next/navigation'
+import { useState, useEffect } from "react";
+import Link from "next/link";
+import { usePathname } from "next/navigation";
+import { Menu } from "lucide-react";
 
 import { useAppDispatch } from "../../app/hooks";
 import { setSidebarOpenedValue } from "../Sidebar/SidebarSlice";
 import { ThemeToggle } from "@/components/theme-toggle";
+import { Button } from "@/components/ui/button";
 
-export const navigation = [
-  {
-    id: "0",
-    title: "By the numbers",
-    url: "#by-the-numbers",
-  },
-  {
-    id: "1",
-    title: "Education",
-    url: "#education",
-  },
-  {
-    id: "2",
-    title: "Experience",
-    url: "#experience",
-  },
-  {
-    id: "3",
-    title: "Certifications",
-    url: "#certifications",
-    onlyMobile: false,
-  },
-  {
-    id: "4",
-    title: "Blog",
-    url: "/blog",
-    onlyMobile: true,
-  },
+const sectionLinks = [
+  { id: "0", title: "By the numbers", url: "#by-the-numbers" },
+  { id: "1", title: "Education", url: "#education" },
+  { id: "2", title: "Experience", url: "#experience" },
+  { id: "3", title: "Certifications", url: "#certifications" },
+];
+
+const pageLinks = [
+  { id: "4", title: "Blog", url: "/blog" },
+  { id: "5", title: "Contact", url: "/contact" },
 ];
 
 export function Header() {
   const dispatch = useAppDispatch();
-  const location = usePathname(); 
+  const location = usePathname();
+
+  const [isScrolled, setIsScrolled] = useState(false);
+
+  useEffect(() => {
+    const handleScroll = () => {
+      setIsScrolled(window.scrollY > 50);
+    };
+    window.addEventListener("scroll", handleScroll);
+    return () => window.removeEventListener("scroll", handleScroll);
+  }, []);
 
   const openSidebar = () => {
     dispatch(setSidebarOpenedValue(true));
   };
 
+  const scrollToSection = (url: string) => {
+    if (url.startsWith("#")) {
+      const id = url.replace("#", "");
+      const element = document.getElementById(id);
+      if (element) {
+        element.scrollIntoView({ behavior: "smooth" });
+      }
+    } else {
+      window.location.href = url;
+    }
+  };
+
   return (
-    <div>
-      <header className="flex w-auto fixed bg-stone-700/40 inset-x-0 z-30 shadow-lg">
-        <div className="flex">
-          <button
-            type="submit"
-            className="mobile-menu-button p-4 focus:outline-none focus:bg-blue-800"
-            onClick={() => openSidebar()}
-          >
-            <svg
-              className="h-5 w-5 z-30 bg-stone"
-              xmlns="http://www.w3.org/2000/svg"
-              fill="black"
-              viewBox="0 0 24 24"
-              stroke="white"
+    <header
+      className={`fixed top-3.5 left-1/2 -translate-x-1/2 z-50 transition-all duration-300 rounded-full border border-white/10 backdrop-blur-xl
+        ${
+          isScrolled
+            ? "h-14 bg-stone-800/40 scale-95 w-[90%] max-w-4xl shadow-lg"
+            : "h-14 bg-stone-800 w-[95%] max-w-5xl"
+        }`}
+    >
+      <div className="mx-auto h-full px-6">
+        <nav className="flex items-center justify-between h-full">
+          {/* Left Section: Logo + Sidebar Button */}
+          <div className="flex items-center gap-3">
+            {/* Sidebar Toggle Button (Mobile) */}
+            <Button
+              variant="outline"
+              size="icon"
+              className="glass md:hidden"
+              onClick={openSidebar}
             >
-              <path
-                strokeLinecap="round"
-                strokeLinejoin="round"
-                strokeWidth="2"
-                d="M4 6h16M4 12h16M4 18h16"
-              />
-            </svg>
-          </button>
-          <div className="flex flex-wrap place-content-center h-16">
-            <Link href="/">
-              <div className="text-shadow text-glow-white font-medium text-lg">
-                Ing. Marian Ferenc
-              </div>
+              <Menu className="h-5 w-5" />
+            </Button>
+
+            {/* Logo */}
+            <Link href="/" className="font-bold text-base text-white">
+              Ing. Marian Ferenc
             </Link>
           </div>
-        </div>
-        <div className="flex-auto place-content-center items-center text-center h-16 hidden md:block pr-40">
-            {location === '/' && (
-              <div>              
-                  {navigation.map((item) => (
-                  <a
-                    key={item.id}
-                    href={item.url}
-                    className={`relative font-code text-xs uppercase text-n-1 transition-colors hover:text-color-1 items-center text-center ${
-                      item.onlyMobile ? "lg:hidden" : ""
-                    } px-6 py-6 md:py-8 lg:-mr-0.25 lg:text-xs lg:font-semibold ${
-                      item.url === location
-                        ? "z-2 lg:text-n-1"
-                        : "lg:text-n-1/50"
-                    } lg:leading-5 text-shadow text-glow-white font-bold lg:hover:text-n-2 xl:px-12`}
-                  >
-                    {item.title}
-                  </a>
-                ))}
-              </div>
-            )}
+
+          {/* Desktop Navigation */}
+          <div className="hidden md:flex items-center gap-6">
+            {/* Section Links - only on home page */}
+            {location === "/" &&
+              sectionLinks.map((item) => (
+                <a
+                  key={item.id}
+                  href={item.url}
+                  onClick={(e) => {
+                    e.preventDefault();
+                    scrollToSection(item.url);
+                  }}
+                  className={`text-sm transition-all duration-300 ${
+                    item.url === location
+                      ? "text-white font-semibold"
+                      : "text-gray-300 hover:text-white"
+                  }`}
+                >
+                  {item.title}
+                </a>
+              ))}
+
+            {/* Divider */}
+            <span className="w-px h-5 bg-gray-500/50"></span>
+
+            {/* Page Links */}
+            {pageLinks.map((item) => (
+              <Link
+                key={item.id}
+                href={item.url}
+                className={`text-sm transition-all duration-300 ${
+                  item.url === location
+                    ? "text-white font-semibold"
+                    : "text-gray-300 hover:text-white"
+                }`}
+              >
+                {item.title}
+              </Link>
+            ))}
+
             <ThemeToggle />
-         </div>
-      </header>
-    </div>
+          </div>
+        </nav>
+      </div>
+    </header>
   );
 }
 

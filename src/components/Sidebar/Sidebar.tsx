@@ -1,126 +1,109 @@
 "use client";
+import { usePathname } from "next/navigation";
+import { useAppDispatch, useAppSelector } from "../../app/hooks";
+import { setSidebarOpenedValue } from "./SidebarSlice";
+import { motion, AnimatePresence } from "framer-motion";
+import Link from "next/link";
+import { ThemeToggle } from "@/components/theme-toggle";
 
-import React, { useEffect, useRef, useState } from "react";
-import Link from 'next/link'
-import {
-  useAppDispatch,
-  useAppSelector,
-  useComponentVisible,
-} from "../../app/hooks";
-import { selecSidebarOpened, setSidebarOpenedValue } from "./SidebarSlice";
+const sectionLinks = [
+  { id: "0", title: "By the numbers", url: "#by-the-numbers" },
+  { id: "1", title: "Education", url: "#education" },
+  { id: "2", title: "Experience", url: "#experience" },
+  { id: "3", title: "Certifications", url: "#certifications" },
+];
+
+const pageLinks = [
+  { id: "4", title: "Home", url: "/" },
+  { id: "5", title: "Blog", url: "/blog" },
+  { id: "6", title: "Contact", url: "/contact" },
+];
 
 export function Sidebar() {
-  const [skipMount, setSkipMount] = useState(true);
-  const parentSideBarRef = useRef<HTMLDivElement | null>(null);
-  const sidebarRef = useRef<HTMLDivElement | null>(null);
-  const sidebarOpened = useAppSelector(selecSidebarOpened);
   const dispatch = useAppDispatch();
-
+  const isOpen = useAppSelector((state) => state.sidebar.sidebarOpened);
+  const location = usePathname();
   const closeSidebar = () => {
-    setTimeout(() => {
-      parentSideBarRef.current?.classList.remove("z-40");
-      parentSideBarRef.current?.classList.add("-z-40");
-    }, 200);
-    setIsComponentVisible(false);
+    dispatch(setSidebarOpenedValue(false));
   };
 
-  const { isComponentVisible, setIsComponentVisible } = useComponentVisible(
-    false,
-    parentSideBarRef,
-    closeSidebar,
-    dispatch,
-    setSidebarOpenedValue
-  );
-
-  useEffect(() => {
-    if (skipMount) setSkipMount(false);
-    if (!skipMount) {
-      if (sidebarOpened === true && !isComponentVisible) {
-        openSidebar();
-      } else if (sidebarOpened === true) {
-        openSidebar();
+  const scrollToSection = (url: string) => {
+    if (url.startsWith("#")) {
+      const id = url.replace("#", "");
+      const element = document.getElementById(id);
+      if (element) {
+        element.scrollIntoView({ behavior: "smooth" });
       }
+    } else {
+      window.location.href = url;
     }
-  }, [sidebarOpened, isComponentVisible]);
-
-  const openSidebar = () => {
-    parentSideBarRef.current?.classList.add("z-40");
-    parentSideBarRef.current?.classList.remove("-z-40");
-    setIsComponentVisible(true);
+    closeSidebar();
   };
 
   return (
-    <div ref={parentSideBarRef} className="absolute min-h-screen flex -z-40">
-      <div
-        ref={sidebarRef}
-        className={`sidebar bg-black text-white w-64 space-y-6 py-7 fixed px-2 inset-y-0 -translate-x-full left-0 transform transition duration-200 ease-in-out ${
-          sidebarOpened ? "translate-x-0" : "-translate-x-full"
-        }`}
-      >
-        <div className="text-white flex items-center space-x-2 px-4 justify-between">
-          <span className="text-sm text-white font-bold w-fit">
-            Ing. Marián Ferenc
-          </span>
-          <button
-            type="button"
-            onClick={() => {
-              dispatch(setSidebarOpenedValue(!sidebarOpened));
-            }}
+    <AnimatePresence>
+      {isOpen && (
+        <>
+          {/* Overlay */}
+          <motion.div
+            className="fixed inset-0 bg-black/50 z-40"
+            initial={{ opacity: 0 }}
+            animate={{ opacity: 1 }}
+            exit={{ opacity: 0 }}
+            onClick={closeSidebar}
+          />
+
+          {/* Sidebar */}
+          <motion.aside
+            className="fixed top-0 right-0 w-64 h-full bg-stone-900 text-white z-50 p-6 flex flex-col gap-6"
+            initial={{ x: "100%" }}
+            animate={{ x: 0 }}
+            exit={{ x: "100%" }}
+            transition={{ type: "spring", stiffness: 300, damping: 30 }}
           >
-            <svg
-              xmlns="http://www.w3.org/2000/svg"
-              className="h-6 w-6"
-              fill="none"
-              viewBox="0 0 24 24"
-              stroke="currentColor"
-              onClick={() => {
-                closeSidebar();
-              }}
-            >
-              <path
-                strokeLinecap="round"
-                strokeLinejoin="round"
-                strokeWidth={2}
-                d="M6 18L18 6M6 6l12 12"
-              />
-            </svg>
-          </button>
-        </div>
-        <nav>
-          <Link
-            href="/"
-            className="block py-2.5 px-4 rounded transition duration-200 hover:bg-yellow-500 text-white font-bold"
-            onClick={() => {
-              dispatch(setSidebarOpenedValue(!sidebarOpened));
-              closeSidebar();
-            }}
-          >
-            Home
-          </Link>
-          <Link
-            href="/blog"
-            className="block py-2.5 px-4 rounded transition duration-200 hover:bg-yellow-500 text-white font-bold"
-            onClick={() => {
-              dispatch(setSidebarOpenedValue(!sidebarOpened));
-              closeSidebar();
-            }}
-          >
-            Blog
-          </Link>
-          <Link
-            href="/contact"
-            className="block py-2.5 px-4 rounded transition duration-200 hover:bg-yellow-500 text-white font-bold"
-            onClick={() => {
-              dispatch(setSidebarOpenedValue(!sidebarOpened));
-              closeSidebar();
-            }}
-          >
-            Contact
-          </Link>
-        </nav>
-      </div>
-    </div>
+            <h2 className="text-lg font-bold">Menu</h2>
+
+        
+            {/* Section Links */}
+            <div className="flex flex-col gap-3">
+            {location === "/" &&
+              sectionLinks.map((item) => (
+                <a
+                  key={item.id}
+                  href={item.url}
+                  onClick={(e) => {
+                    e.preventDefault();
+                    scrollToSection(item.url);
+                  }}
+                  className="hover:text-primary transition-colors"
+                >
+                  {item.title}
+                </a>
+              ))}
+            </div>
+
+            <hr className="border-gray-700" />
+
+            {/* Page Links */}
+            <div className="flex flex-col gap-3">
+              {pageLinks.map((item) => (
+                <Link
+                  key={item.id}
+                  href={item.url}
+                  onClick={closeSidebar}
+                  className="hover:text-primary transition-colors"
+                >
+                  {item.title}
+                </Link>
+              ))}
+            </div>
+
+            <div className="mt-auto">
+              <ThemeToggle />
+            </div>
+          </motion.aside>
+        </>
+      )}
+    </AnimatePresence>
   );
 }
-
-export default Sidebar;
