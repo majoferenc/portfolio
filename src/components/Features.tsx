@@ -23,35 +23,29 @@ const Features = () => {
   const controls = useAnimation();
   
   useEffect(() => {
-    let isMounted = true;
+    let sprintIndex = 1;
   
-    const loopAnimation = async () => {
-      while (isMounted) {
-        await controls.start({
-          width: "100%",
-          transition: { duration: 5, ease: "linear" },
-        });
+    controls.start({
+      width: "100%",
+      transition: { duration: 5, ease: "linear" },
+    });
   
-        if (!isMounted) break;
+    const interval = setInterval(() => {
+      sprintIndex = sprintIndex < totalSprints ? sprintIndex + 1 : 1;
+      setCurrentSprint(sprintIndex);
   
-        setCurrentSprint((prev) =>
-          prev < totalSprints ? prev + 1 : 1
-        );
-  
-        await controls.start({
-          width: "0%",
-          transition: { duration: 0 },
-        });
-      }
-    };
-  
-    loopAnimation();
+      controls.set({ width: "0%" });
+      controls.start({
+        width: "100%",
+        transition: { duration: 5, ease: "linear" },
+      });
+    }, 5000);
   
     return () => {
-      isMounted = false;
+      clearInterval(interval);
       controls.stop();
     };
-  }, [controls]);
+  }, [controls, totalSprints]);
 
   const stepFlowItems = [
     {
