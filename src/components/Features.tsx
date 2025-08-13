@@ -23,17 +23,34 @@ const Features = () => {
   const controls = useAnimation();
   
   useEffect(() => {
+    let isMounted = true;
+  
     const loopAnimation = async () => {
-      while (true) {
+      while (isMounted) {
         await controls.start({
           width: "100%",
           transition: { duration: 5, ease: "linear" },
         });
-        setCurrentSprint((prev) => (prev < totalSprints ? prev + 1 : 1));
-        await controls.start({ width: "0%", transition: { duration: 0 } });
+  
+        if (!isMounted) break;
+  
+        setCurrentSprint((prev) =>
+          prev < totalSprints ? prev + 1 : 1
+        );
+  
+        await controls.start({
+          width: "0%",
+          transition: { duration: 0 },
+        });
       }
     };
+  
     loopAnimation();
+  
+    return () => {
+      isMounted = false;
+      controls.stop();
+    };
   }, [controls]);
 
   const stepFlowItems = [
