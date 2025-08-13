@@ -1,0 +1,8 @@
+User-agent: *
+Allow: /
+
+# Sitemap location
+Sitemap: https://marianferenc.space/sitemap.xml
+
+# Optimize crawling
+Crawl-delay: 10

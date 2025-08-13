@@ -15,6 +15,7 @@ import { ExpertiseCard } from "../components/ExpertiseCard/ExpertiseCard";
 import { ByTheNumbersCard } from "../components/ByTheNumbersCard/ByTheNumbersCard";
 import { ScrollToTop } from "../components/ScrollToTop/ScrollToTop";
 import { HorizontalScrollCarousel } from "../components/HorizontalScrollCards/HorizontalScrollCards";
+import Features from "@/components/Features";
 
 
 const opacitySetter = (
@@ -290,6 +291,7 @@ export default function Page() {
                 </div>
               </div>
               <ExpertiseCard cards={expertiseCards} />
+              <Features />
             </div>
           </div>
           </div>
