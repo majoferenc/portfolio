@@ -1,12 +1,14 @@
 "use client";
 import { Suspense } from "react";
 import { posts } from "#site/content";
-import { PostItem } from "@/components/post-item";
 import { QueryPagination } from "@/components/query-pagination";
 import { sortPosts } from "@/lib/utils";
 import { useSearchParams } from 'next/navigation';
+import Image from 'next/image'
+import Link from 'next/link'
 
-const POSTS_PER_PAGE = 5;
+import { formatDate } from "@/lib/utils";
+const POSTS_PER_PAGE = 6;
 
 export default function BlogPage() {
   const searchParams = useSearchParams();
@@ -44,35 +46,58 @@ function PaginationSkeleton() {
             </div>
           </div>
           <div className="flex flex-col gap-3 mt-8">
-            <div>
-              <hr />
-              {displayPosts?.length > 0 ? (
-                <ul className="flex flex-col">
-                  {displayPosts.map((post) => {
-                    const { slug, date, title, description, tags } = post;
-                    return (
-                      <li key={slug}>
-                        <PostItem
-                          slug={slug}
-                          date={date}
-                          title={title}
-                          description={description}
-                          tags={tags}
+            <section className="px-6 pb-20">
+              <div className="max-w-7xl mx-auto">
+                <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
+                  {displayPosts.map((post) => (
+                    <Link
+                      key={post.slug}
+                      href={`/${post.slug}`}
+                      className="blog-card group"
+                    >
+                      <div className="relative">
+                        <Image
+                          src={post.image}
+                          alt={post.title}
+                          width={400}
+                          height={200}
+                          className="blog-card-image"
                         />
-                      </li>
-                    );
-                  })}
-                </ul>
-              ) : (
-                <p>Nothing to see here yet</p>
-              )}
-            </div>
-            <div className="flex justify-center">
+                        <div className="absolute top-4 left-4">
+                        <span className="bg-yellow-600 text-white px-3 py-1 rounded-full text-sm font-medium">
+                              {
+                                post.category
+                              }
+                            </span>
+                        </div>
+                      </div>
+
+                      <div className="p-6">
+                        <h2 className="text-xl font-semibold mb-3 line-clamp-3 group-hover:text-yellow-400 transition-colors">
+                          {post.title}
+                        </h2>
+
+                        <p className="mb-4 line-clamp-2 leading-relaxed">
+                          {post.description}
+                        </p>
+
+                        <div className="flex flex-col gap-2">
+                          <p className="text-sm">
+                          <time dateTime={post.date}>{formatDate(post.date)}</time>
+                          </p>
+                        </div>
+                      </div>
+                    </Link>
+                  ))}
+                </div>
+              </div>
+              <div className="flex justify-center">
               <QueryPagination
                 totalPages={totalPages}
                 className="mt-4"
               />
             </div>  
+            </section>
           </div>
         </div>
       </div>

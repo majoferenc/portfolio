@@ -15,7 +15,7 @@ export function formatDate(date: string) {
 
 export function sortPosts(posts: Post[]) {
   return posts.sort((a, b) => {
-    if (new Date(a.date) > new Date(b.date)) {
+    if (new Date(a.date) < new Date(b.date)) {
       return -1;
     }
     return 1;

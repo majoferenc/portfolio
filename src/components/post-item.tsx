@@ -27,7 +27,7 @@ export function PostItem({
 >
     
       <h2
-        className="text-2xl sm:text-3xl font-serif font-bold leading-snug 
+        className="text-2xl sm:text-3xl font-bold leading-snug 
                    hover:text-primary transition-colors duration-300 
                    break-words"
       >

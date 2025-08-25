@@ -30,7 +30,7 @@ export function CodeBlock({ code, language }: CodeBlockProps) {
     <div className="relative group my-4 w-full max-w-full overflow-hidden bg-black px-2">
       <div className="overflow-x-auto max-w-full">
         <pre className="rounded-lg p-4 bg-muted text-sm whitespace-pre overflow-x-auto max-w-full block">
-          <code className={`language-${language || "text"} block`}>
+          <code className={`language-${language || "text"} block text-white`}>
             {codeText}
           </code>
         </pre>
