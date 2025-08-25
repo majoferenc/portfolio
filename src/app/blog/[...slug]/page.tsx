@@ -5,6 +5,7 @@ import { Metadata } from "next";
 import { formatDate, getReadingTime } from "@/lib/utils";
 import { Separator } from "@/components/ui/separator";
 import { notFound } from "next/navigation";
+import Link from 'next/link'
 
 interface PageParams {
   slug: string[];
@@ -70,6 +71,15 @@ export default function PostPage({ params }: { params: PageParams }) {
 
         <div className="prose prose-lg max-w-none min-w-0 w-full overflow-hidden">
           <MDXContent code={post.body} />
+        </div>
+                {/* Back to Blog */}
+                <div className="mt-16 pt-8 border-t border-gray-800">
+          <Link
+            href="/blog"
+            className="inline-flex items-center text-yellow-400 hover:text-yellow-300 transition-colors"
+          >
+            ← Back to Blog
+          </Link>
         </div>
       </article>
     </div>
