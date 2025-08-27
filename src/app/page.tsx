@@ -128,7 +128,7 @@ export default function Page() {
   >
     <ScrollParallax strength={0.05}>
       <span className="block text-center">
-        <p className="lg:text-6xl bg-gradient-to-br from-slate-300 to-slate-500 py-4 bg-clip-text text-center text-4xl font-medium tracking-tight text-transparent">
+        <p className="lg:text-6xl bg-gradient-to-br from-slate-300 to-slate-500 py-4 bg-clip-text text-center text-4xl font-medium tracking-tight text-transparent sm:mt-0 mt-4">
           {fullNammeText}
         </p>
       </span>
@@ -291,7 +291,6 @@ export default function Page() {
                 </div>
               </div>
               <ExpertiseCard cards={expertiseCards} />
-              <Features />
             </div>
           </div>
           </div>
