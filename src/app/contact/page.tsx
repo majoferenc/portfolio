@@ -4,7 +4,6 @@ import React, { useState } from "react";
 import { motion } from "framer-motion";
 import emailjs from "emailjs-com";
 import { ButtonWrapper } from "../../components/SpotlightButton/SpotlightButton";
-import Head from 'next/head';
 
 export default function ContactPage() {
   const [name, setName] = useState("");
@@ -47,10 +46,6 @@ export default function ContactPage() {
 
   return (
     <>
-      <Head>
-        <title>{fullNammeText} - Contact</title>
-        <meta name="description" content={`Contact page of ${fullNammeText} portfolio"`} />
-      </Head>
       <div className="md:pt-40 pt-20">
         <motion.h2
           initial={{ opacity: 0, y: 100 }}

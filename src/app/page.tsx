@@ -15,7 +15,6 @@ import { ExpertiseCard } from "../components/ExpertiseCard/ExpertiseCard";
 import { ByTheNumbersCard } from "../components/ByTheNumbersCard/ByTheNumbersCard";
 import { ScrollToTop } from "../components/ScrollToTop/ScrollToTop";
 import { HorizontalScrollCarousel } from "../components/HorizontalScrollCards/HorizontalScrollCards";
-import Head from 'next/head';
 
 const opacitySetter = (
   componentRef: RefObject<HTMLDivElement>,
@@ -119,10 +118,6 @@ export default function Page() {
 
   return (
     <>
-      <Head>
-        <title>{fullNammeText}</title>
-        <meta name="description" content={`Main page of ${fullNammeText} portfolio"`} />
-      </Head>
       <div className="relative pt-[35px] sm:pt-[100px]" id="hero">
         <div className="flex justify-center items-center">
         <motion.div
