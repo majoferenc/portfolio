@@ -12,7 +12,6 @@ export default function ContactPage() {
   const [phoneNumber, setPhoneNumber] = useState("");
   const [message, setMessage] = useState("");
   const [statusMessage, setStatusMessage] = useState("");
-  const fullNammeText = "Ing. Marián Ferenc"
   const handleSubmit = async (e: React.FormEvent<HTMLFormElement>) => {
     e.preventDefault();
 
