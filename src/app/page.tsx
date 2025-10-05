@@ -127,11 +127,11 @@ export default function Page() {
           transition={{ delay: 0.4, duration: 0.8, ease: "easeInOut" }}
         >
         <ScrollParallax strength={0.05}>
-          <span className="block text-center">
-            <p className="lg:text-6xl bg-gradient-to-br from-slate-300 to-slate-500 py-4 bg-clip-text text-center text-4xl font-medium tracking-tight text-transparent sm:mt-0 mt-4">
-              {fullNammeText}
-            </p>
-          </span>
+        <span className="block text-center">
+        <p className="lg:text-6xl bg-gradient-to-br from-slate-300 to-slate-500 py-4 bg-clip-text text-center text-4xl font-medium tracking-tight text-transparent sm:mt-0 mt-4 dark:drop-shadow-[4px_4px_6px_rgba(0,0,0,1)]">
+          {fullNammeText}
+        </p>
+      </span>
         </ScrollParallax>
         <div className="flex flex-col md:flex-row justify-center items-center gap-8 mt-2 sm:mt-8 w-full">
         <div className="flex flex-col items-center w-full px-4 md:max-w-md">
@@ -209,7 +209,7 @@ export default function Page() {
             src="/IMG_2255.png"
             width={145}
             height={145}
-            className="w-40 md:ml-0 md:min-w-[20rem] md:min-w-[20rem] rounded-tr-lg mask-r-from-70%"
+            className="w-40 md:ml-0 md:min-w-[20rem] md:min-w-[20rem] rounded-tr-lg"
             alt="Me"
           />
         </div>

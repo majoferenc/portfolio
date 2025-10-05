@@ -50,27 +50,37 @@ export function InfiniteTechTicker({
   return (
     <div className="relative w-full overflow-hidden sm:py-8">
       <div className="w-full max-w-7xl mx-auto overflow-hidden">
-
         <motion.div
           ref={tickerRef}
           className="flex items-center"
-          animate={isLoaded ? {
-            x: -width
-          } : { x: 0 }}
-          transition={isLoaded ? {
-            repeat: Infinity,
-            ease: "linear",
-            duration: speed,
-            repeatType: "loop"
-          } : { duration: 0 }}
+          animate={
+            isLoaded
+              ? {
+                  x: -width
+                }
+              : { x: 0 }
+          }
+          transition={
+            isLoaded
+              ? {
+                  repeat: Infinity,
+                  ease: "linear",
+                  duration: speed,
+                  repeatType: "loop"
+                }
+              : { duration: 0 }
+          }
         >
           {tickerItems.map((item, i) => (
             <div
               key={`${item.id}-${i}`}
-              className="flex flex-col items-center px-5 flex-shrink-0"
+              className="flex flex-col items-center px-4 flex-shrink-0"
             >
-              <div className="bg-zinc-800/20 rounded-lg p-3 flex items-center h-14">
-                <div className="relative w-7 h-7 mr-3 flex items-center justify-center">
+              <div className="relative bg-zinc-800/30 rounded-lg p-3 flex items-center h-14 dark:shadow-[0_2px_8px_rgba(0,0,0,0.4),0_8px_16px_rgba(0,0,0,0.3),inset_0_1px_0_rgba(255,255,255,0.1)] border border-zinc-700/50 backdrop-blur-sm overflow-hidden">
+                <div className="absolute top-0 right-0 w-16 h-16 bg-gradient-to-br dark:from-white/20 dark:via-white/5 dark:o-transparent rounded-full blur-xl translate-x-6 -translate-y-6" />
+                <div className="absolute top-0 right-0 w-8 h-8 bg-gradient-to-br dark:from-white/30 dark:via-white/10 to-transparent rounded-full blur-sm translate-x-2 -translate-y-2" />
+
+                <div className="relative w-7 h-7 mr-3 flex items-center justify-center z-10">
                   <Image
                     src={item.image}
                     alt={item.name}
@@ -78,13 +88,11 @@ export function InfiniteTechTicker({
                     height={28}
                     className="object-contain"
                     unoptimized
-                    onError={(e) => {
-                      // Handle image error by showing fallback
-                      e.currentTarget.src = `https://placehold.co/28x28/374151/ffffff?text=${item.name[0]}`;
-                    }}
                   />
                 </div>
-                <span className="text-sm font-medium whitespace-nowrap">{item.name}</span>
+                <span className="text-sm font-medium whitespace-nowrap z-10 light:text-white">
+                  {item.name}
+                </span>
               </div>
             </div>
           ))}

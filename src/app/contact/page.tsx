@@ -69,7 +69,7 @@ export default function ContactPage() {
             initial={{ opacity: 0, y: 100 }}
             animate={{ opacity: 1, y: 0 }}
             transition={{ delay: 0.4, duration: 0.8, ease: "easeInOut" }}
-            className="max-w-lg mx-auto bg-transparent rounded-lg shadow-md p-8"
+            className="max-w-lg mx-auto dark:border-white/50 shadow-xl/30 backdrop-blur-4xl rounded-lg p-8"
           >
             <form
               onSubmit={handleSubmit}
@@ -77,7 +77,7 @@ export default function ContactPage() {
               <div className="mb-4 flex">
                 <div className="mb-2 p-2">
                   <div className="relative flex w-full max-w-md items-center gap-2 
-                                  rounded-full border border-white/20 bg-gradient-to-br 
+                                  rounded-full border dark:border-white/20 bg-gradient-to-br 
                                   from-white/20 to-white/5 py-1.5 pl-6 pr-1.5"
                   >
                     <input
@@ -93,7 +93,7 @@ export default function ContactPage() {
                 </div>
                 <div className="mb-2 p-2">
                   <div className="relative flex w-full max-w-md items-center gap-2 
-                                  rounded-full border border-white/20 bg-gradient-to-br 
+                                  rounded-full border dark:border-white/20 bg-gradient-to-br 
                                   from-white/20 to-white/5 py-1.5 pl-6 pr-1.5"
                   >
                     <input
@@ -113,7 +113,7 @@ export default function ContactPage() {
               <div className="mb-4 flex">
                 <div className="mb-4 p-2">
                   <div className="relative flex w-full max-w-md items-center gap-2 
-                                  rounded-full border border-white/20 bg-gradient-to-br 
+                                  rounded-full border dark:border-white/20 bg-gradient-to-br 
                                   from-white/20 to-white/5 py-1.5 pl-6 pr-1.5"
                   >
                     <input
@@ -130,7 +130,7 @@ export default function ContactPage() {
                 </div>
                 <div className="mb-4 p-2">
                   <div className="relative flex w-full max-w-md items-center gap-2 
-                                  rounded-full border border-white/20 bg-gradient-to-br 
+                                  rounded-full border dark:border-white/20 bg-gradient-to-br 
                                   from-white/20 to-white/5 py-1.5 pl-6 pr-1.5"
                   >
                     <input
@@ -148,7 +148,7 @@ export default function ContactPage() {
 
               <div className="mb-4 p-2">
                 <div className="relative flex w-full max-w-md items-center gap-2 
-                                border border-white/20 bg-gradient-to-br 
+                                border dark:border-white/20 bg-gradient-to-br 
                                 from-white/20 to-white/5 py-1.5 pl-6 pr-1.5"
                 >
                   <textarea

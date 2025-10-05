@@ -54,7 +54,7 @@ export function Header() {
 
   return (
     <header
-      className={`fixed top-3.5 left-1/2 -translate-x-1/2 z-50 transition-all duration-300 rounded-full border border-white/10 backdrop-blur-xl
+      className={`fixed top-3.5 left-1/2 -translate-x-1/2 z-50 transition-all duration-300 rounded-full border border-white/10 backdrop-blur-4xl
         ${
           isScrolled
             ? "h-14 bg-stone-800/40 scale-95 w-[90%] max-w-4xl shadow-lg"
