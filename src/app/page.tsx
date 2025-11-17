@@ -63,7 +63,7 @@ export default function Page() {
       text: "Years of Experience"
     },
     {
-      number: 42,
+      number: 44,
       text: "Certifications/Badges"
     }
   ];
@@ -75,7 +75,7 @@ export default function Page() {
     },
     {
       description: 'Spring Boot, Java EE, Node.js / LangChain, ChromaDB',
-      title: 'Backend development & GenAI solutions',
+      title: 'Backend development & GenAI solutions (RAG / Agentic AI)',
       experience: '7 years of experience',
     },
     {
@@ -186,6 +186,19 @@ export default function Page() {
               />
             </a>
             <a
+              href="https://medium.com/@marianferenc59"
+              target="_blank"
+              className="h-16 w-16"
+            >
+              <Image
+                src="/medium-logo-icon.png"
+                width={100}
+                height={100}
+                className={`h-16 w-16 bg-white ${hoverEffectClasses}`}
+                alt="Medium link"
+              />
+            </a>
+            <a
               href="https://github.com/majoferenc"
               target="_blank"
               className="h-16 w-16"
@@ -198,7 +211,19 @@ export default function Page() {
                 alt="GitHub link"
               />
             </a>
-            
+            <a
+              href="https://x.com/MarinFerenc"
+              target="_blank"
+              className="h-16 w-16"
+            >
+              <Image
+                src="/twitter-x-logo.png"
+                width={100}
+                height={100}
+                className={`h-16 w-16 ${hoverEffectClasses} bg-black rounded-full`}
+                alt="X link"
+              />
+            </a>
           </div>
           <div>
           </div>

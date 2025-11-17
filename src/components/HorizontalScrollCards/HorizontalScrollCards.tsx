@@ -133,36 +133,42 @@ export default HorizontalScrollCarousel;
 const cards = [
   {
     id: 1,
+    url: "/agenticaiworkshop.jpg",
+    title: "GenAI Solution architecture for government customer",
+    year: "2025 - Now",
+  },
+  {
+    id: 2,
     url: "/flying.jpg",
     title: "Cloud architecture & microservices dev for German telco",
     year: "2020 - Now",
   },
   {
-    id: 2,
+    id: 3,
     url: "/laptop.jpg",
     title: "Azure consulting & DevSecOps for Swiss company",
-    year: "2023 - Now",
+    year: "2023 - 2024",
   },
   {
-    id: 3,
+    id: 4,
     url: "/boat.jpg",
     title: "Container-ready architecture",
     year: "2023 - 2024",
   },
   {
-    id: 4,
+    id: 5,
     url: "/phone.jpg",
     title: "DevOps engineer for German finance",
     year: "2020 - 2021",
   },
   {
-    id: 5,
+    id: 6,
     url: "/desk.jpg",
     title: "App Modernisation to Cloud",
     year: "2017 - 2023",
   },
   {
-    id: 6,
+    id: 7,
     url: "/learning.jpg",
     title: "Frontend dev and consulting",
     year: "2020 - 2020",
