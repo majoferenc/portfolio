@@ -63,7 +63,7 @@ export default function Page() {
       text: "Years of Experience"
     },
     {
-      number: 44,
+      number: 45,
       text: "Certifications/Badges"
     }
   ];
@@ -346,6 +346,14 @@ export default function Page() {
                     <Image 
                     src="/aws_certified_sol_arch_pro.png" 
                     alt="AWS Certified Solutions Architect Professional"
+                    width={150}
+                    height={100} 
+                    />
+                  </div>
+                  <div className={`w-6/12 xl:w-[10rem] lg:w-1/4 md:w-1/4 flex justify-center xl:pb-10 pb-16 items-center  ${hoverEffectClasses}`}>
+                    <Image 
+                    src="/aws_certified_ml_engineer_associate.png" 
+                    alt="AWS Certified Machine Learning Engineer Associate"
                     width={150}
                     height={100} 
                     />
