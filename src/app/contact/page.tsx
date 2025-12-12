@@ -2,7 +2,6 @@
 
 import React, { useState } from "react";
 import { motion } from "framer-motion";
-import emailjs from "emailjs-com";
 import { ButtonWrapper } from "../../components/SpotlightButton/SpotlightButton";
 
 export default function ContactPage() {
@@ -14,27 +13,6 @@ export default function ContactPage() {
   const [statusMessage, setStatusMessage] = useState("");
   const handleSubmit = async (e: React.FormEvent<HTMLFormElement>) => {
     e.preventDefault();
-
-    try {
-      const result = await emailjs.send(
-        "service_30e7vg9",
-        "template_nazrz0q",
-        {
-          name,
-          surName,
-          email,
-          phoneNumber,
-          message,
-        },
-        ""
-      );
-
-      console.log("EmailJS result:", result.text);
-      setStatusMessage("Your message was sent successfully!");
-    } catch (error: any) {
-      console.error("EmailJS error:", error);
-      setStatusMessage("Oops! Something went wrong. Please try again.");
-    }
 
     setName("");
     setSurName("");

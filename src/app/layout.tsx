@@ -29,7 +29,7 @@ export default function RootLayout({
   return (
     <html lang="en" data-theme="dark">
       <body
-        className={`${geistSans.variable} ${geistMono.variable} antialiased min-h-screen flex flex-col`}
+        className={`${geistSans.variable} ${geistMono.variable} antialiased min-h-screen flex flex-col neural-grid`}
       >
           <ThemeProvider defaultTheme="dark" storageKey="theme-mode">
             <WavyBackground className="absolute inset-0 w-full h-full -z-10" />

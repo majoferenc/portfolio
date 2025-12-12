@@ -1,16 +1,36 @@
 import { type ClassValue, clsx } from "clsx";
 import { twMerge } from "tailwind-merge";
 import { format, parseISO } from "date-fns";
-import { Post } from "#site/content";
-
+import type { Post } from "@/lib/posts";
 
 export function cn(...inputs: ClassValue[]) {
   return twMerge(clsx(inputs));
 }
 
-export function formatDate(date: string) {
-  const parsedDate = parseISO(date);
-  return format(parsedDate, "MMMM d, yyyy");
+export function formatDate(date: string | Date | null | undefined): string {
+  if (!date) {
+    return "No date";
+  }
+
+  try {
+    if (date instanceof Date) {
+      return format(date, "MMMM d, yyyy");
+    }
+
+    if (typeof date === "string") {
+      const parsedDate = parseISO(date);
+      return format(parsedDate, "MMMM d, yyyy");
+    }
+
+    if (typeof date === "number") {
+      return format(new Date(date), "MMMM d, yyyy");
+    }
+
+    return "Invalid date";
+  } catch (error) {
+    console.error("Error formatting date:", date, error);
+    return "Invalid date";
+  }
 }
 
 export function sortPosts(posts: Post[]) {
