@@ -1,0 +1,344 @@
+1:"$Sreact.fragment"
+2:"$Sreact.suspense"
+3:I[20906,["/_next/static/chunks/bf74061b5f5e5c25.js","/_next/static/chunks/33d9c0c0b8c2a097.js","/_next/static/chunks/80e392c6d1303c65.js","/_next/static/chunks/e3b77110d15b3613.js","/_next/static/chunks/4530abaaf272c463.js","/_next/static/chunks/4954f07e7ecfb4a1.js","/_next/static/chunks/d3b218f01883712c.js"],"default"]
+a:I[97367,["/_next/static/chunks/ff1a16fafef87110.js","/_next/static/chunks/b71c1cfea9076b4b.js"],"OutletBoundary"]
+4:T1200,
+# **Integrating GitOps and Infrastructure as Code with Terraform and ArgoCD**
+
+<br />
+This solution architecture aims to bridge the gap between **GitOps-based deployments and Infrastructure as Code (IaC)** by incorporating Terraform for handling **database schema migrations** and managing cloud resources effectively. Since microservices often rely on databases to function properly, it is crucial to ensure that the database layer is provisioned and updated correctly before the application deployment begins. Using a combination of **Terraform, GitLab, Vault, and ArgoCD**, we can streamline the process while enforcing security best practices.
+<br />
+
+<ZoomableImage src="/terraform_argo_arch_diagram.png" />
+
+### **Why Use Terraform for Infrastructure and Database Management?**
+
+Infrastructure-as-Code (IaC) has become the backbone of modern cloud deployment strategies, offering automation, consistency, and version control. Terraform allows us to define infrastructure declaratively, reducing manual intervention and potential human errors. For our use case, Terraform plays a vital role in:
+<br />
+
+
+- Storing and managing **SQL migration scripts** within a GitLab repository, enabling version-controlled database updates.
+- Automating the creation and configuration of **database schemas, users, and role-based access controls**, ensuring that applications have the correct permissions.
+- Integrating with **HashiCorp Vault** to securely store and retrieve **database credentials**, reducing exposure and enhancing security.
+- Committing necessary infrastructure configurations, such as **Helm values and Kustomize overlays**, into a Git repository where ArgoCD can monitor changes and automatically synchronize environments.
+<br />
+With this approach, we ensure that database migrations and infrastructure provisioning are tightly coupled with the application deployment process, reducing inconsistencies and deployment failures.
+<br />
+
+## **CI/CD Pipeline with GitLab and Tekton: Automating Deployments from Code to Production**
+
+<br />
+Every time a **developer pushes code to GitLab** or submits a **merge request**, the pipeline is automatically triggered, ensuring that all infrastructure and application changes are validated before being deployed.
+<br />
+#### **Pipeline Stages:**
+<br />
+
+ **1. Lint & Validate:** The pipeline runs static code analysis, Terraform validation, and schema checks to enforce best practices before execution.
+
+ **2. Build & Push Container:** Tekton builds a container image for the microservice and pushes it to a container registry, ensuring that the latest version is ready for deployment.
+
+ **3. Database Migration Execution:** The pipeline retrieves the database credentials securely from Vault and executes SQL migration scripts using **Liquibase**, ensuring that the database schema is up to date before deploying the application.
+
+ **4. Terraform Apply:** Terraform applies any required infrastructure updates, keeping the cloud environment consistent with the defined state. If Terraform detects configuration changes, it automatically opens a pull request (PR) for review, ensuring that changes are tracked and approved before being applied.
+<br />
+
+By automating these processes, we significantly reduce the risk of deployment failures caused by manual errors or misconfigurations.
+<br />
+### **Ensuring Stability with Automated Testing and Observability**
+<br />
+Once the application is deployed, it is critical to validate its functionality and monitor its performance. Our solution incorporates several strategies to achieve this:
+
+- **Automated Health Checks & Integration Tests:** After deployment, **ArgoCD** runs a suite of sync hooks health checks and integration tests to confirm that the application is functioning as expected.
+- **Comprehensive Monitoring & Logging:** Tools like **Prometheus and Grafana** provide real-time visibility into application performance, while OpenShift’s built-in logging capabilities help troubleshoot issues quickly.
+- **Instant Rollbacks:** If a deployment issue arises, ArgoCD enables teams to **revert to the previous stable Git commit**, ensuring minimal downtime and a quick recovery process.
+
+<br />
+
+This approach offers several benefits:
+
+✅ **Automated, version-controlled infrastructure provisioning** eliminates manual setup errors.  
+✅ **Secure database migrations** ensure consistency and data integrity.  
+✅ **Seamless, rollback-ready microservices deployments** improve resilience.  
+✅ **Enhanced observability and security** help teams monitor and manage applications effectively.  
+5:T1b2a,
+In today's fast-paced software development landscape, maintaining clear and detailed delivery documentation is essential for ensuring smooth integrations and ongoing communication between development teams and integrators. In this blog post, we explore how a Python script can automate the creation of delivery documentation for microservices and manages release archiving in Jira. Following script content should serve only as an inspiration for you as your project can have different needs.
+
+<br/>
+## **Overview**
+At the end of your sprint you should have meeting, where your team is deciding, which microservices should be delivered to customer. Based on this meeting every microservice owner will run delivery CI pipeline, which will create Jira release automatically will all necessary metadata for your delivery documentation.
+
+<br/>
+With our Python script we can achieve:
+<br/>
+1. Markdown file that documents the microservices delivered in a release. This documentation makes it easier to read about microservices changes to integrate them into target environment faster.  
+2. Once documentation is generated, the script updates Jira releases by archiving the versions that have been delivered. This helps keep the release board up to date and free from clutter.
+
+<br/>
+### **Automated Documentation Generation**
+
+Let's see first, what we are tring to build:
+
+---
+
+| Microservice         | Group      | Version  | Connected story         | Change Log                                                                              | README changed |
+|-----------------------|-----|-----|-----|---------------------------------------------------------------------------------------------------|------------------|
+| Microservice A     |  Core      | 1.0.8    | Story XYZ-Related to user preferences and performance testing. | feat: XYZ performance testing                                             | Yes              |
+| Microservice B     |  Entity      | 2.1.0    | Story ABC-Related to validation fixing issue. | feat: ABC validation fixing                                             | No              |
+| Microservice C     |  Entity      | 0.1.0    | Story ABC-Related to validation fixing issue. | feat: ABC validation fixing                                             | No              |
+
+---
+
+- **Structured Markdown Output:**  
+  The generated markdown document contains a well-organized table that lists:
+  - **Microservice:** The name derived from the version string.
+  - **Group:** Based on the GitLab project structure.
+  - **Version:** Parsed from the version string stored in GitLab tag.
+  - **Connected Story:** Summaries of associated user-stories (with a special format if the summary starts with a 4-digit number in brackets).
+  - **Change Log:** Commit messages categorized by severity (MAJOR, MINOR, PATCH, and NOT CLASSIFIED) after removing prefixes and JIRA task references.
+  - **README Changed:** A flag indicating whether the `README.md` file was updated since the last tag.
+<br/>
+## **How It Works**
+
+1. **Fetching Versions and Filtering:**  
+   The script starts by querying Jira for project versions, filtering out any that are either archived or not recently released.
+
+2. **Analyzing GitLab Projects:**  
+   It then fetches GitLab projects recursively to match microservice names, analyze commit history, and check for changes in key files like `README.md`.
+
+3. **Compiling the Documentation:**  
+   For each eligible version, the script builds a table row with detailed information including:
+   - The microservice name and its group (extracted from the GitLab project path).
+   - The version number (parsed from the version name).
+   - A summarized list of connected stories and bugs, formatted appropriately.
+   - A change log grouped by severity.
+   - An indication if the README was updated.
+
+4. **Archiving Process:**  
+   Finally, after generating the documentation, the script iterates through the released versions in Jira and archives them to mark the release as processed.
+
+<br/>
+
+## **Implementation**
+
+Main part of the script for generating delivery documentation can look like this:
+<br/>
+
+```bash
+https://gist.github.com/majoferenc/eb36d864fa43626d65f4020d89aa793d
+```
+
+<br/>
+
+•	**Initialization and Setup**:
+The function starts by setting up connections to GitLab and Jira. It initializes the markdown content with table headers.
+
+•	**Fetching Versions**:
+The script retrieves project versions from Jira and filters them based on their release date and archive status. Only versions released within the last 30 days are considered.
+
+•	**Processing Each Version**:
+For each version, a regular expression extracts the microservice name and version number. The script then finds the corresponding GitLab project and fetches commit details and diffs to identify changes.
+
+•	**Building the Table Row**:
+It compiles all relevant details such as connected stories (after processing Jira issues), commit logs, and whether the README.md was modified, then appends this data as a new row in the markdown table.
+
+•	**Finalization**:
+Finally, the markdown file is named dynamically using the current date and pushed to the repository via GitLab.
+
+
+Here is example implementation of the archiving process in Python:
+<br/>
+```bash
+https://gist.github.com/majoferenc/8a24ac22fda4ddd8c24ef251a5c4dfd2
+```
+<br/>
+
+### **Explanation of the Archiving Process**	
+•	**Setup**:
+Similar to the documentation generation function, this section connects to Jira and retrieves the project board.
+
+•	**Filtering Versions**:
+The script filters versions to include only those that are not archived and were released in the last 30 days.
+•	**Archiving**:
+For each released version that meets the criteria, the function updates its status to archived, thus keeping the Jira board organized.
+<br/>
+## **Benefits of the Approach**
+
+✅ **Enhanced Communication:**  
+  Integrators receive a well-structured document that clearly outlines the changes and updates delivered in each release, reducing ambiguity and manual effort.
+
+✅ **Consistency and Traceability:**  
+  The automated approach ensures that each release is documented with the same level of detail and consistency, which is crucial for auditing and future reference.
+
+✅ **Improved Workflow Integration:**  
+  By leveraging APIs from Jira and GitLab, the process seamlessly integrates into the existing development pipeline, making it easier to adopt and maintain over time.
+
+<br/>
+## **Conclusion**
+
+Automating the generation of delivery documentation is a powerful strategy for any organization working with microservices. The Python script described here not only creates a detailed markdown document that summarizes microservice releases but also helps maintain an organized release management process by archiving Jira releases. This results in improved communication, enhanced traceability, and overall efficiency in managing delivery pipelines.
+6:Ta1d,
+# **Debug Spring Boot app in Kubernetes**
+<br />
+Debugging a Spring Boot application running on Kubernetes (K8s) can be challenging, especially when the application is deployed in a production environment. Here are some tips to help you debug your Spring Boot application in K8s.
+<br />
+
+## **Enable Debugging in Your Spring Boot Application**
+<br />
+To enable debugging in your Spring Boot application, you need to add the following line to your config-map of a microservice as an environment variable:
+<br />
+```yaml
+JAVA_TOOL_OPTIONS: -agentlib:jdwp=transport=dt_socket,address=0.0.0.0:8000,
+server=y,suspend=n
+```
+
+This will enable debugging on port 8000.
+<br />
+SSL Debugging:
+
+```bash
+JAVA_TOOL_OPTIONS: -Djavax.net.debug=ALL
+```
+<br />
+## **Expose Debugging Port in Your K8s Deployment**
+
+To expose the debugging port in your K8s deployment, you need to add the following lines to your deployment.yaml file:
+
+```yaml
+spec:
+  template:
+    spec:
+      containers:
+      - name: container-name
+        image: image-name
+        ports:
+        - name: debug
+          containerPort: 8000
+
+```
+
+This will expose the debugging port on port 8000 in your container.
+
+## Port Forwarding to Your Local Machine
+
+To debug your Spring Boot application from your local machine, you need to forward the debugging port to your local machine. You can do this by running the following command:
+
+```bash
+kubectl port-forward {pod-name} 8000:8000
+```
+
+This will forward the debugging port from your K8s pod to your local machine.
+
+To expose the debugging port via K8s service, you can create a service.yaml file with the following contents:
+
+```yaml
+apiVersion: v1
+kind: Service
+metadata:
+  name: service-name
+spec:
+  selector:
+    app: app-name
+  ports:
+  - name: debug
+    port: 8000
+    targetPort: 8000
+
+```
+
+This will create a new service called service-name that maps the debugging port in your container to port 8000 on the service. You can then use the service IP to connect to the debugging port from your local machine.
+
+## **Debugging Your Spring Boot Application**
+
+Once you have forwarded the debugging port to your local machine, you can start debugging your Spring Boot application using your favorite IDE.
+
+In IntelliJ IDEA, you can create a new Remote Debug configuration by going to Run > Edit Configurations, clicking the + button, selecting Remote, and filling in the following fields:
+
+- Name: debug-name
+- Host: localhost
+- Port: 8000
+
+<br />
+<ZoomableImage src="/intellij_remote_debug.webp" />
+<br />
+Click Apply and then Debug to start debugging your Spring Boot application.
+7:T83b,# **What is Ollama**
+Ollama is an open-source platform that runs open LLMs on your local machine (or a server). 
+    It acts like a bridge between any open LLM and your machine, not only running them but also providing an API layer on top of them so that another application or service can use them.
+
+
+# **Tweaking GenAI LLM locally using Ollama**
+
+This guide provides essential commands and environment tweaks for optimizing Ollama when running complex LLM models locally.
+
+# **Prerequisites**
+If you don't have Ollama installed, go to https://ollama.com and download the installation package:
+
+<br />
+<ZoomableImage src="/install_ollama.png" />
+
+
+<br />
+## **Running a Model**
+
+Find your desired model on https://ollama.com in this example we are going to use popular DeepSeek model:
+
+<br />
+<ZoomableImage src="/ollama_model_page.png" />
+<br />
+
+To run our chosen model with Ollama open your terminal and run following command:
+
+```bash
+ollama run deepseek-r1:14b
+```
+<br />
+## **Tweaking Model Parameters**
+<br />
+
+Ollama defaults model context size is set to 2048. To change this, you'll need to create a 'Modelfile' and include the following content
+
+<br />
+```ollama
+FROM deepseek-r1:14b
+
+PARAMETER num_ctx 32768
+PARAMETER num_predict -1
+```
+<br />
+
+In this file, num_ctx is set to the maximum context size of the model, and num_predict is set to -1, which allows the model to use the remaining context as output context. 
+
+After creating the file, run the following command:
+
+```bash
+ollama create deepseek-r1-14b-32k-context -f ./Modelfile
+```
+
+Now, you can use the entire context of the model without truncation by calling:
+
+```bash
+ollama run deepseek-r1-14b-32k-context
+```
+
+## **Performance Optimization**
+<br />
+
+Set environment variables to improve performance (maximize token generation speed):
+
+```bash
+export OLLAMA_FLASH_ATTENTION=true 
+export OLLAMA_KV_CACHE_TYPE=f16    
+```
+
+### **Available `OLLAMA_KV_CACHE_TYPE` Values**
+- `q8_0`
+- `q4_0`
+- `f16` (for 16-bit floating point caching)
+
+<br />
+These settings can help optimize memory usage and speed when running large models locally.
+
+0:{"buildId":"tfC-OrzvccQumEyHqCaX8","rsc":["$","$1","c",{"children":[["$","$2",null,{"fallback":["$","div",null,{"className":"h-10 w-full flex justify-center items-center gap-2","children":[["$","div",null,{"className":"h-8 w-8 bg-gray-200 rounded animate-pulse"}],["$","div",null,{"className":"h-8 w-8 bg-gray-200 rounded animate-pulse"}],["$","div",null,{"className":"h-8 w-8 bg-gray-200 rounded animate-pulse"}]]}],"children":["$","$L3",null,{"posts":[{"slug":"argo-terraform-integration","slugAsParams":"argo-terraform-integration","title":"Integrating GitOps and IaC using ArgoCD and Terraform","description":"Solution architecture, which should enable us to integrate ArgoCD GitOps based deployment of microservices with Terraform together.","date":"$D2025-02-16T00:00:00.000Z","image":"/ArgoCD.png","category":"iac","published":true,"body":"$4","tags":["code","blog","gitops","argocd","terraform"]},{"slug":"automating-delivery-docu-gen","slugAsParams":"automating-delivery-docu-gen","title":"Automating delivery documentation using Python","description":"Automate your delivery documentation for your customer via simple scripting in Python","date":"$D2025-02-28T00:00:00.000Z","image":"/Python.png","category":"automation","published":true,"body":"$5","tags":["code","blog","delivery","cd","automation"]},{"slug":"debug-spring-app-in-k8s","slugAsParams":"debug-spring-app-in-k8s","title":"Debug Spring Boot app in Kubernetes","description":"Remote Debugging of your Java application made easy","date":"$D2025-02-16T00:00:00.000Z","image":"/Spring.png","category":"development","published":true,"body":"$6","tags":["code","blog","gitops","argocd","terraform"]},{"slug":"gitops-centered-dev-environment","slugAsParams":"gitops-centered-dev-environment","title":"GitOps centered development environment using FluxCD","description":"Coming soon","date":"$D2025-02-28T00:00:00.000Z","image":"/ArgoCD.png","category":"gitops","published":true,"body":"\n# **GitOps centered development environment using FluxCD**\n\n<br />\nComing soon!\n<br />\n","tags":["code","blog","gitops","fluxcd","development"]},{"slug":"how-to-start-with-argocd-for-microservices","slugAsParams":"how-to-start-with-argocd-for-microservices","title":"How to start with ArgoCD deployment when using microservices","description":"Coming soon","date":"$D2025-02-28T00:00:00.000Z","image":"/GitLab.png","category":"gitops","published":true,"body":"\n# **How to start with ArgoCD deployment when using microservices**\n\n<br />\nComing soon!\n<br />\n\n","tags":["code","blog","gitops","fluxcd","development"]},{"slug":"important-aspects-of-microservices-architecture","slugAsParams":"important-aspects-of-microservices-architecture","title":"Important aspects of microservices architecture and development","description":"Coming soon","date":"$D2025-02-28T00:00:00.000Z","image":"/Azure.png","category":"architecture","published":true,"body":"\n# **Important aspects of microservices architecture and development**\n\n<br />\nComing soon!\n<br />","tags":["code","blog","gitops","fluxcd","development"]},{"slug":"microservice-tracing","slugAsParams":"microservice-tracing","title":"Microservice tracing using Jaeger","description":"Coming soon","date":"$D2025-02-28T00:00:00.000Z","image":"/Jaeger.png","category":"monitoring","published":true,"body":"\n\n# **Microservice tracing using Jaeger**\n\n<br />\nComing soon!\n<br />\n","tags":["code","blog","gitops","fluxcd","development"]},{"slug":"migrating-monolithic-app-deployment-into-k8s","slugAsParams":"migrating-monolithic-app-deployment-into-k8s","title":"Migrating monolithic app deployment into Kubernetes","description":"Coming soon","date":"$D2025-02-28T00:00:00.000Z","image":"/Kubernetes.png","category":"architecture","published":true,"body":"\n# **Migrating monolithic app deployment into Kubernetes**\n\n<br />\nComing soon!\n<br />\n","tags":["code","blog","gitops","fluxcd","development"]},{"slug":"ollama-cheatsheet","slugAsParams":"ollama-cheatsheet","title":"Tweaking GenAI LLMs locally using Ollama","description":"A quick reference guide for running GenAI LLM models and tweaking them using Ollama.","date":"$D2025-01-29T00:00:00.000Z","image":"/Ollama.png","category":"ai","published":true,"body":"$7","tags":["code","blog"]}]}]}],["$L8"],"$L9"]}],"loading":null,"isPartial":false}
+8:["$","script","script-0",{"src":"/_next/static/chunks/d3b218f01883712c.js","async":true}]
+9:["$","$La",null,{"children":["$","$2",null,{"name":"Next.MetadataOutlet","children":"$@b"}]}]
+b:null
