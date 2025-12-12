@@ -2,9 +2,9 @@
 
 import { QueryPagination } from "@/components/query-pagination";
 import { sortPosts } from "@/lib/utils";
-import { useSearchParams } from 'next/navigation';
 import Image from 'next/image'
 import Link from 'next/link'
+import { useSearchParams } from 'next/navigation';
 import type { Post } from "@/lib/posts";
 
 import { formatDate } from "@/lib/utils";
@@ -13,14 +13,13 @@ const POSTS_PER_PAGE = 6;
 
 interface BlogContentProps {
     posts: Post[];
-    currentPage: number;
 }
   
 export default function BlogContent({ posts }: BlogContentProps) {
-  const searchParams = useSearchParams();
-  const currentPage = Number(searchParams.get('page')?.toString()) || 1;
   const sortedPosts = sortPosts(posts.filter((post: Post) => post.published));
   const totalPages = Math.ceil(sortedPosts.length / POSTS_PER_PAGE);
+  const searchParams = useSearchParams();
+  const currentPage = Number(searchParams.get('page')?.toString()) || 1;
 
   const displayPosts = sortedPosts.slice(
     POSTS_PER_PAGE * (currentPage - 1),

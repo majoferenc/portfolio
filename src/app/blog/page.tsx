@@ -7,8 +7,7 @@ interface PageProps {
 }
 export default async function BlogPage({ searchParams }: PageProps) {
     const posts = getAllPosts();
-    const resolvedParams = await searchParams;
-    const currentPage = Number(resolvedParams.page) || 1;
+    
   function PaginationSkeleton() {
     return (
       <div className="h-10 w-full flex justify-center items-center gap-2">
@@ -21,7 +20,7 @@ export default async function BlogPage({ searchParams }: PageProps) {
   
     return (
         <Suspense fallback={<PaginationSkeleton />}>
-          <BlogContent posts={posts} currentPage={currentPage} />
+          <BlogContent posts={posts} />
         </Suspense>
       );
 }
