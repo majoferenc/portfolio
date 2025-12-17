@@ -14,9 +14,171 @@ f:I[97367,["/_next/static/chunks/ff1a16fafef87110.js","/_next/static/chunks/247e
 :HL["/_next/static/chunks/57dacccb0e5ac45e.css","style"]
 :HL["/_next/static/media/GeistMonoVF-s.p.2cee7d16.woff","font",{"crossOrigin":"","type":"font/woff"}]
 :HL["/_next/static/media/GeistVF-s.p.4c3c0b96.woff","font",{"crossOrigin":"","type":"font/woff"}]
-0:{"P":null,"b":"B7nnMIYhHPyUNPqCAm3mn","c":["","blog"],"q":"","i":false,"f":[[["",{"children":["blog",{"children":["__PAGE__",{}]}]},"$undefined","$undefined",true],[["$","$1","c",{"children":[[["$","link","0",{"rel":"stylesheet","href":"/_next/static/chunks/57dacccb0e5ac45e.css","precedence":"next","crossOrigin":"$undefined","nonce":"$undefined"}],["$","script","script-0",{"src":"/_next/static/chunks/d8674ea6f9e41414.js","async":true,"nonce":"$undefined"}],["$","script","script-1",{"src":"/_next/static/chunks/33d9c0c0b8c2a097.js","async":true,"nonce":"$undefined"}],["$","script","script-2",{"src":"/_next/static/chunks/80e392c6d1303c65.js","async":true,"nonce":"$undefined"}],["$","script","script-3",{"src":"/_next/static/chunks/e3b77110d15b3613.js","async":true,"nonce":"$undefined"}],["$","script","script-4",{"src":"/_next/static/chunks/4530abaaf272c463.js","async":true,"nonce":"$undefined"}],["$","script","script-5",{"src":"/_next/static/chunks/4954f07e7ecfb4a1.js","async":true,"nonce":"$undefined"}]],["$","html",null,{"lang":"en","data-theme":"dark","children":["$","body",null,{"className":"geistsans_47a3c9f1-module__MCSGAW__variable geistmono_cfbefb1d-module__fDTvyq__variable antialiased min-h-screen flex flex-col neural-grid","children":["$","$L2",null,{"defaultTheme":"dark","storageKey":"theme-mode","children":[["$","$L3",null,{"className":"absolute inset-0 w-full h-full -z-10"}],["$","$L4",null,{"children":["$","$L5",null,{"parallelRouterKey":"children","error":"$undefined","errorStyles":"$undefined","errorScripts":"$undefined","template":["$","$L6",null,{}],"templateStyles":"$undefined","templateScripts":"$undefined","notFound":[["$","$L7",null,{}],[]],"forbidden":"$undefined","unauthorized":"$undefined"}]}],["$","$L8",null,{}]]}]}]}]]}],{"children":[["$","$1","c",{"children":[null,["$","$L5",null,{"parallelRouterKey":"children","error":"$undefined","errorStyles":"$undefined","errorScripts":"$undefined","template":["$","$L6",null,{}],"templateStyles":"$undefined","templateScripts":"$undefined","notFound":"$undefined","forbidden":"$undefined","unauthorized":"$undefined"}]]}],{"children":[["$","$1","c",{"children":["$L9",[["$","script","script-0",{"src":"/_next/static/chunks/191baeb662ac3658.js","async":true,"nonce":"$undefined"}]],["$","$La",null,{"children":["$","$b",null,{"name":"Next.MetadataOutlet","children":"$@c"}]}]]}],{},null,false,false]},null,false,false]},null,false,false],["$","$1","h",{"children":[null,["$","$Ld",null,{"children":"$@e"}],["$","div",null,{"hidden":true,"children":["$","$Lf",null,{"children":["$","$b",null,{"name":"Next.Metadata","children":"$@10"}]}]}],["$","meta",null,{"name":"next-size-adjust","content":""}]]}],false]],"m":"$undefined","G":["$11",[]],"S":true}
+0:{"P":null,"b":"qUBtnuM8N4G_Zdl1zgNq8","c":["","blog"],"q":"","i":false,"f":[[["",{"children":["blog",{"children":["__PAGE__",{}]}]},"$undefined","$undefined",true],[["$","$1","c",{"children":[[["$","link","0",{"rel":"stylesheet","href":"/_next/static/chunks/57dacccb0e5ac45e.css","precedence":"next","crossOrigin":"$undefined","nonce":"$undefined"}],["$","script","script-0",{"src":"/_next/static/chunks/d8674ea6f9e41414.js","async":true,"nonce":"$undefined"}],["$","script","script-1",{"src":"/_next/static/chunks/33d9c0c0b8c2a097.js","async":true,"nonce":"$undefined"}],["$","script","script-2",{"src":"/_next/static/chunks/80e392c6d1303c65.js","async":true,"nonce":"$undefined"}],["$","script","script-3",{"src":"/_next/static/chunks/e3b77110d15b3613.js","async":true,"nonce":"$undefined"}],["$","script","script-4",{"src":"/_next/static/chunks/4530abaaf272c463.js","async":true,"nonce":"$undefined"}],["$","script","script-5",{"src":"/_next/static/chunks/4954f07e7ecfb4a1.js","async":true,"nonce":"$undefined"}]],["$","html",null,{"lang":"en","data-theme":"dark","children":["$","body",null,{"className":"geistsans_47a3c9f1-module__MCSGAW__variable geistmono_cfbefb1d-module__fDTvyq__variable antialiased min-h-screen flex flex-col neural-grid","children":["$","$L2",null,{"defaultTheme":"dark","storageKey":"theme-mode","children":[["$","$L3",null,{"className":"absolute inset-0 w-full h-full -z-10"}],["$","$L4",null,{"children":["$","$L5",null,{"parallelRouterKey":"children","error":"$undefined","errorStyles":"$undefined","errorScripts":"$undefined","template":["$","$L6",null,{}],"templateStyles":"$undefined","templateScripts":"$undefined","notFound":[["$","$L7",null,{}],[]],"forbidden":"$undefined","unauthorized":"$undefined"}]}],["$","$L8",null,{}]]}]}]}]]}],{"children":[["$","$1","c",{"children":[null,["$","$L5",null,{"parallelRouterKey":"children","error":"$undefined","errorStyles":"$undefined","errorScripts":"$undefined","template":["$","$L6",null,{}],"templateStyles":"$undefined","templateScripts":"$undefined","notFound":"$undefined","forbidden":"$undefined","unauthorized":"$undefined"}]]}],{"children":[["$","$1","c",{"children":["$L9",[["$","script","script-0",{"src":"/_next/static/chunks/191baeb662ac3658.js","async":true,"nonce":"$undefined"}]],["$","$La",null,{"children":["$","$b",null,{"name":"Next.MetadataOutlet","children":"$@c"}]}]]}],{},null,false,false]},null,false,false]},null,false,false],["$","$1","h",{"children":[null,["$","$Ld",null,{"children":"$@e"}],["$","div",null,{"hidden":true,"children":["$","$Lf",null,{"children":["$","$b",null,{"name":"Next.Metadata","children":"$@10"}]}]}],["$","meta",null,{"name":"next-size-adjust","content":""}]]}],false]],"m":"$undefined","G":["$11",[]],"S":true}
 12:I[20906,["/_next/static/chunks/d8674ea6f9e41414.js","/_next/static/chunks/33d9c0c0b8c2a097.js","/_next/static/chunks/80e392c6d1303c65.js","/_next/static/chunks/e3b77110d15b3613.js","/_next/static/chunks/4530abaaf272c463.js","/_next/static/chunks/4954f07e7ecfb4a1.js","/_next/static/chunks/191baeb662ac3658.js"],"default"]
-13:T1200,
+13:T83b,# **What is Ollama**
+Ollama is an open-source platform that runs open LLMs on your local machine (or a server). 
+    It acts like a bridge between any open LLM and your machine, not only running them but also providing an API layer on top of them so that another application or service can use them.
+
+
+# **Tweaking GenAI LLM locally using Ollama**
+
+This guide provides essential commands and environment tweaks for optimizing Ollama when running complex LLM models locally.
+
+# **Prerequisites**
+If you don't have Ollama installed, go to https://ollama.com and download the installation package:
+
+<br />
+<ZoomableImage src="/install_ollama.png" />
+
+
+<br />
+## **Running a Model**
+
+Find your desired model on https://ollama.com in this example we are going to use popular DeepSeek model:
+
+<br />
+<ZoomableImage src="/ollama_model_page.png" />
+<br />
+
+To run our chosen model with Ollama open your terminal and run following command:
+
+```bash
+ollama run deepseek-r1:14b
+```
+<br />
+## **Tweaking Model Parameters**
+<br />
+
+Ollama defaults model context size is set to 2048. To change this, you'll need to create a 'Modelfile' and include the following content
+
+<br />
+```ollama
+FROM deepseek-r1:14b
+
+PARAMETER num_ctx 32768
+PARAMETER num_predict -1
+```
+<br />
+
+In this file, num_ctx is set to the maximum context size of the model, and num_predict is set to -1, which allows the model to use the remaining context as output context. 
+
+After creating the file, run the following command:
+
+```bash
+ollama create deepseek-r1-14b-32k-context -f ./Modelfile
+```
+
+Now, you can use the entire context of the model without truncation by calling:
+
+```bash
+ollama run deepseek-r1-14b-32k-context
+```
+
+## **Performance Optimization**
+<br />
+
+Set environment variables to improve performance (maximize token generation speed):
+
+```bash
+export OLLAMA_FLASH_ATTENTION=true 
+export OLLAMA_KV_CACHE_TYPE=f16    
+```
+
+### **Available `OLLAMA_KV_CACHE_TYPE` Values**
+- `q8_0`
+- `q4_0`
+- `f16` (for 16-bit floating point caching)
+
+<br />
+These settings can help optimize memory usage and speed when running large models locally.
+
+14:Ta1d,
+# **Debug Spring Boot app in Kubernetes**
+<br />
+Debugging a Spring Boot application running on Kubernetes (K8s) can be challenging, especially when the application is deployed in a production environment. Here are some tips to help you debug your Spring Boot application in K8s.
+<br />
+
+## **Enable Debugging in Your Spring Boot Application**
+<br />
+To enable debugging in your Spring Boot application, you need to add the following line to your config-map of a microservice as an environment variable:
+<br />
+```yaml
+JAVA_TOOL_OPTIONS: -agentlib:jdwp=transport=dt_socket,address=0.0.0.0:8000,
+server=y,suspend=n
+```
+
+This will enable debugging on port 8000.
+<br />
+SSL Debugging:
+
+```bash
+JAVA_TOOL_OPTIONS: -Djavax.net.debug=ALL
+```
+<br />
+## **Expose Debugging Port in Your K8s Deployment**
+
+To expose the debugging port in your K8s deployment, you need to add the following lines to your deployment.yaml file:
+
+```yaml
+spec:
+  template:
+    spec:
+      containers:
+      - name: container-name
+        image: image-name
+        ports:
+        - name: debug
+          containerPort: 8000
+
+```
+
+This will expose the debugging port on port 8000 in your container.
+
+## Port Forwarding to Your Local Machine
+
+To debug your Spring Boot application from your local machine, you need to forward the debugging port to your local machine. You can do this by running the following command:
+
+```bash
+kubectl port-forward {pod-name} 8000:8000
+```
+
+This will forward the debugging port from your K8s pod to your local machine.
+
+To expose the debugging port via K8s service, you can create a service.yaml file with the following contents:
+
+```yaml
+apiVersion: v1
+kind: Service
+metadata:
+  name: service-name
+spec:
+  selector:
+    app: app-name
+  ports:
+  - name: debug
+    port: 8000
+    targetPort: 8000
+
+```
+
+This will create a new service called service-name that maps the debugging port in your container to port 8000 on the service. You can then use the service IP to connect to the debugging port from your local machine.
+
+## **Debugging Your Spring Boot Application**
+
+Once you have forwarded the debugging port to your local machine, you can start debugging your Spring Boot application using your favorite IDE.
+
+In IntelliJ IDEA, you can create a new Remote Debug configuration by going to Run > Edit Configurations, clicking the + button, selecting Remote, and filling in the following fields:
+
+- Name: debug-name
+- Host: localhost
+- Port: 8000
+
+<br />
+<ZoomableImage src="/intellij_remote_debug.webp" />
+<br />
+Click Apply and then Debug to start debugging your Spring Boot application.
+15:T1200,
 # **Integrating GitOps and Infrastructure as Code with Terraform and ArgoCD**
 
 <br />
@@ -74,7 +236,7 @@ This approach offers several benefits:
 ✅ **Secure database migrations** ensure consistency and data integrity.  
 ✅ **Seamless, rollback-ready microservices deployments** improve resilience.  
 ✅ **Enhanced observability and security** help teams monitor and manage applications effectively.  
-14:T1b2a,
+16:T1b2a,
 In today's fast-paced software development landscape, maintaining clear and detailed delivery documentation is essential for ensuring smooth integrations and ongoing communication between development teams and integrators. In this blog post, we explore how a Python script can automate the creation of delivery documentation for microservices and manages release archiving in Jira. Following script content should serve only as an inspiration for you as your project can have different needs.
 
 <br/>
@@ -190,169 +352,7 @@ For each released version that meets the criteria, the function updates its stat
 ## **Conclusion**
 
 Automating the generation of delivery documentation is a powerful strategy for any organization working with microservices. The Python script described here not only creates a detailed markdown document that summarizes microservice releases but also helps maintain an organized release management process by archiving Jira releases. This results in improved communication, enhanced traceability, and overall efficiency in managing delivery pipelines.
-15:Ta1d,
-# **Debug Spring Boot app in Kubernetes**
-<br />
-Debugging a Spring Boot application running on Kubernetes (K8s) can be challenging, especially when the application is deployed in a production environment. Here are some tips to help you debug your Spring Boot application in K8s.
-<br />
-
-## **Enable Debugging in Your Spring Boot Application**
-<br />
-To enable debugging in your Spring Boot application, you need to add the following line to your config-map of a microservice as an environment variable:
-<br />
-```yaml
-JAVA_TOOL_OPTIONS: -agentlib:jdwp=transport=dt_socket,address=0.0.0.0:8000,
-server=y,suspend=n
-```
-
-This will enable debugging on port 8000.
-<br />
-SSL Debugging:
-
-```bash
-JAVA_TOOL_OPTIONS: -Djavax.net.debug=ALL
-```
-<br />
-## **Expose Debugging Port in Your K8s Deployment**
-
-To expose the debugging port in your K8s deployment, you need to add the following lines to your deployment.yaml file:
-
-```yaml
-spec:
-  template:
-    spec:
-      containers:
-      - name: container-name
-        image: image-name
-        ports:
-        - name: debug
-          containerPort: 8000
-
-```
-
-This will expose the debugging port on port 8000 in your container.
-
-## Port Forwarding to Your Local Machine
-
-To debug your Spring Boot application from your local machine, you need to forward the debugging port to your local machine. You can do this by running the following command:
-
-```bash
-kubectl port-forward {pod-name} 8000:8000
-```
-
-This will forward the debugging port from your K8s pod to your local machine.
-
-To expose the debugging port via K8s service, you can create a service.yaml file with the following contents:
-
-```yaml
-apiVersion: v1
-kind: Service
-metadata:
-  name: service-name
-spec:
-  selector:
-    app: app-name
-  ports:
-  - name: debug
-    port: 8000
-    targetPort: 8000
-
-```
-
-This will create a new service called service-name that maps the debugging port in your container to port 8000 on the service. You can then use the service IP to connect to the debugging port from your local machine.
-
-## **Debugging Your Spring Boot Application**
-
-Once you have forwarded the debugging port to your local machine, you can start debugging your Spring Boot application using your favorite IDE.
-
-In IntelliJ IDEA, you can create a new Remote Debug configuration by going to Run > Edit Configurations, clicking the + button, selecting Remote, and filling in the following fields:
-
-- Name: debug-name
-- Host: localhost
-- Port: 8000
-
-<br />
-<ZoomableImage src="/intellij_remote_debug.webp" />
-<br />
-Click Apply and then Debug to start debugging your Spring Boot application.
-16:T83b,# **What is Ollama**
-Ollama is an open-source platform that runs open LLMs on your local machine (or a server). 
-    It acts like a bridge between any open LLM and your machine, not only running them but also providing an API layer on top of them so that another application or service can use them.
-
-
-# **Tweaking GenAI LLM locally using Ollama**
-
-This guide provides essential commands and environment tweaks for optimizing Ollama when running complex LLM models locally.
-
-# **Prerequisites**
-If you don't have Ollama installed, go to https://ollama.com and download the installation package:
-
-<br />
-<ZoomableImage src="/install_ollama.png" />
-
-
-<br />
-## **Running a Model**
-
-Find your desired model on https://ollama.com in this example we are going to use popular DeepSeek model:
-
-<br />
-<ZoomableImage src="/ollama_model_page.png" />
-<br />
-
-To run our chosen model with Ollama open your terminal and run following command:
-
-```bash
-ollama run deepseek-r1:14b
-```
-<br />
-## **Tweaking Model Parameters**
-<br />
-
-Ollama defaults model context size is set to 2048. To change this, you'll need to create a 'Modelfile' and include the following content
-
-<br />
-```ollama
-FROM deepseek-r1:14b
-
-PARAMETER num_ctx 32768
-PARAMETER num_predict -1
-```
-<br />
-
-In this file, num_ctx is set to the maximum context size of the model, and num_predict is set to -1, which allows the model to use the remaining context as output context. 
-
-After creating the file, run the following command:
-
-```bash
-ollama create deepseek-r1-14b-32k-context -f ./Modelfile
-```
-
-Now, you can use the entire context of the model without truncation by calling:
-
-```bash
-ollama run deepseek-r1-14b-32k-context
-```
-
-## **Performance Optimization**
-<br />
-
-Set environment variables to improve performance (maximize token generation speed):
-
-```bash
-export OLLAMA_FLASH_ATTENTION=true 
-export OLLAMA_KV_CACHE_TYPE=f16    
-```
-
-### **Available `OLLAMA_KV_CACHE_TYPE` Values**
-- `q8_0`
-- `q4_0`
-- `f16` (for 16-bit floating point caching)
-
-<br />
-These settings can help optimize memory usage and speed when running large models locally.
-
-9:["$","$b",null,{"fallback":["$","div",null,{"className":"h-10 w-full flex justify-center items-center gap-2","children":[["$","div",null,{"className":"h-8 w-8 bg-gray-200 rounded animate-pulse"}],["$","div",null,{"className":"h-8 w-8 bg-gray-200 rounded animate-pulse"}],["$","div",null,{"className":"h-8 w-8 bg-gray-200 rounded animate-pulse"}]]}],"children":["$","$L12",null,{"posts":[{"slug":"argo-terraform-integration","slugAsParams":"argo-terraform-integration","title":"Integrating GitOps and IaC using ArgoCD and Terraform","description":"Solution architecture, which should enable us to integrate ArgoCD GitOps based deployment of microservices with Terraform together.","date":"$D2025-02-16T00:00:00.000Z","image":"/ArgoCD.png","category":"iac","published":true,"body":"$13","tags":["code","blog","gitops","argocd","terraform"]},{"slug":"automating-delivery-docu-gen","slugAsParams":"automating-delivery-docu-gen","title":"Automating delivery documentation using Python","description":"Automate your delivery documentation for your customer via simple scripting in Python","date":"$D2025-02-28T00:00:00.000Z","image":"/Python.png","category":"automation","published":true,"body":"$14","tags":["code","blog","delivery","cd","automation"]},{"slug":"debug-spring-app-in-k8s","slugAsParams":"debug-spring-app-in-k8s","title":"Debug Spring Boot app in Kubernetes","description":"Remote Debugging of your Java application made easy","date":"$D2025-02-16T00:00:00.000Z","image":"/Spring.png","category":"development","published":true,"body":"$15","tags":["code","blog","gitops","argocd","terraform"]},{"slug":"gitops-centered-dev-environment","slugAsParams":"gitops-centered-dev-environment","title":"GitOps centered development environment using FluxCD","description":"Coming soon","date":"$D2025-02-28T00:00:00.000Z","image":"/ArgoCD.png","category":"gitops","published":true,"body":"\n# **GitOps centered development environment using FluxCD**\n\n<br />\nComing soon!\n<br />\n","tags":["code","blog","gitops","fluxcd","development"]},{"slug":"how-to-start-with-argocd-for-microservices","slugAsParams":"how-to-start-with-argocd-for-microservices","title":"How to start with ArgoCD deployment when using microservices","description":"Coming soon","date":"$D2025-02-28T00:00:00.000Z","image":"/GitLab.png","category":"gitops","published":true,"body":"\n# **How to start with ArgoCD deployment when using microservices**\n\n<br />\nComing soon!\n<br />\n\n","tags":["code","blog","gitops","fluxcd","development"]},{"slug":"important-aspects-of-microservices-architecture","slugAsParams":"important-aspects-of-microservices-architecture","title":"Important aspects of microservices architecture and development","description":"Coming soon","date":"$D2025-02-28T00:00:00.000Z","image":"/Azure.png","category":"architecture","published":true,"body":"\n# **Important aspects of microservices architecture and development**\n\n<br />\nComing soon!\n<br />","tags":["code","blog","gitops","fluxcd","development"]},{"slug":"microservice-tracing","slugAsParams":"microservice-tracing","title":"Microservice tracing using Jaeger","description":"Coming soon","date":"$D2025-02-28T00:00:00.000Z","image":"/Jaeger.png","category":"monitoring","published":true,"body":"\n\n# **Microservice tracing using Jaeger**\n\n<br />\nComing soon!\n<br />\n","tags":["code","blog","gitops","fluxcd","development"]},{"slug":"migrating-monolithic-app-deployment-into-k8s","slugAsParams":"migrating-monolithic-app-deployment-into-k8s","title":"Migrating monolithic app deployment into Kubernetes","description":"Coming soon","date":"$D2025-02-28T00:00:00.000Z","image":"/Kubernetes.png","category":"architecture","published":true,"body":"\n# **Migrating monolithic app deployment into Kubernetes**\n\n<br />\nComing soon!\n<br />\n","tags":["code","blog","gitops","fluxcd","development"]},{"slug":"ollama-cheatsheet","slugAsParams":"ollama-cheatsheet","title":"Tweaking GenAI LLMs locally using Ollama","description":"A quick reference guide for running GenAI LLM models and tweaking them using Ollama.","date":"$D2025-01-29T00:00:00.000Z","image":"/Ollama.png","category":"ai","published":true,"body":"$16","tags":["code","blog"]}]}]}]
+9:["$","$b",null,{"fallback":["$","div",null,{"className":"h-10 w-full flex justify-center items-center gap-2","children":[["$","div",null,{"className":"h-8 w-8 bg-gray-200 rounded animate-pulse"}],["$","div",null,{"className":"h-8 w-8 bg-gray-200 rounded animate-pulse"}],["$","div",null,{"className":"h-8 w-8 bg-gray-200 rounded animate-pulse"}]]}],"children":["$","$L12",null,{"posts":[{"slug":"gitops-centered-dev-environment","slugAsParams":"gitops-centered-dev-environment","title":"GitOps centered development environment using FluxCD","description":"Coming soon","date":"$D2025-02-28T00:00:00.000Z","image":"/ArgoCD.png","category":"gitops","published":true,"body":"\n# **GitOps centered development environment using FluxCD**\n\n<br />\nComing soon!\n<br />\n","tags":["code","blog","gitops","fluxcd","development"]},{"slug":"ollama-cheatsheet","slugAsParams":"ollama-cheatsheet","title":"Tweaking GenAI LLMs locally using Ollama","description":"A quick reference guide for running GenAI LLM models and tweaking them using Ollama.","date":"$D2025-01-29T00:00:00.000Z","image":"/Ollama.png","category":"ai","published":true,"body":"$13","tags":["code","blog"]},{"slug":"microservice-tracing","slugAsParams":"microservice-tracing","title":"Microservice tracing using Jaeger","description":"Coming soon","date":"$D2025-02-28T00:00:00.000Z","image":"/Jaeger.png","category":"monitoring","published":true,"body":"\n\n# **Microservice tracing using Jaeger**\n\n<br />\nComing soon!\n<br />\n","tags":["code","blog","gitops","fluxcd","development"]},{"slug":"how-to-start-with-argocd-for-microservices","slugAsParams":"how-to-start-with-argocd-for-microservices","title":"How to start with ArgoCD deployment when using microservices","description":"Coming soon","date":"$D2025-02-28T00:00:00.000Z","image":"/GitLab.png","category":"gitops","published":true,"body":"\n# **How to start with ArgoCD deployment when using microservices**\n\n<br />\nComing soon!\n<br />\n\n","tags":["code","blog","gitops","fluxcd","development"]},{"slug":"migrating-monolithic-app-deployment-into-k8s","slugAsParams":"migrating-monolithic-app-deployment-into-k8s","title":"Migrating monolithic app deployment into Kubernetes","description":"Coming soon","date":"$D2025-02-28T00:00:00.000Z","image":"/Kubernetes.png","category":"architecture","published":true,"body":"\n# **Migrating monolithic app deployment into Kubernetes**\n\n<br />\nComing soon!\n<br />\n","tags":["code","blog","gitops","fluxcd","development"]},{"slug":"debug-spring-app-in-k8s","slugAsParams":"debug-spring-app-in-k8s","title":"Debug Spring Boot app in Kubernetes","description":"Remote Debugging of your Java application made easy","date":"$D2025-02-16T00:00:00.000Z","image":"/Spring.png","category":"development","published":true,"body":"$14","tags":["code","blog","gitops","argocd","terraform"]},{"slug":"argo-terraform-integration","slugAsParams":"argo-terraform-integration","title":"Integrating GitOps and IaC using ArgoCD and Terraform","description":"Solution architecture, which should enable us to integrate ArgoCD GitOps based deployment of microservices with Terraform together.","date":"$D2025-02-16T00:00:00.000Z","image":"/ArgoCD.png","category":"iac","published":true,"body":"$15","tags":["code","blog","gitops","argocd","terraform"]},{"slug":"important-aspects-of-microservices-architecture","slugAsParams":"important-aspects-of-microservices-architecture","title":"Important aspects of microservices architecture and development","description":"Coming soon","date":"$D2025-02-28T00:00:00.000Z","image":"/Azure.png","category":"architecture","published":true,"body":"\n# **Important aspects of microservices architecture and development**\n\n<br />\nComing soon!\n<br />","tags":["code","blog","gitops","fluxcd","development"]},{"slug":"automating-delivery-docu-gen","slugAsParams":"automating-delivery-docu-gen","title":"Automating delivery documentation using Python","description":"Automate your delivery documentation for your customer via simple scripting in Python","date":"$D2025-02-28T00:00:00.000Z","image":"/Python.png","category":"automation","published":true,"body":"$16","tags":["code","blog","delivery","cd","automation"]}]}]}]
 e:[["$","meta","0",{"charSet":"utf-8"}],["$","meta","1",{"name":"viewport","content":"width=device-width, initial-scale=1"}]]
 17:I[27201,["/_next/static/chunks/ff1a16fafef87110.js","/_next/static/chunks/247eb132b7f7b574.js"],"IconMark"]
 10:[["$","title","0",{"children":"Ing. Marián Ferenc - Blog"}],["$","meta","1",{"name":"description","content":"Blog Page of Ing. Marián Ferenc portfolio"}],["$","link","2",{"rel":"icon","href":"/favicon.ico?favicon.0b3bf435.ico","sizes":"256x256","type":"image/x-icon"}],["$","$L17","3",{}]]
