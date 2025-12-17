@@ -1,9 +1,14 @@
 ## My Portfolio Next.js App
 
+
+### Prerequsites
+Install Bun Javascript runtime: https://bun.com/docs/installation#package-managers
+
+### Run app in dev mode
 First, run the development server:
 
 ```bash
-npm run dev
+bun run dev
 ```
 
 Open [http://localhost:3000](http://localhost:3000) with your browser to see the result.
@@ -11,7 +16,7 @@ Open [http://localhost:3000](http://localhost:3000) with your browser to see the
 ## Test Prod build
 
 ```bash
-npm install --global serve
-npm run build
+bun add -g serve
+bun run build
 serve out -s -l 8080
 ```
