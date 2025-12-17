@@ -1,16 +1,12 @@
-# Default values for react-template.
-# This is a YAML-formatted file.
-# Declare variables to be passed into your templates.
-
 replicaCount: 1
 
 image:
-  repository: de.icr.io/react-template-poc/react-template-frontend-service
+  repository: marianferenc/portfolio
   pullPolicy: Always
   # Overrides the image tag whose default is the chart appVersion.
-  tag: v0-1-0--20210812-1300
+  tag: v12-2025
 
-imagePullSecrets: "all-icr-io"
+imagePullSecrets: ""
 nameOverride: ""
 fullnameOverride: ""
 
@@ -30,13 +26,12 @@ podSecurityContext:
   # fsGroup: 2000
 
 securityContext:
-  {}
-  # capabilities:
-  #   drop:
-  #   - ALL
-  # readOnlyRootFilesystem: true
-  # runAsNonRoot: true
-  # runAsUser: 1000
+  capabilities:
+    drop:
+    - ALL
+  readOnlyRootFilesystem: true
+  runAsNonRoot: true
+  runAsUser: 1001
 
 service:
   type: ClusterIP
@@ -44,28 +39,23 @@ service:
 
 ingress:
   enabled: true
-  host: react-template-frontend-service.react-template-poc-e6e6b6f4460a0c80eb352af0bab50501-0000.eu-de.containers.appdomain.cloud
-  secretName: react-template-poc-e6e6b6f4460a0c80eb352af0bab50501-0000
+  host: marianferenc.space
+  secretName: marianferenc-space
 
 resources:
-  {}
-  # We usually recommend not to specify default resources and to leave this as a conscious
-  # choice for the user. This also increases chances charts run on environments with little
-  # resources, such as Minikube. If you do want to specify resources, uncomment the following
-  # lines, adjust them as necessary, and remove the curly braces after 'resources:'.
-  # limits:
-  #   cpu: 100m
-  #   memory: 128Mi
-  # requests:
-  #   cpu: 100m
-  #   memory: 128Mi
+  limits:
+    cpu: 100m
+    memory: 128Mi
+  requests:
+    cpu: 100m
+    memory: 128Mi
 
 autoscaling:
   enabled: false
   minReplicas: 1
   maxReplicas: 10
   targetCPUUtilizationPercentage: 80
-  # targetMemoryUtilizationPercentage: 80
+  targetMemoryUtilizationPercentage: 80
 
 nodeSelector: {}
 
