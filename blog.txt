@@ -14,85 +14,66 @@ f:I[97367,["/_next/static/chunks/ff1a16fafef87110.js","/_next/static/chunks/247e
 :HL["/_next/static/chunks/57dacccb0e5ac45e.css","style"]
 :HL["/_next/static/media/GeistMonoVF-s.p.2cee7d16.woff","font",{"crossOrigin":"","type":"font/woff"}]
 :HL["/_next/static/media/GeistVF-s.p.4c3c0b96.woff","font",{"crossOrigin":"","type":"font/woff"}]
-0:{"P":null,"b":"gOcRxlOSly6HnGAYiIPW3","c":["","blog"],"q":"","i":false,"f":[[["",{"children":["blog",{"children":["__PAGE__",{}]}]},"$undefined","$undefined",true],[["$","$1","c",{"children":[[["$","link","0",{"rel":"stylesheet","href":"/_next/static/chunks/57dacccb0e5ac45e.css","precedence":"next","crossOrigin":"$undefined","nonce":"$undefined"}],["$","script","script-0",{"src":"/_next/static/chunks/d8674ea6f9e41414.js","async":true,"nonce":"$undefined"}],["$","script","script-1",{"src":"/_next/static/chunks/33d9c0c0b8c2a097.js","async":true,"nonce":"$undefined"}],["$","script","script-2",{"src":"/_next/static/chunks/80e392c6d1303c65.js","async":true,"nonce":"$undefined"}],["$","script","script-3",{"src":"/_next/static/chunks/e3b77110d15b3613.js","async":true,"nonce":"$undefined"}],["$","script","script-4",{"src":"/_next/static/chunks/4530abaaf272c463.js","async":true,"nonce":"$undefined"}],["$","script","script-5",{"src":"/_next/static/chunks/4954f07e7ecfb4a1.js","async":true,"nonce":"$undefined"}]],["$","html",null,{"lang":"en","data-theme":"dark","children":["$","body",null,{"className":"geistsans_47a3c9f1-module__MCSGAW__variable geistmono_cfbefb1d-module__fDTvyq__variable antialiased min-h-screen flex flex-col neural-grid","children":["$","$L2",null,{"defaultTheme":"dark","storageKey":"theme-mode","children":[["$","$L3",null,{"className":"absolute inset-0 w-full h-full -z-10"}],["$","$L4",null,{"children":["$","$L5",null,{"parallelRouterKey":"children","error":"$undefined","errorStyles":"$undefined","errorScripts":"$undefined","template":["$","$L6",null,{}],"templateStyles":"$undefined","templateScripts":"$undefined","notFound":[["$","$L7",null,{}],[]],"forbidden":"$undefined","unauthorized":"$undefined"}]}],["$","$L8",null,{}]]}]}]}]]}],{"children":[["$","$1","c",{"children":[null,["$","$L5",null,{"parallelRouterKey":"children","error":"$undefined","errorStyles":"$undefined","errorScripts":"$undefined","template":["$","$L6",null,{}],"templateStyles":"$undefined","templateScripts":"$undefined","notFound":"$undefined","forbidden":"$undefined","unauthorized":"$undefined"}]]}],{"children":[["$","$1","c",{"children":["$L9",[["$","script","script-0",{"src":"/_next/static/chunks/191baeb662ac3658.js","async":true,"nonce":"$undefined"}]],["$","$La",null,{"children":["$","$b",null,{"name":"Next.MetadataOutlet","children":"$@c"}]}]]}],{},null,false,false]},null,false,false]},null,false,false],["$","$1","h",{"children":[null,["$","$Ld",null,{"children":"$@e"}],["$","div",null,{"hidden":true,"children":["$","$Lf",null,{"children":["$","$b",null,{"name":"Next.Metadata","children":"$@10"}]}]}],["$","meta",null,{"name":"next-size-adjust","content":""}]]}],false]],"m":"$undefined","G":["$11",[]],"S":true}
+0:{"P":null,"b":"GgUtEiN5mBYxGv8myO6CI","c":["","blog"],"q":"","i":false,"f":[[["",{"children":["blog",{"children":["__PAGE__",{}]}]},"$undefined","$undefined",true],[["$","$1","c",{"children":[[["$","link","0",{"rel":"stylesheet","href":"/_next/static/chunks/57dacccb0e5ac45e.css","precedence":"next","crossOrigin":"$undefined","nonce":"$undefined"}],["$","script","script-0",{"src":"/_next/static/chunks/d8674ea6f9e41414.js","async":true,"nonce":"$undefined"}],["$","script","script-1",{"src":"/_next/static/chunks/33d9c0c0b8c2a097.js","async":true,"nonce":"$undefined"}],["$","script","script-2",{"src":"/_next/static/chunks/80e392c6d1303c65.js","async":true,"nonce":"$undefined"}],["$","script","script-3",{"src":"/_next/static/chunks/e3b77110d15b3613.js","async":true,"nonce":"$undefined"}],["$","script","script-4",{"src":"/_next/static/chunks/4530abaaf272c463.js","async":true,"nonce":"$undefined"}],["$","script","script-5",{"src":"/_next/static/chunks/4954f07e7ecfb4a1.js","async":true,"nonce":"$undefined"}]],["$","html",null,{"lang":"en","data-theme":"dark","children":["$","body",null,{"className":"geistsans_47a3c9f1-module__MCSGAW__variable geistmono_cfbefb1d-module__fDTvyq__variable antialiased min-h-screen flex flex-col neural-grid","children":["$","$L2",null,{"defaultTheme":"dark","storageKey":"theme-mode","children":[["$","$L3",null,{"className":"absolute inset-0 w-full h-full -z-10"}],["$","$L4",null,{"children":["$","$L5",null,{"parallelRouterKey":"children","error":"$undefined","errorStyles":"$undefined","errorScripts":"$undefined","template":["$","$L6",null,{}],"templateStyles":"$undefined","templateScripts":"$undefined","notFound":[["$","$L7",null,{}],[]],"forbidden":"$undefined","unauthorized":"$undefined"}]}],["$","$L8",null,{}]]}]}]}]]}],{"children":[["$","$1","c",{"children":[null,["$","$L5",null,{"parallelRouterKey":"children","error":"$undefined","errorStyles":"$undefined","errorScripts":"$undefined","template":["$","$L6",null,{}],"templateStyles":"$undefined","templateScripts":"$undefined","notFound":"$undefined","forbidden":"$undefined","unauthorized":"$undefined"}]]}],{"children":[["$","$1","c",{"children":["$L9",[["$","script","script-0",{"src":"/_next/static/chunks/191baeb662ac3658.js","async":true,"nonce":"$undefined"}]],["$","$La",null,{"children":["$","$b",null,{"name":"Next.MetadataOutlet","children":"$@c"}]}]]}],{},null,false,false]},null,false,false]},null,false,false],["$","$1","h",{"children":[null,["$","$Ld",null,{"children":"$@e"}],["$","div",null,{"hidden":true,"children":["$","$Lf",null,{"children":["$","$b",null,{"name":"Next.Metadata","children":"$@10"}]}]}],["$","meta",null,{"name":"next-size-adjust","content":""}]]}],false]],"m":"$undefined","G":["$11",[]],"S":true}
 12:I[20906,["/_next/static/chunks/d8674ea6f9e41414.js","/_next/static/chunks/33d9c0c0b8c2a097.js","/_next/static/chunks/80e392c6d1303c65.js","/_next/static/chunks/e3b77110d15b3613.js","/_next/static/chunks/4530abaaf272c463.js","/_next/static/chunks/4954f07e7ecfb4a1.js","/_next/static/chunks/191baeb662ac3658.js"],"default"]
-13:T83b,# **What is Ollama**
-Ollama is an open-source platform that runs open LLMs on your local machine (or a server). 
-    It acts like a bridge between any open LLM and your machine, not only running them but also providing an API layer on top of them so that another application or service can use them.
-
-
-# **Tweaking GenAI LLM locally using Ollama**
-
-This guide provides essential commands and environment tweaks for optimizing Ollama when running complex LLM models locally.
-
-# **Prerequisites**
-If you don't have Ollama installed, go to https://ollama.com and download the installation package:
+13:T1200,
+# **Integrating GitOps and Infrastructure as Code with Terraform and ArgoCD**
 
 <br />
-<ZoomableImage src="/install_ollama.png" />
-
-
-<br />
-## **Running a Model**
-
-Find your desired model on https://ollama.com in this example we are going to use popular DeepSeek model:
-
-<br />
-<ZoomableImage src="/ollama_model_page.png" />
+This solution architecture aims to bridge the gap between **GitOps-based deployments and Infrastructure as Code (IaC)** by incorporating Terraform for handling **database schema migrations** and managing cloud resources effectively. Since microservices often rely on databases to function properly, it is crucial to ensure that the database layer is provisioned and updated correctly before the application deployment begins. Using a combination of **Terraform, GitLab, Vault, and ArgoCD**, we can streamline the process while enforcing security best practices.
 <br />
 
-To run our chosen model with Ollama open your terminal and run following command:
+<ZoomableImage src="/terraform_argo_arch_diagram.png" />
 
-```bash
-ollama run deepseek-r1:14b
-```
-<br />
-## **Tweaking Model Parameters**
+### **Why Use Terraform for Infrastructure and Database Management?**
+
+Infrastructure-as-Code (IaC) has become the backbone of modern cloud deployment strategies, offering automation, consistency, and version control. Terraform allows us to define infrastructure declaratively, reducing manual intervention and potential human errors. For our use case, Terraform plays a vital role in:
 <br />
 
-Ollama defaults model context size is set to 2048. To change this, you'll need to create a 'Modelfile' and include the following content
 
+- Storing and managing **SQL migration scripts** within a GitLab repository, enabling version-controlled database updates.
+- Automating the creation and configuration of **database schemas, users, and role-based access controls**, ensuring that applications have the correct permissions.
+- Integrating with **HashiCorp Vault** to securely store and retrieve **database credentials**, reducing exposure and enhancing security.
+- Committing necessary infrastructure configurations, such as **Helm values and Kustomize overlays**, into a Git repository where ArgoCD can monitor changes and automatically synchronize environments.
 <br />
-```ollama
-FROM deepseek-r1:14b
-
-PARAMETER num_ctx 32768
-PARAMETER num_predict -1
-```
+With this approach, we ensure that database migrations and infrastructure provisioning are tightly coupled with the application deployment process, reducing inconsistencies and deployment failures.
 <br />
 
-In this file, num_ctx is set to the maximum context size of the model, and num_predict is set to -1, which allows the model to use the remaining context as output context. 
-
-After creating the file, run the following command:
-
-```bash
-ollama create deepseek-r1-14b-32k-context -f ./Modelfile
-```
-
-Now, you can use the entire context of the model without truncation by calling:
-
-```bash
-ollama run deepseek-r1-14b-32k-context
-```
-
-## **Performance Optimization**
-<br />
-
-Set environment variables to improve performance (maximize token generation speed):
-
-```bash
-export OLLAMA_FLASH_ATTENTION=true 
-export OLLAMA_KV_CACHE_TYPE=f16    
-```
-
-### **Available `OLLAMA_KV_CACHE_TYPE` Values**
-- `q8_0`
-- `q4_0`
-- `f16` (for 16-bit floating point caching)
+## **CI/CD Pipeline with GitLab and Tekton: Automating Deployments from Code to Production**
 
 <br />
-These settings can help optimize memory usage and speed when running large models locally.
+Every time a **developer pushes code to GitLab** or submits a **merge request**, the pipeline is automatically triggered, ensuring that all infrastructure and application changes are validated before being deployed.
+<br />
+#### **Pipeline Stages:**
+<br />
 
+ **1. Lint & Validate:** The pipeline runs static code analysis, Terraform validation, and schema checks to enforce best practices before execution.
+
+ **2. Build & Push Container:** Tekton builds a container image for the microservice and pushes it to a container registry, ensuring that the latest version is ready for deployment.
+
+ **3. Database Migration Execution:** The pipeline retrieves the database credentials securely from Vault and executes SQL migration scripts using **Liquibase**, ensuring that the database schema is up to date before deploying the application.
+
+ **4. Terraform Apply:** Terraform applies any required infrastructure updates, keeping the cloud environment consistent with the defined state. If Terraform detects configuration changes, it automatically opens a pull request (PR) for review, ensuring that changes are tracked and approved before being applied.
+<br />
+
+By automating these processes, we significantly reduce the risk of deployment failures caused by manual errors or misconfigurations.
+<br />
+### **Ensuring Stability with Automated Testing and Observability**
+<br />
+Once the application is deployed, it is critical to validate its functionality and monitor its performance. Our solution incorporates several strategies to achieve this:
+
+- **Automated Health Checks & Integration Tests:** After deployment, **ArgoCD** runs a suite of sync hooks health checks and integration tests to confirm that the application is functioning as expected.
+- **Comprehensive Monitoring & Logging:** Tools like **Prometheus and Grafana** provide real-time visibility into application performance, while OpenShift’s built-in logging capabilities help troubleshoot issues quickly.
+- **Instant Rollbacks:** If a deployment issue arises, ArgoCD enables teams to **revert to the previous stable Git commit**, ensuring minimal downtime and a quick recovery process.
+
+<br />
+
+This approach offers several benefits:
+
+✅ **Automated, version-controlled infrastructure provisioning** eliminates manual setup errors.  
+✅ **Secure database migrations** ensure consistency and data integrity.  
+✅ **Seamless, rollback-ready microservices deployments** improve resilience.  
+✅ **Enhanced observability and security** help teams monitor and manage applications effectively.  
 14:Ta1d,
 # **Debug Spring Boot app in Kubernetes**
 <br />
@@ -178,65 +159,7 @@ In IntelliJ IDEA, you can create a new Remote Debug configuration by going to Ru
 <ZoomableImage src="/intellij_remote_debug.webp" />
 <br />
 Click Apply and then Debug to start debugging your Spring Boot application.
-15:T1200,
-# **Integrating GitOps and Infrastructure as Code with Terraform and ArgoCD**
-
-<br />
-This solution architecture aims to bridge the gap between **GitOps-based deployments and Infrastructure as Code (IaC)** by incorporating Terraform for handling **database schema migrations** and managing cloud resources effectively. Since microservices often rely on databases to function properly, it is crucial to ensure that the database layer is provisioned and updated correctly before the application deployment begins. Using a combination of **Terraform, GitLab, Vault, and ArgoCD**, we can streamline the process while enforcing security best practices.
-<br />
-
-<ZoomableImage src="/terraform_argo_arch_diagram.png" />
-
-### **Why Use Terraform for Infrastructure and Database Management?**
-
-Infrastructure-as-Code (IaC) has become the backbone of modern cloud deployment strategies, offering automation, consistency, and version control. Terraform allows us to define infrastructure declaratively, reducing manual intervention and potential human errors. For our use case, Terraform plays a vital role in:
-<br />
-
-
-- Storing and managing **SQL migration scripts** within a GitLab repository, enabling version-controlled database updates.
-- Automating the creation and configuration of **database schemas, users, and role-based access controls**, ensuring that applications have the correct permissions.
-- Integrating with **HashiCorp Vault** to securely store and retrieve **database credentials**, reducing exposure and enhancing security.
-- Committing necessary infrastructure configurations, such as **Helm values and Kustomize overlays**, into a Git repository where ArgoCD can monitor changes and automatically synchronize environments.
-<br />
-With this approach, we ensure that database migrations and infrastructure provisioning are tightly coupled with the application deployment process, reducing inconsistencies and deployment failures.
-<br />
-
-## **CI/CD Pipeline with GitLab and Tekton: Automating Deployments from Code to Production**
-
-<br />
-Every time a **developer pushes code to GitLab** or submits a **merge request**, the pipeline is automatically triggered, ensuring that all infrastructure and application changes are validated before being deployed.
-<br />
-#### **Pipeline Stages:**
-<br />
-
- **1. Lint & Validate:** The pipeline runs static code analysis, Terraform validation, and schema checks to enforce best practices before execution.
-
- **2. Build & Push Container:** Tekton builds a container image for the microservice and pushes it to a container registry, ensuring that the latest version is ready for deployment.
-
- **3. Database Migration Execution:** The pipeline retrieves the database credentials securely from Vault and executes SQL migration scripts using **Liquibase**, ensuring that the database schema is up to date before deploying the application.
-
- **4. Terraform Apply:** Terraform applies any required infrastructure updates, keeping the cloud environment consistent with the defined state. If Terraform detects configuration changes, it automatically opens a pull request (PR) for review, ensuring that changes are tracked and approved before being applied.
-<br />
-
-By automating these processes, we significantly reduce the risk of deployment failures caused by manual errors or misconfigurations.
-<br />
-### **Ensuring Stability with Automated Testing and Observability**
-<br />
-Once the application is deployed, it is critical to validate its functionality and monitor its performance. Our solution incorporates several strategies to achieve this:
-
-- **Automated Health Checks & Integration Tests:** After deployment, **ArgoCD** runs a suite of sync hooks health checks and integration tests to confirm that the application is functioning as expected.
-- **Comprehensive Monitoring & Logging:** Tools like **Prometheus and Grafana** provide real-time visibility into application performance, while OpenShift’s built-in logging capabilities help troubleshoot issues quickly.
-- **Instant Rollbacks:** If a deployment issue arises, ArgoCD enables teams to **revert to the previous stable Git commit**, ensuring minimal downtime and a quick recovery process.
-
-<br />
-
-This approach offers several benefits:
-
-✅ **Automated, version-controlled infrastructure provisioning** eliminates manual setup errors.  
-✅ **Secure database migrations** ensure consistency and data integrity.  
-✅ **Seamless, rollback-ready microservices deployments** improve resilience.  
-✅ **Enhanced observability and security** help teams monitor and manage applications effectively.  
-16:T1b2a,
+15:T1b2a,
 In today's fast-paced software development landscape, maintaining clear and detailed delivery documentation is essential for ensuring smooth integrations and ongoing communication between development teams and integrators. In this blog post, we explore how a Python script can automate the creation of delivery documentation for microservices and manages release archiving in Jira. Following script content should serve only as an inspiration for you as your project can have different needs.
 
 <br/>
@@ -352,7 +275,85 @@ For each released version that meets the criteria, the function updates its stat
 ## **Conclusion**
 
 Automating the generation of delivery documentation is a powerful strategy for any organization working with microservices. The Python script described here not only creates a detailed markdown document that summarizes microservice releases but also helps maintain an organized release management process by archiving Jira releases. This results in improved communication, enhanced traceability, and overall efficiency in managing delivery pipelines.
-9:["$","$b",null,{"fallback":["$","div",null,{"className":"h-10 w-full flex justify-center items-center gap-2","children":[["$","div",null,{"className":"h-8 w-8 bg-gray-200 rounded animate-pulse"}],["$","div",null,{"className":"h-8 w-8 bg-gray-200 rounded animate-pulse"}],["$","div",null,{"className":"h-8 w-8 bg-gray-200 rounded animate-pulse"}]]}],"children":["$","$L12",null,{"posts":[{"slug":"gitops-centered-dev-environment","slugAsParams":"gitops-centered-dev-environment","title":"GitOps centered development environment using FluxCD","description":"Coming soon","date":"$D2025-02-28T00:00:00.000Z","image":"/ArgoCD.png","category":"gitops","published":true,"body":"\n# **GitOps centered development environment using FluxCD**\n\n<br />\nComing soon!\n<br />\n","tags":["code","blog","gitops","fluxcd","development"]},{"slug":"ollama-cheatsheet","slugAsParams":"ollama-cheatsheet","title":"Tweaking GenAI LLMs locally using Ollama","description":"A quick reference guide for running GenAI LLM models and tweaking them using Ollama.","date":"$D2025-01-29T00:00:00.000Z","image":"/Ollama.png","category":"ai","published":true,"body":"$13","tags":["code","blog"]},{"slug":"microservice-tracing","slugAsParams":"microservice-tracing","title":"Microservice tracing using Jaeger","description":"Coming soon","date":"$D2025-02-28T00:00:00.000Z","image":"/Jaeger.png","category":"monitoring","published":true,"body":"\n\n# **Microservice tracing using Jaeger**\n\n<br />\nComing soon!\n<br />\n","tags":["code","blog","gitops","fluxcd","development"]},{"slug":"how-to-start-with-argocd-for-microservices","slugAsParams":"how-to-start-with-argocd-for-microservices","title":"How to start with ArgoCD deployment when using microservices","description":"Coming soon","date":"$D2025-02-28T00:00:00.000Z","image":"/GitLab.png","category":"gitops","published":true,"body":"\n# **How to start with ArgoCD deployment when using microservices**\n\n<br />\nComing soon!\n<br />\n\n","tags":["code","blog","gitops","fluxcd","development"]},{"slug":"migrating-monolithic-app-deployment-into-k8s","slugAsParams":"migrating-monolithic-app-deployment-into-k8s","title":"Migrating monolithic app deployment into Kubernetes","description":"Coming soon","date":"$D2025-02-28T00:00:00.000Z","image":"/Kubernetes.png","category":"architecture","published":true,"body":"\n# **Migrating monolithic app deployment into Kubernetes**\n\n<br />\nComing soon!\n<br />\n","tags":["code","blog","gitops","fluxcd","development"]},{"slug":"debug-spring-app-in-k8s","slugAsParams":"debug-spring-app-in-k8s","title":"Debug Spring Boot app in Kubernetes","description":"Remote Debugging of your Java application made easy","date":"$D2025-02-16T00:00:00.000Z","image":"/Spring.png","category":"development","published":true,"body":"$14","tags":["code","blog","gitops","argocd","terraform"]},{"slug":"argo-terraform-integration","slugAsParams":"argo-terraform-integration","title":"Integrating GitOps and IaC using ArgoCD and Terraform","description":"Solution architecture, which should enable us to integrate ArgoCD GitOps based deployment of microservices with Terraform together.","date":"$D2025-02-16T00:00:00.000Z","image":"/ArgoCD.png","category":"iac","published":true,"body":"$15","tags":["code","blog","gitops","argocd","terraform"]},{"slug":"important-aspects-of-microservices-architecture","slugAsParams":"important-aspects-of-microservices-architecture","title":"Important aspects of microservices architecture and development","description":"Coming soon","date":"$D2025-02-28T00:00:00.000Z","image":"/Azure.png","category":"architecture","published":true,"body":"\n# **Important aspects of microservices architecture and development**\n\n<br />\nComing soon!\n<br />","tags":["code","blog","gitops","fluxcd","development"]},{"slug":"automating-delivery-docu-gen","slugAsParams":"automating-delivery-docu-gen","title":"Automating delivery documentation using Python","description":"Automate your delivery documentation for your customer via simple scripting in Python","date":"$D2025-02-28T00:00:00.000Z","image":"/Python.png","category":"automation","published":true,"body":"$16","tags":["code","blog","delivery","cd","automation"]}]}]}]
+16:T83c,# **What is Ollama**
+Ollama is an open-source platform that runs open LLMs on your local machine (or a server). 
+    It acts like a bridge between any open LLM and your machine, not only running them but also providing an API layer on top of them so that another application or service can use them.
+
+
+# **Tweaking GenAI LLM locally using Ollama**
+
+This guide provides essential commands and environment tweaks for optimizing Ollama when running complex LLM models locally.
+
+# **Prerequisites**
+If you don't have Ollama installed, go to https://ollama.com and download the installation package:
+
+<br />
+<ZoomableImage src="/install_ollama.png" />
+
+
+<br />
+## **Running a Model**
+
+Find your desired model on https://ollama.com in this example we are going to use popular DeepSeek model:
+
+<br />
+<ZoomableImage src="/ollama_model_page.png" />
+<br />
+
+To run our chosen model with Ollama open your terminal and run following command:
+
+```bash
+ollama run deepseek-r1:14b
+```
+<br />
+## **Tweaking Model Parameters**
+<br />
+
+Ollama defaults model context size is set to 2048. To change this, you'll need to create a 'Modelfile' and include the following content
+
+<br />
+```ollama
+FROM deepseek-r1:14b
+
+PARAMETER num_ctx 32768
+PARAMETER num_predict -1
+```
+<br />
+
+In this file, num_ctx is set to the maximum context size of the model, and num_predict is set to -1, which allows the model to use the remaining context as output context. 
+
+After creating the file, run the following command:
+
+```bash
+ollama create deepseek-r1-14b-32k-context -f ./Modelfile
+```
+
+Now, you can use the entire context of the model without truncation by calling:
+
+```bash
+ollama run deepseek-r1-14b-32k-context
+```
+
+## **Performance Optimization**
+<br />
+
+Set environment variables to improve performance (maximize token generation speed):
+
+```bash
+export OLLAMA_FLASH_ATTENTION=true 
+export OLLAMA_KV_CACHE_TYPE=f16    
+```
+
+### **Available `OLLAMA_KV_CACHE_TYPE` Values**
+- `q8_0`
+- `q4_0`
+- `f16` (for 16-bit floating point caching)
+
+<br />
+
+These settings can help optimize memory usage and speed when running large models locally.
+
+9:["$","$b",null,{"fallback":["$","div",null,{"className":"h-10 w-full flex justify-center items-center gap-2","children":[["$","div",null,{"className":"h-8 w-8 bg-gray-200 rounded animate-pulse"}],["$","div",null,{"className":"h-8 w-8 bg-gray-200 rounded animate-pulse"}],["$","div",null,{"className":"h-8 w-8 bg-gray-200 rounded animate-pulse"}]]}],"children":["$","$L12",null,{"posts":[{"slug":"argo-terraform-integration","slugAsParams":"argo-terraform-integration","title":"Integrating GitOps and IaC using ArgoCD and Terraform","description":"Solution architecture, which should enable us to integrate ArgoCD GitOps based deployment of microservices with Terraform together.","date":"$D2025-02-16T00:00:00.000Z","image":"/ArgoCD.png","category":"iac","published":true,"body":"$13","tags":["code","blog","gitops","argocd","terraform"]},{"slug":"gitops-centered-dev-environment","slugAsParams":"gitops-centered-dev-environment","title":"GitOps centered development environment using FluxCD","description":"Coming soon","date":"$D2025-02-28T00:00:00.000Z","image":"/ArgoCD.png","category":"gitops","published":true,"body":"\n# **GitOps centered development environment using FluxCD**\n\n<br />\nComing soon!\n<br />\n","tags":["code","blog","gitops","fluxcd","development"]},{"slug":"migrating-monolithic-app-deployment-into-k8s","slugAsParams":"migrating-monolithic-app-deployment-into-k8s","title":"Migrating monolithic app deployment into Kubernetes","description":"Coming soon","date":"$D2025-02-28T00:00:00.000Z","image":"/Kubernetes.png","category":"architecture","published":true,"body":"\n# **Migrating monolithic app deployment into Kubernetes**\n\n<br />\nComing soon!\n<br />\n","tags":["code","blog","gitops","fluxcd","development"]},{"slug":"debug-spring-app-in-k8s","slugAsParams":"debug-spring-app-in-k8s","title":"Debug Spring Boot app in Kubernetes","description":"Remote Debugging of your Java application made easy","date":"$D2025-02-16T00:00:00.000Z","image":"/Spring.png","category":"development","published":true,"body":"$14","tags":["code","blog","gitops","argocd","terraform"]},{"slug":"important-aspects-of-microservices-architecture","slugAsParams":"important-aspects-of-microservices-architecture","title":"Important aspects of microservices architecture and development","description":"Coming soon","date":"$D2025-02-28T00:00:00.000Z","image":"/Azure.png","category":"architecture","published":true,"body":"\n# **Important aspects of microservices architecture and development**\n\n<br />\nComing soon!\n<br />","tags":["code","blog","gitops","fluxcd","development"]},{"slug":"automating-delivery-docu-gen","slugAsParams":"automating-delivery-docu-gen","title":"Automating delivery documentation using Python","description":"Automate your delivery documentation for your customer via simple scripting in Python","date":"$D2025-02-28T00:00:00.000Z","image":"/Python.png","category":"automation","published":true,"body":"$15","tags":["code","blog","delivery","cd","automation"]},{"slug":"ollama-cheatsheet","slugAsParams":"ollama-cheatsheet","title":"Tweaking GenAI LLMs locally using Ollama","description":"A quick reference guide for running GenAI LLM models and tweaking them using Ollama.","date":"$D2025-01-29T00:00:00.000Z","image":"/Ollama.png","category":"ai","published":true,"body":"$16","tags":["code","blog"]},{"slug":"microservice-tracing","slugAsParams":"microservice-tracing","title":"Microservice tracing using Jaeger","description":"Coming soon","date":"$D2025-02-28T00:00:00.000Z","image":"/Jaeger.png","category":"monitoring","published":true,"body":"\n\n# **Microservice tracing using Jaeger**\n\n<br />\nComing soon!\n<br />\n","tags":["code","blog","gitops","fluxcd","development"]},{"slug":"how-to-start-with-argocd-for-microservices","slugAsParams":"how-to-start-with-argocd-for-microservices","title":"How to start with ArgoCD deployment when using microservices","description":"Coming soon","date":"$D2025-02-28T00:00:00.000Z","image":"/GitLab.png","category":"gitops","published":true,"body":"\n# **How to start with ArgoCD deployment when using microservices**\n\n<br />\nComing soon!\n<br />\n\n","tags":["code","blog","gitops","fluxcd","development"]}]}]}]
 e:[["$","meta","0",{"charSet":"utf-8"}],["$","meta","1",{"name":"viewport","content":"width=device-width, initial-scale=1"}]]
 17:I[27201,["/_next/static/chunks/ff1a16fafef87110.js","/_next/static/chunks/247eb132b7f7b574.js"],"IconMark"]
 10:[["$","title","0",{"children":"Ing. Marián Ferenc - Blog"}],["$","meta","1",{"name":"description","content":"Blog Page of Ing. Marián Ferenc portfolio"}],["$","link","2",{"rel":"icon","href":"/favicon.ico?favicon.0b3bf435.ico","sizes":"256x256","type":"image/x-icon"}],["$","$L17","3",{}]]
